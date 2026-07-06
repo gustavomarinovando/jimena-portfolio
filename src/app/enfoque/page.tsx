@@ -1,0 +1,54 @@
+import Link from "next/link";
+
+const steps = [
+  ["Escuchar", "Diagnostico participativo y dialogo intercultural."],
+  ["Ordenar", "Convertir demandas y saberes en una ruta clara."],
+  ["Facilitar", "Hacer comprensibles temas complejos con materiales y dinamicas."],
+  ["Replicar", "Dejar herramientas para que el aprendizaje siga circulando."],
+];
+
+const tools = ["Cartillas", "Cunas radiales", "Guias", "Sistematizacion", "Talleres", "Mapeo de actores"];
+
+export const metadata = {
+  title: "Enfoque | Jimena Ovando Morales",
+  description: "Metodo de trabajo comprimido: escuchar, ordenar, facilitar y replicar.",
+};
+
+export default function EnfoquePage() {
+  return (
+    <>
+      <header className="py-6">
+        <nav className="wrap glass rounded-full px-4 py-3">
+          <Link href="/" className="font-black text-[var(--color-plum)] underline">Inicio</Link>
+        </nav>
+        <div className="wrap mt-12">
+          <p className="eyebrow">Metodo</p>
+          <h1 className="display mt-4 max-w-4xl">Escuchar, construir y multiplicar.</h1>
+          <p className="lead mt-6 max-w-2xl">La metodologia no necesita un ensayo para entenderse: se ve en como se conversa, se organiza y se deja capacidad instalada.</p>
+        </div>
+      </header>
+      <main>
+        <section className="section">
+          <div className="wrap grid gap-4 md:grid-cols-4">
+            {steps.map(([title, body], index) => (
+              <article key={title} className="glass lift rounded-[22px] p-6">
+                <p className="text-sm font-black text-[var(--color-violet)]">0{index + 1}</p>
+                <h2 className="mt-10 text-3xl font-black text-[var(--color-plum)]">{title}</h2>
+                <p className="mt-3 text-[var(--color-muted)]">{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="section pt-0">
+          <div className="wrap evidence-surface p-6 sm:p-10">
+            <p className="eyebrow">Herramientas</p>
+            <h2 className="section-title mt-3">Piezas concretas para trabajo de campo.</h2>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {tools.map((tool) => <span key={tool} className="pill glass">{tool}</span>)}
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}

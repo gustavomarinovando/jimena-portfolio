@@ -1,0 +1,53 @@
+[
+  {
+    "period": "2025",
+    "organization": "Radio Urbana",
+    "role": "Responsable de Publicidad y Marketing",
+    "relevanceTag": "Comunicacion y sintesis; relevancia secundaria para esta convocatoria",
+    "color": "light",
+    "isCaseStudy": false
+  },
+  {
+    "period": "2023-2024",
+    "organization": "INDICEP",
+    "role": "Experta en Genero",
+    "relevanceTag": "Diagnosticos participativos, enfoque de genero, materiales",
+    "color": "medium",
+    "isCaseStudy": false
+  },
+  {
+    "period": "2021-2023",
+    "organization": "CIPCA Regional Cochabamba",
+    "role": "Tecnica Social",
+    "relevanceTag": "Caso 1: territorio, materiales, articulacion local",
+    "color": "dark",
+    "isCaseStudy": true,
+    "caseStudyId": "cipca-2021-2023"
+  },
+  {
+    "period": "2018-2020",
+    "organization": "ASODIFIM-CO",
+    "role": "Educadora Social",
+    "relevanceTag": "Educacion social, inclusion, materiales comunicacionales",
+    "color": "medium",
+    "isCaseStudy": false
+  },
+  {
+    "period": "2015-2016",
+    "organization": "CIPCA Regional Cochabamba",
+    "role": "Tecnica Social",
+    "relevanceTag": "Caso 3: coordinacion municipal, mujeres/jovenes, sistematizacion",
+    "color": "dark",
+    "isCaseStudy": true,
+    "caseStudyId": "cipca-2015-2016"
+  },
+  {
+    "period": "2013-2015",
+    "organization": "INDICEP",
+    "role": "Tecnica Social y Educativa",
+    "relevanceTag": "Caso 2: educacion popular, territorio, ambiente por verificar",
+    "color": "dark",
+    "isCaseStudy": true,
+    "caseStudyId": "indicep-2013-2015"
+  }
+]

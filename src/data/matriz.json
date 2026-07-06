@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "requisito": "Operativizar curriculo de educacion formal",
+    "evidencia": "No hay experiencia escolar/curricular verificada. Se puede proponer una metodologia transferible desde educacion comunitaria.",
+    "estado": "EN_DISENO",
+    "casoEstudio": null,
+    "material": null
+  },
+  {
+    "id": 2,
+    "requisito": "Metodologias participativas",
+    "evidencia": "Educacion popular y facilitacion participativa presentes en INDICEP, CIPCA y ASODIFIM segun CV/notas.",
+    "estado": "VERIFICADO",
+    "casoEstudio": "cipca-2021-2023",
+    "material": null
+  },
+  {
+    "id": 3,
+    "requisito": "Coordinacion municipal",
+    "evidencia": "CIPCA 2015-2016 registra demandas territoriales y coordinacion municipal; mecanismos concretos pendientes.",
+    "estado": "PARCIAL",
+    "casoEstudio": "cipca-2015-2016",
+    "material": null
+  },
+  {
+    "id": 4,
+    "requisito": "Trabajo con OTBs",
+    "evidencia": "Experiencia con organizaciones territoriales es transferible; OTBs especificas requieren confirmacion.",
+    "estado": "NECESITA_VERIFICACION",
+    "casoEstudio": "cipca-2015-2016",
+    "material": null
+  },
+  {
+    "id": 5,
+    "requisito": "Organizaciones de mujeres",
+    "evidencia": "INDICEP Experta en Genero y CIPCA registran trabajo con mujeres.",
+    "estado": "VERIFICADO",
+    "casoEstudio": "indicep-2013-2015",
+    "material": null
+  },
+  {
+    "id": 6,
+    "requisito": "Adolescentes y jovenes",
+    "evidencia": "CIPCA 2015-2016 menciona trabajo con jovenes; edades, grupos y temas pendientes.",
+    "estado": "PARCIAL",
+    "casoEstudio": "cipca-2015-2016",
+    "material": null
+  },
+  {
+    "id": 7,
+    "requisito": "Fortalecimiento organizativo",
+    "evidencia": "Fortalecimiento organizativo aparece en varias experiencias verificadas del CV.",
+    "estado": "VERIFICADO",
+    "casoEstudio": "cipca-2021-2023",
+    "material": null
+  },
+  {
+    "id": 8,
+    "requisito": "Liderazgo",
+    "evidencia": "Formacion de lideres y replica comunitaria aparecen en INDICEP/CIPCA.",
+    "estado": "VERIFICADO",
+    "casoEstudio": "indicep-2013-2015",
+    "material": null
+  },
+  {
+    "id": 9,
+    "requisito": "Informes tecnicos",
+    "evidencia": "Reportes, sistematizacion y formacion en proyectos respaldan la competencia; muestras pendientes.",
+    "estado": "PARCIAL",
+    "casoEstudio": "cipca-2021-2023",
+    "material": null
+  },
+  {
+    "id": 10,
+    "requisito": "Sistematizacion",
+    "evidencia": "CIPCA 2015-2016 menciona sistematizacion de experiencias.",
+    "estado": "VERIFICADO",
+    "casoEstudio": "cipca-2015-2016",
+    "material": null
+  },
+  {
+    "id": 11,
+    "requisito": "Monitoreo y evaluacion",
+    "evidencia": "Formacion en proyectos y reportes tecnicos sugieren base; productos M&E pendientes.",
+    "estado": "PARCIAL",
+    "casoEstudio": "cipca-2021-2023",
+    "material": null
+  },
+  {
+    "id": 12,
+    "requisito": "Educacion ambiental",
+    "evidencia": "INDICEP 2013-2015 menciona medio ambiente; temas exactos, residuos o GIRS pendientes.",
+    "estado": "NECESITA_VERIFICACION",
+    "casoEstudio": "indicep-2013-2015",
+    "material": null
+  },
+  {
+    "id": 13,
+    "requisito": "Enfoque de genero",
+    "evidencia": "INDICEP Experta en Genero y perfil con despatriarcalizacion transversal.",
+    "estado": "VERIFICADO",
+    "casoEstudio": "indicep-2013-2015",
+    "material": null
+  },
+  {
+    "id": 14,
+    "requisito": "Trabajo de campo rural y periurbano",
+    "evidencia": "Trayectoria territorial en CIPCA, INDICEP y ASODIFIM; lugares especificos pendientes.",
+    "estado": "VERIFICADO",
+    "casoEstudio": "cipca-2021-2023",
+    "material": null
+  }
+]

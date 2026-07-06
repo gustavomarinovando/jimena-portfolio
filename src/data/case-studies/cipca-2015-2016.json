@@ -1,0 +1,54 @@
+{
+  "id": "cipca-2015-2016",
+  "organization": "CIPCA Regional Cochabamba",
+  "role": "Tecnica Social",
+  "period": { "start": "2015-05", "end": "2016-06" },
+  "locations": ["Pendiente: municipios rurales especificos"],
+  "context": "Acompanamiento a organizaciones rurales e indigenas en planes de gestion, normativas internas y demandas territoriales ante instancias municipales.",
+  "audience": ["Organizaciones rurales/indigenas", "Mujeres", "Jovenes", "Autoridades municipales"],
+  "challenge": "Fortalecer organizaciones territoriales, articular demandas ante municipios y sistematizar experiencias.",
+  "methodology": [
+    "Seguimiento de planes de gestion",
+    "Fortalecimiento organizativo",
+    "Trabajo con mujeres y jovenes",
+    "Articulacion de demandas territoriales",
+    "Sistematizacion de experiencias"
+  ],
+  "activities": [
+    { "description": "Acompanamiento a organizaciones en planes de gestion y normativas", "output": "Organizaciones y documentos por confirmar" },
+    { "description": "Trabajo con mujeres y jovenes", "output": "Grupos, temas y participantes por confirmar" },
+    { "description": "Articulacion de demandas territoriales ante gobiernos municipales", "output": "Municipios y mecanismos por confirmar" },
+    { "description": "Sistematizacion de experiencias", "output": "Productos disponibles por confirmar" }
+  ],
+  "outputs": [
+    { "type": "sistematización", "count": "PENDIENTE", "titles": ["Pendiente: titulos reales"], "downloadable": true },
+    { "type": "estatuto_reglamento", "count": "PENDIENTE", "downloadable": false },
+    { "type": "documento_demandas", "count": "PENDIENTE", "downloadable": true }
+  ],
+  "relevance_girs": [
+    "Coordinacion municipal transferible a una estrategia GIRS participativa",
+    "Trabajo con mujeres y jovenes alinea con la convocatoria",
+    "Sistematizacion de experiencias alinea con el requisito de replica",
+    "Experiencia territorial util para trabajo rural y periurbano"
+  ],
+  "evidence_status": "PARTIAL",
+  "environmental_topics": "POR CONFIRMAR: componentes ambientales en demandas territoriales o planes de gestion.",
+  "quantified": {
+    "communities": "PENDIENTE: numero exacto",
+    "participants": "PENDIENTE: numero exacto",
+    "municipalities": "PENDIENTE: numero exacto",
+    "workshops": "PENDIENTE: numero exacto",
+    "materials_produced": "PENDIENTE: numero exacto"
+  },
+  "photo_slots": [
+    { "id": "PHOTO_SLOT_MUNICIPAL_CIPCA_2015_01", "category": "MUNICIPAL", "description": "Reunion municipal con metadata aprobada", "required": true, "metadata_status": "PENDIENTE" },
+    { "id": "PHOTO_SLOT_WOMEN_CIPCA_2015_02", "category": "WOMEN", "description": "Grupo de mujeres con metadata aprobada", "required": true, "metadata_status": "PENDIENTE" },
+    { "id": "PHOTO_SLOT_YOUTH_CIPCA_2015_03", "category": "YOUTH", "description": "Grupo de jovenes con metadata aprobada", "required": true, "metadata_status": "PENDIENTE" }
+  ],
+  "content_todos": [
+    "Confirmar municipios especificos",
+    "Confirmar mecanismos de coordinacion municipal",
+    "Confirmar trabajo con mujeres y jovenes",
+    "Obtener sistematizaciones o documentos publicables"
+  ]
+}

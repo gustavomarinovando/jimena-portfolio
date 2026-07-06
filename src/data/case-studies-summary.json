@@ -1,0 +1,47 @@
+[
+  {
+    "id": "cipca-2021-2023",
+    "organization": "CIPCA Regional Cochabamba",
+    "role": "Tecnica Social",
+    "period": "Nov 2021 - May 2023",
+    "locations": ["Pendiente: municipios y comunidades especificas"],
+    "evidence_status": "PARCIAL: experiencia verificada; cifras, lugares y materiales pendientes",
+    "highlights": [
+      "Acompanamiento tecnico-social a comunidades y territorios",
+      "Fortalecimiento organizativo y liderazgo",
+      "Diseno y coordinacion de cartillas, manuales y cunas radiales",
+      "Articulacion con actores locales y gobiernos municipales",
+      "Informes tecnicos y materiales educativos por verificar"
+    ]
+  },
+  {
+    "id": "indicep-2013-2015",
+    "organization": "INDICEP",
+    "role": "Tecnica Social y Educativa",
+    "period": "Ago 2013 - May 2015",
+    "locations": ["Pendiente: comunidades rurales/indigenas"],
+    "evidence_status": "PARCIAL: medio ambiente mencionado en CV; temas exactos pendientes",
+    "highlights": [
+      "Experiencia con medio ambiente explicita en CV",
+      "Educacion popular: derechos, territorio, ambiente",
+      "Formacion de lideres comunitarios",
+      "Materiales para replica comunitaria",
+      "Dialogo intercultural; trabajo con mujeres y jovenes"
+    ]
+  },
+  {
+    "id": "cipca-2015-2016",
+    "organization": "CIPCA Regional Cochabamba",
+    "role": "Tecnica Social",
+    "period": "May 2015 - Jun 2016",
+    "locations": ["Pendiente: municipios rurales"],
+    "evidence_status": "PARCIAL: experiencia verificada; detalles cuantitativos pendientes",
+    "highlights": [
+      "Demandas territoriales ante municipios",
+      "Fortalecimiento organizativo: estatutos, reglamentos y planificacion",
+      "Trabajo con mujeres y jovenes",
+      "Sistematizacion de experiencias",
+      "Espacios de coordinacion local y dialogo intercultural"
+    ]
+  }
+]

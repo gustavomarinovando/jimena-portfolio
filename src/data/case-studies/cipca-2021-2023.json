@@ -1,0 +1,54 @@
+{
+  "id": "cipca-2021-2023",
+  "organization": "CIPCA Regional Cochabamba",
+  "role": "Tecnica Social",
+  "period": { "start": "2021-11", "end": "2023-05" },
+  "locations": ["Pendiente: municipios y comunidades especificas"],
+  "context": "Acompanamiento tecnico-social a comunidades, productores y organizaciones territoriales en Cochabamba.",
+  "audience": ["Productores/as", "Organizaciones territoriales", "Mujeres", "Jovenes"],
+  "challenge": "Fortalecer capacidades organizativas, liderazgo, comunicacion comunitaria y articulacion local con metodologias participativas.",
+  "methodology": [
+    "Diagnostico y planificacion participativa",
+    "Educacion popular y formacion de liderazgos",
+    "Diseno y coordinacion de materiales educativos",
+    "Articulacion con actores locales y gobiernos municipales",
+    "Informes tecnicos y sistematizacion"
+  ],
+  "activities": [
+    { "description": "Facilitacion de talleres y espacios de formacion", "output": "Cantidad de talleres y participantes por confirmar" },
+    { "description": "Diseno y coordinacion de cartillas, manuales y cunas radiales", "output": "Titulos, tiraje, temas y archivos por confirmar" },
+    { "description": "Acompanamiento a procesos organizativos y territoriales", "output": "Comunidades, municipios y organizaciones por confirmar" },
+    { "description": "Articulacion con actores locales y gobiernos municipales", "output": "Mecanismos concretos por confirmar" }
+  ],
+  "outputs": [
+    { "type": "cartilla", "count": "PENDIENTE", "titles": ["Pendiente: titulos reales"], "downloadable": true, "language": "ES" },
+    { "type": "manual", "count": "PENDIENTE", "titles": ["Pendiente: titulos reales"], "downloadable": true, "language": "ES" },
+    { "type": "cuña", "count": "PENDIENTE", "topics": ["Pendiente: temas reales"], "downloadable": true, "format": "audio + guion" },
+    { "type": "informe_tecnico", "count": "PENDIENTE", "downloadable": false, "note": "Reportes internos por confirmar" }
+  ],
+  "relevance_girs": [
+    "Fortalecimiento organizativo transferible a procesos con organizaciones territoriales",
+    "Materiales didacticos como base para futuros kits GIRS, una vez validados tecnicamente",
+    "Articulacion local y municipal transferible a coordinacion con GERES y Secretaria de Madre Tierra",
+    "Comunicacion comunitaria transferible a campanas educativas"
+  ],
+  "evidence_status": "PARTIAL",
+  "environmental_topics": "POR CONFIRMAR: temas ambientales o agroecologicos especificos, si los hubo.",
+  "quantified": {
+    "communities": "PENDIENTE: numero exacto",
+    "participants": "PENDIENTE: numero exacto",
+    "municipalities": "PENDIENTE: numero exacto y nombres",
+    "workshops": "PENDIENTE: numero exacto",
+    "materials_produced": "PENDIENTE: numero exacto y titulos"
+  },
+  "photo_slots": [
+    { "id": "PHOTO_SLOT_WORKSHOP_CIPCA_2022_01", "category": "WORKSHOP", "description": "Taller participativo con metadata aprobada", "required": true, "metadata_status": "PENDIENTE" },
+    { "id": "PHOTO_SLOT_MATERIALS_CIPCA_2022_02", "category": "MATERIALS", "description": "Materiales educativos con metadata aprobada", "required": true, "metadata_status": "PENDIENTE" }
+  ],
+  "content_todos": [
+    "Confirmar municipios, comunidades y organizaciones",
+    "Confirmar temas y titulos exactos de materiales",
+    "Confirmar numeros de talleres, participantes y materiales",
+    "Confirmar si hubo componentes ambientales o GIRS"
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "cartilla-pendiente-1",
+    "type": "cartilla",
+    "title": "Cartilla territorial por confirmar",
+    "experience": "CIPCA 2021-23",
+    "description": "Entrada reservada para una cartilla real de fortalecimiento organizativo o gestion territorial. Titulo y archivo pendientes.",
+    "pdfPath": "",
+    "language": "ES",
+    "thumbnail": null
+  },
+  {
+    "id": "manual-pendiente-1",
+    "type": "manual",
+    "title": "Manual de fortalecimiento por confirmar",
+    "experience": "CIPCA 2021-23",
+    "description": "Entrada reservada para un manual real de diagnostico o planificacion organizativa.",
+    "pdfPath": "",
+    "language": "ES",
+    "thumbnail": null
+  },
+  {
+    "id": "cuna-pendiente-1",
+    "type": "cuña",
+    "title": "Guion de cuna radial por confirmar",
+    "experience": "CIPCA 2021-23",
+    "description": "Entrada reservada para un guion o audio real de cuna radial producido por Jimena.",
+    "pdfPath": "",
+    "language": "ES",
+    "thumbnail": null
+  },
+  {
+    "id": "guia-pendiente-1",
+    "type": "guia",
+    "title": "Guia metodologica por confirmar",
+    "experience": "INDICEP 2013-15",
+    "description": "Entrada reservada para una guia real de diagnostico participativo o facilitacion.",
+    "pdfPath": "",
+    "language": "ES",
+    "thumbnail": null
+  },
+  {
+    "id": "sistematizacion-pendiente-1",
+    "type": "sistematizacion",
+    "title": "Sistematizacion por confirmar",
+    "experience": "CIPCA 2015-16",
+    "description": "Entrada reservada para una sistematizacion real disponible para revision o descarga.",
+    "pdfPath": "",
+    "language": "ES",
+    "thumbnail": null
+  }
+]

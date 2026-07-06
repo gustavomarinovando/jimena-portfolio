@@ -1,0 +1,19 @@
+{
+  "name": "Jimena Ovando Morales",
+  "title": "Educadora Popular · Facilitadora Comunitaria · Trabajo Territorial",
+  "location": "Cochabamba, Bolivia",
+  "counters": {
+    "yearsField": 12,
+    "keyCases": 3,
+    "materialTypes": 5
+  },
+  "ctaPrimary": {
+    "label": "Ver matriz de evidencia",
+    "href": "#matriz"
+  },
+  "ctaSecondary": {
+    "label": "Revisar pendientes",
+    "href": "#pendientes",
+    "download": false
+  }
+}
