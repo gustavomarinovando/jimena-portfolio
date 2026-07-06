@@ -25,8 +25,7 @@ export default function Home() {
   return (
     <>
       <header className="relative overflow-hidden pb-16 pt-6 sm:pb-24">
-        <nav className="wrap glass relative z-10 flex items-center justify-between rounded-full px-4 py-3">
-          <Link href="/" className="font-black text-[var(--color-plum)] no-underline">Jimena Ovando</Link>
+        <nav className="wrap glass relative z-10 hidden items-center justify-end rounded-full px-4 py-3 sm:flex">
           <div className="hidden gap-2 sm:flex">
             <Link className="pill" href="#experiencias">Experiencias</Link>
             <Link className="pill" href="#video">Video</Link>
@@ -42,14 +41,14 @@ export default function Home() {
               Educacion popular, participacion comunitaria y comunicacion que conecta.
               Trabajo construido junto a comunidades y organizaciones.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link className="button" href="#experiencias">Ver experiencias</Link>
-              <Link className="button secondary glass" href="#video">Conocer su trabajo</Link>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link className="button w-full sm:w-auto" href="#experiencias">Ver experiencias</Link>
+              <Link className="button secondary glass w-full sm:w-auto" href="#video">Conocer su trabajo</Link>
             </div>
           </div>
 
-          <div className="evidence-surface min-h-[560px] p-5 sm:p-7">
-            <div className="photo-slot h-full min-h-[500px]">
+          <div className="evidence-surface min-h-[340px] sm:min-h-[560px] p-5 sm:p-7">
+            <div className="photo-slot h-full min-h-[300px] sm:min-h-[500px]">
               <div className="absolute left-6 top-6 z-10 rounded-full bg-[var(--color-sun)] px-4 py-2 text-sm font-black text-[var(--color-plum)]">
                 {heroSlot.shortTitle}
               </div>
