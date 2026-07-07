@@ -3,7 +3,7 @@ import { CaseReport } from "../CaseReport";
 
 export const metadata = {
   title: "CIPCA 2015-2016 | Caso de estudio",
-  description: "Caso de estudio en revision de evidencia: CIPCA Regional Cochabamba 2015-2016.",
+  description: "Organizacion, coordinacion municipal y procesos con mujeres y jovenes en CIPCA Regional Cochabamba.",
 };
 
 export default function Page() {

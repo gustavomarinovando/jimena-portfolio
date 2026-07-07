@@ -3,7 +3,7 @@ import materials from "@/data/materiales.json";
 
 export const metadata = {
   title: "Materiales | Jimena Ovando Morales",
-  description: "Archivo visual preparado para publicaciones, cartillas, banners, radio, guias y sistematizaciones.",
+  description: "Publicaciones, cartillas, banners, radio, guias y sistematizaciones como herramientas de trabajo.",
 };
 
 export default function MaterialesPage() {

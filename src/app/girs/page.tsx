@@ -1,16 +1,16 @@
 import Link from "next/link";
 
 const bridge = [
-  ["Experiencia existente", "Educacion popular, genero, comunicacion y territorio."],
-  ["Aplicacion ambiental", "Materiales y procesos para comprender GIRS con la gente."],
-  ["Validacion tecnica", "GERES, normativa municipal y piloto pequeno antes de ampliar."],
+  ["Lo que ya traigo", "Educacion popular, genero, comunicacion y trabajo territorial."],
+  ["Donde puede crecer", "Materiales y procesos para hablar de residuos y cuidado ambiental con la gente."],
+  ["Lo que falta ajustar", "Revisar normativa, escuchar al equipo tecnico y probar primero en pequeno."],
 ];
 
 const audiences = ["Comunidades", "Mujeres", "Jovenes", "Unidades educativas"];
 
 export const metadata = {
   title: "GIRS | Jimena Ovando Morales",
-  description: "Puente visual entre experiencia educativa verificable y aplicacion futura a educacion ambiental.",
+  description: "Relacion entre experiencia educativa, trabajo territorial y educacion ambiental.",
 };
 
 export default function GIRSPage() {
@@ -22,11 +22,11 @@ export default function GIRSPage() {
         </nav>
         <div className="wrap mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <div>
-            <p className="eyebrow">GIRS y educacion ambiental</p>
-            <h1 className="display mt-4">Educacion ambiental desde la participacion.</h1>
+            <p className="eyebrow">Educacion ambiental</p>
+            <h1 className="display mt-4">Aprender a cuidar tambien se conversa.</h1>
           </div>
           <p className="lead max-w-2xl">
-            Aporto metodologia participativa, comunicacion clara y trabajo territorial para acompanar procesos de aprendizaje sobre residuos y cuidado ambiental.
+            Mi experiencia no parte de slogans: parte de reunir personas, escuchar que pasa en su casa, su barrio o su comunidad, y convertir eso en aprendizajes posibles.
           </p>
         </div>
       </header>
@@ -44,13 +44,13 @@ export default function GIRSPage() {
         </section>
         <section className="section pt-0">
           <div className="wrap evidence-surface p-6 sm:p-10">
-            <p className="eyebrow">Audiencias de aplicacion</p>
-            <h2 className="section-title mt-3">La educacion ambiental se juega con personas concretas.</h2>
+            <p className="eyebrow">Con quienes se trabaja</p>
+            <h2 className="section-title mt-3">La educacion ambiental ocurre con personas concretas.</h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {audiences.map((audience) => (
                 <article key={audience} className="glass rounded-[22px] p-5">
                   <h3 className="text-2xl font-black text-[var(--color-plum)]">{audience}</h3>
-                  <p className="mt-3 text-[var(--color-muted)]">Diseno mensajes y dinamicas a partir del contexto y de la audiencia.</p>
+                  <p className="mt-3 text-[var(--color-muted)]">Cada grupo necesita ejemplos, palabras y ritmos distintos.</p>
                 </article>
               ))}
             </div>
@@ -58,9 +58,9 @@ export default function GIRSPage() {
         </section>
         <section className="section pt-0">
           <div className="wrap glass rounded-[28px] p-6 sm:p-8">
-            <p className="eyebrow">Contexto local seguro</p>
-            <h2 className="mt-3 text-3xl font-black text-[var(--color-plum)]">GERES, PCRO/PCRR, Educa Recicla y Ley 755 son contexto publico.</h2>
-            <p className="lead mt-4">Los uso como mapa de aprendizaje y coordinacion, sin presentarlos como experiencia previa propia.</p>
+            <p className="eyebrow">Lo que sigo preparando</p>
+            <h2 className="mt-3 text-3xl font-black text-[var(--color-plum)]">Estoy ordenando referencias tecnicas y ejemplos locales.</h2>
+            <p className="lead mt-4">Hay temas que prefiero presentar con cuidado: normativa, rutas municipales y materiales especificos deben revisarse con informacion actualizada.</p>
           </div>
         </section>
       </main>

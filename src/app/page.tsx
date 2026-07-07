@@ -6,25 +6,25 @@ import materials from "@/data/materiales.json";
 import footer from "@/data/footer.json";
 
 const capabilityTiles = [
-  ["Facilitar", "Talleres, dialogo y aprendizaje compartido."],
-  ["Acompanar", "Procesos comunitarios y organizativos."],
-  ["Comunicar", "Cartillas, cunas, guias y mensajes claros."],
-  ["Organizar", "Liderazgos, acuerdos y participacion local."],
+  ["Facilitar", "Talleres donde la gente conversa, pregunta y decide."],
+  ["Acompanar", "Procesos que toman tiempo, escucha y presencia."],
+  ["Comunicar", "Materiales y mensajes que se entienden sin rodeos."],
+  ["Organizar", "Acuerdos, liderazgos y trabajo compartido."],
 ];
 
 const vacancySignals = [
-  ["Ambiente cotidiano", "Agua, energia, residuos y cuidado del entorno familiar."],
-  ["Territorio", "Comunidades, OTBs, organizaciones y coordinacion local."],
+  ["Cuidado cotidiano", "Agua, energia, residuos y entorno familiar explicados desde la vida diaria."],
+  ["Territorio", "Comunidades, organizaciones y coordinacion local, con los pies en el lugar."],
   ["Formacion", "Talleres con mujeres, jovenes y liderazgos comunitarios."],
-  ["Replica", "Cartillas, radio y materiales para compartir aprendizajes."],
-  ["Interculturalidad", "Dialogo comunitario y Quechua avanzado."],
+  ["Replica", "Cartillas, radio y materiales para que lo aprendido siga circulando."],
+  ["Interculturalidad", "Dialogo comunitario y Quechua para acercar la conversacion."],
 ];
 
 const method = [
-  ["Escuchar", "Partir del contexto y de la voz de la gente."],
-  ["Construir", "Ordenar acuerdos, necesidades y saberes locales."],
-  ["Facilitar", "Convertir temas complejos en aprendizaje comun."],
-  ["Multiplicar", "Dejar materiales, liderazgos y rutas de replica."],
+  ["Escuchar", "Llegar primero a entender el contexto y a las personas."],
+  ["Construir", "Ordenar ideas, necesidades y acuerdos con el grupo."],
+  ["Facilitar", "Volver cercanos los temas dificiles."],
+  ["Multiplicar", "Dejar herramientas para que el aprendizaje continue."],
 ];
 
 export default function Home() {
@@ -57,11 +57,7 @@ export default function Home() {
           <div className="evidence-surface min-h-[280px] p-5 sm:min-h-[310px] sm:p-6">
             <div className="photo-slot hero-photo h-full min-h-[240px] sm:min-h-[262px]">
               <div className="hero-photo-label absolute left-4 top-4 z-10 rounded-full bg-[var(--color-sun)] px-4 py-2 text-sm font-black text-[var(--color-plum)] sm:left-6 sm:top-6">
-                Trabajo en territorio
-              </div>
-              <div className="hero-photo-caption">
-                <p className="text-xs font-black uppercase tracking-normal text-[var(--color-sun)]">En comunidad</p>
-                <p className="mt-1 text-sm font-black sm:text-base">Facilito grupos en territorio.</p>
+                En taller, con la gente
               </div>
             </div>
           </div>
@@ -90,10 +86,10 @@ export default function Home() {
           <div className="wrap grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
               <p className="eyebrow">Capacidades profesionales</p>
-              <h2 id="fit-title" className="section-title mt-3">Entrar a territorio, formar grupos y dejar herramientas.</h2>
+              <h2 id="fit-title" className="section-title mt-3">Llegar, escuchar y trabajar con el grupo.</h2>
               <p className="lead mt-5">
-                Mi aporte esta en convertir temas complejos en procesos participativos:
-                escuchar, explicar, organizar y producir materiales utiles para la comunidad.
+                Mi aporte esta en hacer que los temas importantes bajen a la conversacion:
+                escucharlos, explicarlos con calma y dejarlos en materiales que la gente pueda volver a usar.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -139,10 +135,10 @@ export default function Home() {
             <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="eyebrow">Trabajo en imagenes</p>
-                <h2 id="mosaic-title" className="section-title mt-3">Lo que se entiende al mirar.</h2>
+              <h2 id="mosaic-title" className="section-title mt-3">La experiencia se tiene que poder ver.</h2>
               </div>
               <p className="max-w-md text-[var(--color-muted)]">
-                Talleres, reuniones, materiales y procesos compartidos con grupos diversos.
+                Estoy ordenando el archivo de fotos y materiales. Mientras tanto, esta seccion muestra que tipo de trabajo debe aparecer aqui.
               </p>
             </div>
             <div className="grid gap-4 lg:grid-cols-4 lg:grid-rows-[220px_220px]">
@@ -188,10 +184,10 @@ export default function Home() {
           <div className="wrap grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
               <p className="eyebrow">Materiales como objetos</p>
-              <h2 id="materials-title" className="section-title mt-3">Un archivo que se pueda hojear.</h2>
+              <h2 id="materials-title" className="section-title mt-3">Materiales que no se quedan en una carpeta.</h2>
               <p className="lead mt-5">
-                Presento cartillas, guias, audios y sistematizaciones como herramientas:
-                piezas hechas para explicar, recordar y compartir aprendizajes.
+                Estoy reuniendo cartillas, guias, audios y sistematizaciones. La idea es mostrar cada pieza como se uso:
+                para explicar, recordar y compartir aprendizajes.
               </p>
               <Link className="button mt-7" href="/materiales">Ver archivo</Link>
             </div>
@@ -276,8 +272,8 @@ function storyTitle(id: string) {
 }
 
 function storyLine(id: string) {
-  if (id.includes("2021")) return "Acompano procesos de liderazgo y materiales educativos junto a comunidades y organizaciones.";
-  if (id.includes("indicep")) return "Facilito educacion comunitaria vinculada a territorio y ambiente, con temas especificos por precisar.";
-  if (id.includes("mendieta")) return "Capacito a familias en agua, energia, residuos y cuidado del entorno en proyectos de vivienda social.";
-  return "Coordino, sistematizo y acompano procesos territoriales con enfoque participativo.";
+  if (id.includes("2021")) return "Acompane liderazgos, reuniones y materiales educativos junto a comunidades y organizaciones.";
+  if (id.includes("indicep")) return "Trabaje educacion comunitaria vinculada a derechos, territorio y ambiente.";
+  if (id.includes("mendieta")) return "Acompane a familias en vivienda social y cuidado cotidiano del entorno.";
+  return "Acompane procesos territoriales, acuerdos y aprendizajes compartidos.";
 }

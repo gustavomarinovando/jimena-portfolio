@@ -70,7 +70,7 @@ export function CaseReport({ data }: { data: CaseData }) {
         <section className="section pt-6" aria-labelledby="method-title">
           <div className="wrap">
             <p className="eyebrow">Metodo aplicado</p>
-            <h2 id="method-title" className="section-title mt-3">Una practica participativa y verificable.</h2>
+            <h2 id="method-title" className="section-title mt-3">Una practica de escucha, orden y acompanamiento.</h2>
             <div className="mt-8 flex flex-wrap gap-3">
               {data.methodology.slice(0, 5).map((item) => (
                 <span key={item} className="pill glass">{item}</span>

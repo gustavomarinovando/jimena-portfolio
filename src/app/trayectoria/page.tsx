@@ -3,7 +3,7 @@ import trayectoria from "@/data/trayectoria.json";
 
 export const metadata = {
   title: "Trayectoria | Jimena Ovando Morales",
-  description: "Trayectoria resumida por relevancia, sin posicionarse por antiguedad no verificada.",
+  description: "Trayectoria resumida por experiencias, organizaciones y tipos de trabajo.",
 };
 
 export default function TrayectoriaPage() {
@@ -15,7 +15,7 @@ export default function TrayectoriaPage() {
         </nav>
         <div className="wrap mt-12">
           <p className="eyebrow">Trayectoria</p>
-          <h1 className="display mt-4 max-w-5xl">Experiencias relevantes, no una carrera contada por antiguedad.</h1>
+          <h1 className="display mt-4 max-w-5xl">Una trayectoria hecha entre organizaciones, barrios y comunidades.</h1>
         </div>
       </header>
       <main className="section">
