@@ -32,7 +32,7 @@ export default function Home() {
     <>
       <header className="relative overflow-hidden pb-3 pt-6 sm:pb-4">
         <nav className="wrap glass relative z-10 hidden items-center justify-between rounded-full px-4 py-3 sm:flex">
-          <Link href="/" className="px-2 font-black text-[var(--color-plum)] no-underline">Portafolio visual de evidencia</Link>
+          <Link href="/" className="px-2 font-black text-[var(--color-plum)] no-underline">Portafolio profesional</Link>
           <div className="hidden gap-2 sm:flex">
             <Link className="pill" href="#casos">Casos</Link>
             <Link className="pill" href="#video">Video</Link>
@@ -60,7 +60,7 @@ export default function Home() {
                 Trabajo en territorio
               </div>
               <div className="hero-photo-caption">
-                <p className="text-xs font-black uppercase tracking-normal text-[var(--color-sun)]">Evidencia visual</p>
+                <p className="text-xs font-black uppercase tracking-normal text-[var(--color-sun)]">En comunidad</p>
                 <p className="mt-1 text-sm font-black sm:text-base">Facilito grupos en territorio.</p>
               </div>
             </div>
@@ -138,11 +138,11 @@ export default function Home() {
           <div className="wrap">
             <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="eyebrow">Evidencia visual</p>
-                <h2 id="mosaic-title" className="section-title mt-3">Lo que debe verse en segundos</h2>
+                <p className="eyebrow">Trabajo en imagenes</p>
+                <h2 id="mosaic-title" className="section-title mt-3">Lo que se entiende al mirar.</h2>
               </div>
               <p className="max-w-md text-[var(--color-muted)]">
-                Estos espacios no inventan imagenes: esperan fotos reales, captions breves y permisos.
+                Talleres, reuniones, materiales y procesos compartidos con grupos diversos.
               </p>
             </div>
             <div className="grid gap-4 lg:grid-cols-4 lg:grid-rows-[220px_220px]">
@@ -190,8 +190,8 @@ export default function Home() {
               <p className="eyebrow">Materiales como objetos</p>
               <h2 id="materials-title" className="section-title mt-3">Un archivo que se pueda hojear.</h2>
               <p className="lead mt-5">
-                Cuando integre fotos, banners o una pequena publicacion, cada pieza debe mostrar:
-                portada, contexto, mi rol y posibilidad de revisar el material.
+                Presento cartillas, guias, audios y sistematizaciones como herramientas:
+                piezas hechas para explicar, recordar y compartir aprendizajes.
               </p>
               <Link className="button mt-7" href="/materiales">Ver archivo</Link>
             </div>
@@ -213,7 +213,7 @@ export default function Home() {
                 </h3>
                 <p className="relative z-10 mt-4 max-w-md text-[var(--color-muted)]">{materials[0].description}</p>
               </article>
-              {materials.slice(1, 5).map((item, index) => (
+              {materials.slice(1, 5).map((item) => (
                 <article key={item.id} className="object-card p-5">
                   {item.type === "cuna" ? (
                     <div className="waveform absolute right-6 top-7">
@@ -226,7 +226,7 @@ export default function Home() {
                   <h3 className="relative z-10 mt-24 max-w-[70%] text-xl font-black text-[var(--color-plum)] sm:mt-28">
                     {item.title}
                   </h3>
-                <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">{index < 2 ? "Listo para integrar archivo real." : "Listo para metadata final."}</p>
+                  <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">Material de trabajo y comunicacion.</p>
                 </article>
               ))}
             </div>

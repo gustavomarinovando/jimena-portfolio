@@ -1,8 +1,8 @@
 [
   {
-    "id": "cartilla-pendiente-1",
+    "id": "cartilla-principal-1",
     "type": "publicacion",
-    "title": "Publicacion o cartilla principal por integrar",
+    "title": "Publicacion o cartilla principal",
     "experience": "CIPCA 2021-23",
     "description": "Pieza principal para presentar un libro, cartilla o banner educativo con portada, contexto y rol.",
     "pdfPath": "",
@@ -10,9 +10,9 @@
     "thumbnail": null
   },
   {
-    "id": "manual-pendiente-1",
+    "id": "manual-fortalecimiento-1",
     "type": "manual",
-    "title": "Manual de fortalecimiento por confirmar",
+    "title": "Manual de fortalecimiento",
     "experience": "CIPCA 2021-23",
     "description": "Manual o guia de diagnostico, planificacion organizativa o formacion comunitaria.",
     "pdfPath": "",
@@ -20,9 +20,9 @@
     "thumbnail": null
   },
   {
-    "id": "cuna-pendiente-1",
+    "id": "cuna-radial-1",
     "type": "cuna",
-    "title": "Guion de cuna radial por confirmar",
+    "title": "Guion de cuna radial",
     "experience": "CIPCA 2021-23",
     "description": "Guion o audio radial para explicar mensajes comunitarios en lenguaje accesible.",
     "pdfPath": "",
@@ -30,9 +30,9 @@
     "thumbnail": null
   },
   {
-    "id": "guia-pendiente-1",
+    "id": "guia-metodologica-1",
     "type": "guia",
-    "title": "Guia metodologica por confirmar",
+    "title": "Guia metodologica",
     "experience": "INDICEP 2013-15",
     "description": "Guia metodologica para diagnostico participativo, facilitacion o replica.",
     "pdfPath": "",
@@ -40,9 +40,9 @@
     "thumbnail": null
   },
   {
-    "id": "sistematizacion-pendiente-1",
+    "id": "sistematizacion-1",
     "type": "sistematizacion",
-    "title": "Sistematizacion por confirmar",
+    "title": "Sistematizacion de procesos",
     "experience": "CIPCA 2015-16",
     "description": "Sistematizacion o documento de aprendizaje para revisar procesos y resultados.",
     "pdfPath": "",

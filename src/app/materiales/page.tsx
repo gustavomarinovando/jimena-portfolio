@@ -46,7 +46,7 @@ export default function MaterialesPage() {
                 <h2 className="relative z-10 mt-28 max-w-[75%] text-2xl font-black text-[var(--color-plum)]">{item.title}</h2>
                 <p className="relative z-10 mt-4 text-[var(--color-muted)]">{item.description}</p>
                 <p className="relative z-10 mt-5 inline-flex rounded-full bg-[var(--color-lavender)] px-3 py-2 text-sm font-black text-[var(--color-plum)]">
-                  Archivo por integrar
+                  Material de trabajo
                 </p>
               </article>
             ))}
