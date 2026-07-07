@@ -7,52 +7,56 @@ type MaterialBookProps = {
   compact?: boolean;
 };
 
+type Spread = [string | null, string | null];
+
 export function MaterialBook({ pages, compact = false }: MaterialBookProps) {
   const [turn, setTurn] = useState(0);
-  const cover = pages[0];
-  const innerPages = pages.slice(1);
-  const visiblePages = useMemo(() => {
-    const count = compact ? 3 : 5;
+  const spreads = useMemo<Spread[]>(() => {
+    if (pages.length === 0) return [];
+    if (pages.length === 1) return [[null, pages[0]]];
 
-    if (innerPages.length <= count) return innerPages;
+    const lastIndex = pages.length - 1;
+    const bookletSpreads: Spread[] = [[pages[lastIndex], pages[0]]];
 
-    return Array.from({ length: count }, (_, index) => {
-      const offset = (turn * 2 + index * 3) % innerPages.length;
-      return innerPages[offset];
-    });
-  }, [compact, innerPages, turn]);
+    for (let index = 1; index <= lastIndex - 1; index += 2) {
+      bookletSpreads.push([pages[index], pages[index + 1] ?? null]);
+    }
 
-  const rotate = () => setTurn((current) => current + 1);
+    return bookletSpreads;
+  }, [pages]);
+
+  const spreadIndex = spreads.length > 0 ? turn % spreads.length : 0;
+  const [leftPage, rightPage] = spreads[spreadIndex] ?? [null, null];
+  const isClosed = spreadIndex === 0;
 
   return (
     <button
       type="button"
-      className={compact ? "book-preview compact" : "book-stage"}
-      onClick={rotate}
+      className={`${compact ? "book-preview compact" : "book-stage"} ${isClosed ? "closed" : "open"}`}
+      onClick={() => setTurn((current) => current + 1)}
       aria-label="Cambiar páginas de vista previa"
     >
       <span className="book-spread" aria-hidden="true">
-        {visiblePages.map((page, index) => (
+        {leftPage ? (
           <span
-            key={`${page}-${turn}-${index}`}
-            className="book-page"
+            className="book-page left-page"
             style={{
-              backgroundImage: `url(${page})`,
-              "--page-index": index + 1,
-            } as CSSProperties}
-          />
-        ))}
-        {cover ? (
-          <span
-            className="book-page cover"
-            style={{
-              backgroundImage: `url(${cover})`,
+              backgroundImage: `url(${leftPage})`,
               "--page-index": 0,
             } as CSSProperties}
           />
         ) : null}
+        {rightPage ? (
+          <span
+            className="book-page right-page"
+            style={{
+              backgroundImage: `url(${rightPage})`,
+              "--page-index": 1,
+            } as CSSProperties}
+          />
+        ) : null}
       </span>
-      <span className="book-hint">{compact ? "Toca para hojear" : "Toca las páginas para hojear"}</span>
+      <span className="book-hint">{isClosed ? "Toca para abrir" : "Toca para seguir hojeando"}</span>
     </button>
   );
 }

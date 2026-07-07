@@ -33,7 +33,7 @@ export default function MaterialesPage() {
           <section className="material-feature" aria-labelledby="featured-material-title">
             <div>
               <p className="eyebrow">{featured.type}</p>
-              <h2 id="featured-material-title" className="section-title mt-3">{featured.title}</h2>
+              <h2 id="featured-material-title" className="section-title mt-3">Una cartilla para hojear.</h2>
               <p className="lead mt-5 max-w-xl">{featured.description}</p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a className="button" href={featured.pdfPath} target="_blank" rel="noreferrer">Abrir PDF</a>

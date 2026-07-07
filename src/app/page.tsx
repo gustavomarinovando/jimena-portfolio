@@ -197,7 +197,7 @@ export default function Home() {
                 <MaterialBook pages={materials[0].previewPages ?? []} compact />
                 <p className="eyebrow relative z-10">{materials[0].type}</p>
                 <h3 className="relative z-10 mt-52 max-w-sm text-3xl font-black text-[var(--color-plum)] sm:mt-32">
-                  {materials[0].title}
+                  Cartilla impresa para hojear.
                 </h3>
                 <p className="relative z-10 mt-4 max-w-md text-[var(--color-muted)]">{materials[0].description}</p>
                 <a className="button mt-6" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>

@@ -375,10 +375,10 @@ a {
 
 .book-page {
   position: absolute;
-  top: calc(var(--page-index) * 48px);
-  left: calc((var(--page-index) % 2) * 34px);
+  top: 34px;
+  left: 0;
   display: block;
-  width: min(22vw, 270px);
+  width: min(23vw, 285px);
   aspect-ratio: 0.77;
   overflow: hidden;
   border-radius: 14px;
@@ -387,28 +387,38 @@ a {
   background-size: cover;
   box-shadow: 0 26px 60px rgba(52, 33, 61, 0.22);
   z-index: calc(20 - var(--page-index));
-  transform:
-    rotate(calc(-7deg + (var(--page-index) * 3deg)))
-    translateZ(calc(var(--page-index) * 9px));
+  transform: rotate(-3deg) translateZ(20px);
   transition: transform 260ms ease, box-shadow 260ms ease;
   animation: page-drift 6.8s ease-in-out infinite;
   animation-delay: calc(var(--page-index) * -0.45s);
 }
 
-.book-page.cover {
-  top: 22px;
-  left: 20px;
+.book-page.left-page {
+  left: min(4vw, 52px);
+  transform: rotate(-4deg) translateZ(18px);
+}
+
+.book-page.right-page {
+  left: min(24vw, 305px);
+  z-index: 24;
+  transform: rotate(3deg) translateZ(28px);
+}
+
+.book-stage.closed .left-page {
+  transform: rotate(-7deg) translateX(-8px) translateZ(12px);
+}
+
+.book-stage.closed .right-page {
   z-index: 60;
-  transform: rotate(-5deg) translateZ(80px);
+  transform: rotate(5deg) translateX(-24px) translateZ(80px);
 }
 
-.book-spread .book-page:nth-child(even) {
-  left: min(20vw, 280px);
+.book-stage.open .left-page {
+  transform: rotate(-2.5deg) translateZ(34px);
 }
 
-.book-spread .book-page.cover {
-  top: 22px;
-  left: 20px;
+.book-stage.open .right-page {
+  transform: rotate(2.5deg) translateZ(38px);
 }
 
 .book-spread .book-page:hover,
@@ -421,14 +431,21 @@ a {
 }
 
 .book-preview .book-page {
-  width: min(100%, 220px);
-  top: calc(var(--page-index) * 18px);
-  left: calc(var(--page-index) * 28px);
+  width: min(58%, 180px);
+  top: 12px;
 }
 
-.book-preview .book-page.cover {
-  top: 0;
+.book-preview .left-page {
   left: 0;
+}
+
+.book-preview .right-page {
+  left: min(42%, 120px);
+}
+
+.book-preview.closed .right-page {
+  z-index: 60;
+  transform: rotate(5deg) translateX(-18px) translateZ(80px);
 }
 
 .book-hint {
@@ -544,18 +561,16 @@ a {
   }
 
   .book-page {
-    width: min(62vw, 238px);
-    top: calc(var(--page-index) * 70px);
-    left: calc((var(--page-index) % 2) * 18px);
+    width: min(54vw, 210px);
+    top: 22px;
   }
 
-  .book-spread .book-page:nth-child(even) {
-    left: min(15vw, 58px);
+  .book-page.left-page {
+    left: 2px;
   }
 
-  .book-spread .book-page.cover {
-    top: 18px;
-    left: 12px;
+  .book-page.right-page {
+    left: min(37vw, 145px);
   }
 
   .book-preview {
