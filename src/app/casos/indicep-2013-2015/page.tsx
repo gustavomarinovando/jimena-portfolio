@@ -3,7 +3,7 @@ import { CaseReport } from "../CaseReport";
 
 export const metadata = {
   title: "INDICEP 2013-2015 | Caso de estudio",
-  description: "Educacion popular, territorio, derechos y ambiente en la experiencia con INDICEP.",
+  description: "Educación popular, territorio, derechos y ambiente en la experiencia con INDICEP.",
 };
 
 export default function Page() {

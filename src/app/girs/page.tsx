@@ -1,16 +1,16 @@
 import Link from "next/link";
 
 const bridge = [
-  ["Lo que ya traigo", "Educacion popular, genero, comunicacion y trabajo territorial."],
+  ["Lo que ya traigo", "Educación popular, género, comunicación y trabajo territorial."],
   ["Donde puede crecer", "Materiales y procesos para hablar de residuos y cuidado ambiental con la gente."],
-  ["Lo que falta ajustar", "Revisar normativa, escuchar al equipo tecnico y probar primero en pequeno."],
+  ["Lo que falta ajustar", "Revisar normativa, escuchar al equipo técnico y probar primero en pequeño."],
 ];
 
 const audiences = ["Comunidades", "Mujeres", "Jovenes", "Unidades educativas"];
 
 export const metadata = {
   title: "GIRS | Jimena Ovando Morales",
-  description: "Relacion entre experiencia educativa, trabajo territorial y educacion ambiental.",
+  description: "Relación entre experiencia educativa, trabajo territorial y educación ambiental.",
 };
 
 export default function GIRSPage() {
@@ -22,7 +22,7 @@ export default function GIRSPage() {
         </nav>
         <div className="wrap mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <div>
-            <p className="eyebrow">Educacion ambiental</p>
+            <p className="eyebrow">Educación ambiental</p>
             <h1 className="display mt-4">Aprender a cuidar tambien se conversa.</h1>
           </div>
           <p className="lead max-w-2xl">
@@ -45,7 +45,7 @@ export default function GIRSPage() {
         <section className="section pt-0">
           <div className="wrap evidence-surface p-6 sm:p-10">
             <p className="eyebrow">Con quienes se trabaja</p>
-            <h2 className="section-title mt-3">La educacion ambiental ocurre con personas concretas.</h2>
+            <h2 className="section-title mt-3">La educación ambiental ocurre con personas concretas.</h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {audiences.map((audience) => (
                 <article key={audience} className="glass rounded-[22px] p-5">
@@ -59,8 +59,8 @@ export default function GIRSPage() {
         <section className="section pt-0">
           <div className="wrap glass rounded-[28px] p-6 sm:p-8">
             <p className="eyebrow">Lo que sigo preparando</p>
-            <h2 className="mt-3 text-3xl font-black text-[var(--color-plum)]">Estoy ordenando referencias tecnicas y ejemplos locales.</h2>
-            <p className="lead mt-4">Hay temas que prefiero presentar con cuidado: normativa, rutas municipales y materiales especificos deben revisarse con informacion actualizada.</p>
+            <h2 className="mt-3 text-3xl font-black text-[var(--color-plum)]">Estoy ordenando referencias técnicas y ejemplos locales.</h2>
+            <p className="lead mt-4">Hay temas que prefiero presentar con cuidado: normativa, rutas municipales y materiales específicos deben revisarse con información actualizada.</p>
           </div>
         </section>
       </main>

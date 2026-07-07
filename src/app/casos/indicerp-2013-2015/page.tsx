@@ -12,7 +12,7 @@ export default function Page() {
         <p className="eyebrow">Ruta anterior</p>
         <h1 className="section-title mt-4">La ruta correcta es INDICEP</h1>
         <p className="lead mt-3">
-          Este enlace se conserva porque pudo haber sido compartido, pero el nombre correcto de la organizacion es INDICEP.
+          Este enlace se conserva porque pudo haber sido compartido, pero el nombre correcto de la organización es INDICEP.
         </p>
         <Link className="button mt-6" href="/casos/indicep-2013-2015">
           Ir al caso corregido

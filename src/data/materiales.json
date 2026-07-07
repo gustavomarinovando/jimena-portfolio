@@ -1,10 +1,10 @@
 [
   {
     "id": "incidencia-politica-genero",
-    "type": "publicacion",
-    "title": "Incidencia politica con enfoque de genero",
+    "type": "publicación",
+    "title": "Incidencia política con enfoque de género",
     "experience": "CIPCA 2021-23",
-    "description": "Cartilla de trabajo para acompanar conversaciones sobre participacion, liderazgo e incidencia.",
+    "description": "Cartilla de trabajo para acompañar conversaciones sobre participación, liderazgo e incidencia.",
     "pdfPath": "/materials/incidencia-politica.pdf",
     "language": "ES",
     "thumbnail": "/materials/incidencia-politica/page-00.jpg",
@@ -14,7 +14,13 @@
       "/materials/incidencia-politica/page-02.jpg",
       "/materials/incidencia-politica/page-03.jpg",
       "/materials/incidencia-politica/page-04.jpg",
-      "/materials/incidencia-politica/page-05.jpg"
+      "/materials/incidencia-politica/page-05.jpg",
+      "/materials/incidencia-politica/page-06.jpg",
+      "/materials/incidencia-politica/page-07.jpg",
+      "/materials/incidencia-politica/page-08.jpg",
+      "/materials/incidencia-politica/page-09.jpg",
+      "/materials/incidencia-politica/page-10.jpg",
+      "/materials/incidencia-politica/page-11.jpg"
     ]
   },
   {
@@ -22,7 +28,7 @@
     "type": "manual",
     "title": "Manual de fortalecimiento",
     "experience": "CIPCA 2021-23",
-    "description": "Manual o guia de diagnostico, planificacion organizativa o formacion comunitaria.",
+    "description": "Manual o guía de diagnóstico, planificación organizativa o formación comunitaria.",
     "pdfPath": "",
     "language": "ES",
     "thumbnail": null
@@ -39,20 +45,20 @@
   },
   {
     "id": "guia-metodologica-1",
-    "type": "guia",
-    "title": "Guia metodologica",
+    "type": "guía",
+    "title": "Guía metodológica",
     "experience": "INDICEP 2013-15",
-    "description": "Guia metodologica para diagnostico participativo, facilitacion o replica.",
+    "description": "Guía metodológica para diagnóstico participativo, facilitación o réplica.",
     "pdfPath": "",
     "language": "ES",
     "thumbnail": null
   },
   {
     "id": "sistematizacion-1",
-    "type": "sistematizacion",
-    "title": "Sistematizacion de procesos",
+    "type": "sistematización",
+    "title": "Sistematización de procesos",
     "experience": "CIPCA 2015-16",
-    "description": "Sistematizacion o documento de aprendizaje para revisar procesos y resultados.",
+    "description": "Sistematización o documento de aprendizaje para revisar procesos y resultados.",
     "pdfPath": "",
     "language": "ES",
     "thumbnail": null

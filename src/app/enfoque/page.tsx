@@ -24,7 +24,7 @@ export default function EnfoquePage() {
         <div className="wrap mt-12">
           <p className="eyebrow">Metodo</p>
           <h1 className="display mt-4 max-w-4xl">Escuchar bien cambia el taller.</h1>
-          <p className="lead mt-6 max-w-2xl">Mi forma de trabajo empieza con una conversacion honesta. Desde ahi ordeno ideas, preparo materiales y acompano al grupo hasta que pueda avanzar por su cuenta.</p>
+          <p className="lead mt-6 max-w-2xl">Mi forma de trabajo empieza con una conversación honesta. Desde ahí ordeno ideas, preparo materiales y acompaño al grupo hasta que pueda avanzar por su cuenta.</p>
         </div>
       </header>
       <main>

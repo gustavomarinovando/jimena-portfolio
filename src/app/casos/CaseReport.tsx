@@ -33,7 +33,7 @@ export function CaseReport({ data }: { data: CaseData }) {
               <div className="photo-caption">
                 <p className="text-xs font-black uppercase tracking-normal text-[var(--color-sun)]">Trabajo en campo</p>
                 <h2 className="text-2xl font-black">{storyTitle(data.id)}</h2>
-                <p className="mt-2 text-sm text-white/82">Facilitacion, acompanamiento y materiales en contexto.</p>
+                <p className="mt-2 text-sm text-white/82">Facilitación, acompañamiento y materiales en contexto.</p>
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@ export function CaseReport({ data }: { data: CaseData }) {
         <section className="section pt-6" aria-labelledby="method-title">
           <div className="wrap">
             <p className="eyebrow">Metodo aplicado</p>
-            <h2 id="method-title" className="section-title mt-3">Una practica de escucha, orden y acompanamiento.</h2>
+            <h2 id="method-title" className="section-title mt-3">Una práctica de escucha, orden y acompañamiento.</h2>
             <div className="mt-8 flex flex-wrap gap-3">
               {data.methodology.slice(0, 5).map((item) => (
                 <span key={item} className="pill glass">{item}</span>
@@ -110,16 +110,16 @@ function Fact({ title, body }: { title: string; body: string }) {
 }
 
 function storyTitle(id: string) {
-  if (id.includes("2021")) return "Educacion popular en territorio";
-  if (id.includes("indicep")) return "Ambiente y educacion comunitaria";
+  if (id.includes("2021")) return "Educación popular en territorio";
+  if (id.includes("indicep")) return "Ambiente y educación comunitaria";
   if (id.includes("mendieta")) return "Gestion ambiental familiar";
-  return "Organizacion y coordinacion municipal";
+  return "Organización y coordinación municipal";
 }
 
 function boundaryText(id: string) {
-  if (id.includes("indicep")) return "Esta experiencia conecta educacion comunitaria, territorio y temas ambientales desde una practica participativa.";
+  if (id.includes("indicep")) return "Esta experiencia conecta educación comunitaria, territorio y temas ambientales desde una práctica participativa.";
   if (id.includes("mendieta")) return "Acompane a familias en procesos de vivienda social, cuidado cotidiano del entorno y uso responsable de servicios basicos.";
-  return "Esta experiencia muestra metodologia, territorio, organizacion y produccion de herramientas para procesos comunitarios.";
+  return "Esta experiencia muestra metodología, territorio, organización y producción de herramientas para procesos comunitarios.";
 }
 
 function shortContext(context: string) {

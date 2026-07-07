@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Jimena Ovando Morales | Portafolio profesional",
   description:
-    "Portafolio profesional sobre educacion popular, participacion comunitaria y comunicacion social.",
+    "Portafolio profesional sobre educación popular, participación comunitaria y comunicación social.",
 };
 
 export default function RootLayout({

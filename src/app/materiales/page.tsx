@@ -1,10 +1,10 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import { MaterialBook } from "@/components/MaterialBook";
 import materials from "@/data/materiales.json";
 
 export const metadata = {
   title: "Materiales | Jimena Ovando Morales",
-  description: "Publicaciones, cartillas, banners, radio, guias y sistematizaciones como herramientas de trabajo.",
+  description: "Publicaciones, cartillas, banners, radio, guías y sistematizaciones como herramientas de trabajo.",
 };
 
 export default function MaterialesPage() {
@@ -22,7 +22,7 @@ export default function MaterialesPage() {
             <h1 className="section-title mt-4">Materiales para mirar y hojear.</h1>
           </div>
           <p className="lead max-w-2xl">
-            Cartillas, guias, radio y sistematizaciones como piezas de trabajo:
+            Cartillas, guías, radio y sistematizaciones como piezas de trabajo:
             hechas para explicar, recordar y compartir aprendizajes.
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function MaterialesPage() {
                 <a className="button secondary glass" href={featured.pdfPath} download>Descargar</a>
               </div>
             </div>
-            <BookScroller pages={featured.previewPages ?? []} />
+            <MaterialBook pages={featured.previewPages ?? []} />
           </section>
 
           <div className="mb-8 flex flex-wrap gap-2" aria-label="Categorias previstas">
@@ -70,28 +70,5 @@ export default function MaterialesPage() {
         </div>
       </main>
     </>
-  );
-}
-
-function BookScroller({ pages }: { pages: string[] }) {
-  return (
-    <div className="book-stage" aria-label="Vista previa de paginas de la cartilla">
-      <div className="book-spread">
-        {pages.slice(0, 6).map((page, index) => (
-          <a
-            key={page}
-            href="/materials/incidencia-politica.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="book-page"
-            style={{
-              backgroundImage: `url(${page})`,
-              "--page-index": index,
-            } as CSSProperties}
-            aria-label={`Abrir cartilla, vista pagina ${index + 1}`}
-          />
-        ))}
-      </div>
-    </div>
   );
 }

@@ -327,9 +327,17 @@ a {
 }
 
 .book-stage {
+  position: relative;
+  display: block;
   width: 100%;
   max-width: 100%;
   min-height: 560px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
   perspective: 1500px;
   overflow: hidden;
   contain: paint;
@@ -338,6 +346,7 @@ a {
 .book-spread,
 .book-preview {
   position: relative;
+  display: block;
   width: 100%;
   max-width: 100%;
   min-height: 540px;
@@ -346,10 +355,16 @@ a {
 
 .book-preview {
   position: absolute;
+  display: block;
   top: 28px;
   right: 24px;
   width: min(46%, 330px);
   min-height: 300px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
   perspective: 1200px;
   z-index: 1;
 }
@@ -371,6 +386,7 @@ a {
   background-position: center top;
   background-size: cover;
   box-shadow: 0 26px 60px rgba(52, 33, 61, 0.22);
+  z-index: calc(20 - var(--page-index));
   transform:
     rotate(calc(-7deg + (var(--page-index) * 3deg)))
     translateZ(calc(var(--page-index) * 9px));
@@ -379,8 +395,20 @@ a {
   animation-delay: calc(var(--page-index) * -0.45s);
 }
 
+.book-page.cover {
+  top: 22px;
+  left: 20px;
+  z-index: 60;
+  transform: rotate(-5deg) translateZ(80px);
+}
+
 .book-spread .book-page:nth-child(even) {
   left: min(20vw, 280px);
+}
+
+.book-spread .book-page.cover {
+  top: 22px;
+  left: 20px;
 }
 
 .book-spread .book-page:hover,
@@ -396,6 +424,26 @@ a {
   width: min(100%, 220px);
   top: calc(var(--page-index) * 18px);
   left: calc(var(--page-index) * 28px);
+}
+
+.book-preview .book-page.cover {
+  top: 0;
+  left: 0;
+}
+
+.book-hint {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 70;
+  border-radius: 999px;
+  padding: 0.55rem 0.78rem;
+  background: rgba(255, 249, 239, 0.82);
+  color: var(--color-plum);
+  font-size: 0.78rem;
+  font-weight: 900;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(14px);
 }
 
 @keyframes page-drift {
@@ -481,8 +529,8 @@ a {
 
   .material-feature .section-title {
     max-width: 100%;
-    font-size: clamp(2rem, 8.6vw, 2.55rem);
-    line-height: 1.04;
+    font-size: clamp(1.78rem, 7.4vw, 2.18rem);
+    line-height: 1.08;
     overflow-wrap: anywhere;
   }
 
@@ -503,6 +551,11 @@ a {
 
   .book-spread .book-page:nth-child(even) {
     left: min(15vw, 58px);
+  }
+
+  .book-spread .book-page.cover {
+    top: 18px;
+    left: 12px;
   }
 
   .book-preview {

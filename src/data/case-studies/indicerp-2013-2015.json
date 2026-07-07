@@ -1,42 +1,42 @@
 {
   "id": "indicep-2013-2015",
   "organization": "INDICEP",
-  "role": "Tecnica Social y Educativa",
+  "role": "Técnica Social y Educativa",
   "period": { "start": "2013-08", "end": "2015-05" },
-  "locations": ["Pendiente: comunidades rurales/indigenas y municipios especificos"],
-  "context": "Talleres comunitarios en derechos, gestion territorial y medio ambiente, segun CV. Los temas ambientales exactos requieren confirmacion.",
-  "audience": ["Mujeres", "Jovenes", "Lideres comunitarios", "Organizaciones de base"],
-  "challenge": "Facilitar educacion popular y replica comunitaria sin convertir temas no confirmados en experiencia ambiental especifica.",
+  "locations": ["Pendiente: comunidades rurales/indígenas y municipios específicos"],
+  "context": "Talleres comunitarios en derechos, gestión territorial y medio ambiente, según CV. Los temas ambientales exactos requieren confirmación.",
+  "audience": ["Mujeres", "Jóvenes", "Lideres comunitarios", "Organizaciones de base"],
+  "challenge": "Facilitar educación popular y réplica comunitaria sin convertir temas no confirmados en experiencia ambiental específica.",
   "methodology": [
-    "Educacion popular",
+    "Educación popular",
     "Talleres comunitarios",
-    "Acompanamiento organizativo",
-    "Formacion de liderazgos",
+    "Acompañamiento organizativo",
+    "Formación de liderazgos",
     "Dialogo intercultural"
   ],
   "activities": [
-    { "description": "Facilitacion de talleres sobre derechos, gestion territorial y medio ambiente", "output": "Temas ambientales, talleres y participantes por confirmar" },
-    { "description": "Acompanamiento de procesos organizativos y formacion de lideres", "output": "Organizaciones y lideres por confirmar" },
-    { "description": "Elaboracion de materiales educativos", "output": "Titulos y archivos por confirmar" }
+    { "description": "Facilitación de talleres sobre derechos, gestión territorial y medio ambiente", "output": "Temas ambientales, talleres y participantes por confirmar" },
+    { "description": "Acompañamiento de procesos organizativos y formación de lideres", "output": "Organizaciones y lideres por confirmar" },
+    { "description": "Elaboracion de materiales educativos", "output": "Títulos y archivos por confirmar" }
   ],
   "outputs": [
-    { "type": "material_educativo", "count": "PENDIENTE", "titles": ["Pendiente: titulos reales"], "downloadable": true, "language": "ES/QU" },
+    { "type": "material_educativo", "count": "PENDIENTE", "titles": ["Pendiente: títulos reales"], "downloadable": true, "language": "ES/QU" },
     { "type": "guia_taller", "count": "PENDIENTE", "downloadable": true }
   ],
   "relevance_girs": [
-    "Educacion popular y territorio son transferibles a GIRS",
+    "Educación popular y territorio son transferibles a GIRS",
     "La mencion de medio ambiente en CV puede apoyar el perfil cuando Jimena confirme temas exactos",
-    "Trabajo con mujeres y jovenes como publico prioritario",
+    "Trabajo con mujeres y jóvenes como público prioritario",
     "Dialogo intercultural y Quechua avanzado son relevantes para Sacaba"
   ],
   "evidence_status": "PARTIAL",
-  "environmental_topics": "CRITICO - POR CONFIRMAR: residuos, agua, agroecologia, suelos, bosques, cambio climatico, derechos ambientales, Madre Tierra u otros.",
+  "environmental_topics": "CRÍTICO - POR CONFIRMAR: residuos, agua, agroecologia, suelos, bosques, cambio climatico, derechos ambientales, Madre Tierra u otros.",
   "quantified": {
-    "communities": "PENDIENTE: numero exacto",
-    "participants": "PENDIENTE: numero exacto",
-    "municipalities": "PENDIENTE: numero exacto",
-    "workshops": "PENDIENTE: numero exacto",
-    "materials_produced": "PENDIENTE: numero exacto"
+    "communities": "PENDIENTE: número exacto",
+    "participants": "PENDIENTE: número exacto",
+    "municipalities": "PENDIENTE: número exacto",
+    "workshops": "PENDIENTE: número exacto",
+    "materials_produced": "PENDIENTE: número exacto"
   },
   "photo_slots": [
     { "id": "PHOTO_SLOT_WORKSHOP_INDICEP_2014_01", "category": "WORKSHOP", "description": "Taller con metadata aprobada", "required": true, "metadata_status": "PENDIENTE" },
@@ -44,8 +44,8 @@
   ],
   "content_todos": [
     "Confirmar temas ambientales exactos",
-    "Confirmar si hubo residuos, compostaje, reciclaje o separacion en fuente",
+    "Confirmar si hubo residuos, compostaje, reciclaje o separación en fuente",
     "Confirmar municipios, audiencias, talleres y materiales",
-    "Obtener evidencia documental o fotografica con metadata"
+    "Obtener evidencia documental o fotográfica con metadata"
   ]
 }

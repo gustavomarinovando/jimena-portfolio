@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import { MaterialBook } from "@/components/MaterialBook";
 import media from "@/data/media.json";
 import video from "@/data/video.json";
 import caseStudies from "@/data/case-studies-summary.json";
@@ -8,15 +8,15 @@ import footer from "@/data/footer.json";
 
 const capabilityTiles = [
   ["Facilitar", "Talleres donde la gente conversa, pregunta y decide."],
-  ["Acompanar", "Procesos que toman tiempo, escucha y presencia."],
+  ["Acompañar", "Procesos que toman tiempo, escucha y presencia."],
   ["Comunicar", "Materiales y mensajes que se entienden sin rodeos."],
   ["Organizar", "Acuerdos, liderazgos y trabajo compartido."],
 ];
 
 const vacancySignals = [
-  ["Cuidado cotidiano", "Agua, energia, residuos y entorno familiar explicados desde la vida diaria."],
-  ["Territorio", "Comunidades, organizaciones y coordinacion local, con los pies en el lugar."],
-  ["Formacion", "Talleres con mujeres, jovenes y liderazgos comunitarios."],
+  ["Cuidado cotidiano", "Agua, energía, residuos y entorno familiar explicados desde la vida diaria."],
+  ["Territorio", "Comunidades, organizaciones y coordinación local, con los pies en el lugar."],
+  ["Formación", "Talleres con mujeres, jóvenes y liderazgos comunitarios."],
   ["Replica", "Cartillas, radio y materiales para que lo aprendido siga circulando."],
   ["Interculturalidad", "Dialogo comunitario y Quechua para acercar la conversacion."],
 ];
@@ -24,7 +24,7 @@ const vacancySignals = [
 const method = [
   ["Escuchar", "Llegar primero a entender el contexto y a las personas."],
   ["Construir", "Ordenar ideas, necesidades y acuerdos con el grupo."],
-  ["Facilitar", "Volver cercanos los temas dificiles."],
+  ["Facilitar", "Volver cercanos los temas difíciles."],
   ["Multiplicar", "Dejar herramientas para que el aprendizaje continue."],
 ];
 
@@ -46,7 +46,7 @@ export default function Home() {
             <p className="eyebrow">Portafolio profesional</p>
             <h1 className="display mt-4">Jimena Ovando</h1>
             <p className="lead mt-6 max-w-xl">
-              <span className="block">Educacion popular, participacion y comunicacion.</span>
+              <span className="block">Educación popular, participación y comunicación.</span>
               <span className="block">Trabajo con comunidades, grupos e instituciones.</span>
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -89,7 +89,7 @@ export default function Home() {
               <p className="eyebrow">Capacidades profesionales</p>
               <h2 id="fit-title" className="section-title mt-3">Llegar, escuchar y trabajar con el grupo.</h2>
               <p className="lead mt-5">
-                Mi aporte esta en hacer que los temas importantes bajen a la conversacion:
+                Mi aporte está en hacer que los temas importantes bajen a la conversación:
                 escucharlos, explicarlos con calma y dejarlos en materiales que la gente pueda volver a usar.
               </p>
             </div>
@@ -187,14 +187,14 @@ export default function Home() {
               <p className="eyebrow">Materiales como objetos</p>
               <h2 id="materials-title" className="section-title mt-3">Materiales que no se quedan en una carpeta.</h2>
               <p className="lead mt-5">
-                Estoy reuniendo cartillas, guias, audios y sistematizaciones. La idea es mostrar cada pieza como se uso:
+                Estoy reuniendo cartillas, guías, audios y sistematizaciones. La idea es mostrar cada pieza como se usó:
                 para explicar, recordar y compartir aprendizajes.
               </p>
               <Link className="button mt-7" href="/materiales">Ver archivo</Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <article className="object-card min-h-[420px] p-6 sm:col-span-2">
-                <BookPreview pages={materials[0].previewPages ?? []} compact />
+                <MaterialBook pages={materials[0].previewPages ?? []} compact />
                 <p className="eyebrow relative z-10">{materials[0].type}</p>
                 <h3 className="relative z-10 mt-52 max-w-sm text-3xl font-black text-[var(--color-plum)] sm:mt-32">
                   {materials[0].title}
@@ -215,7 +215,7 @@ export default function Home() {
                   <h3 className="relative z-10 mt-24 max-w-[70%] text-xl font-black text-[var(--color-plum)] sm:mt-28">
                     {item.title}
                   </h3>
-                  <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">Material de trabajo y comunicacion.</p>
+                  <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">Material de trabajo y comunicación.</p>
                 </article>
               ))}
             </div>
@@ -244,7 +244,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <h2 className="text-3xl font-black text-[var(--color-plum)]">Jimena Ovando</h2>
-              <p className="mt-2 text-[var(--color-muted)]">Educacion popular, comunicacion y trabajo territorial.</p>
+              <p className="mt-2 text-[var(--color-muted)]">Educación popular, comunicación y trabajo territorial.</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <a className="button" href={`mailto:${footer.contact.email}`}>Contacto</a>
@@ -258,32 +258,15 @@ export default function Home() {
 }
 
 function storyTitle(id: string) {
-  if (id.includes("2021")) return "Educacion popular en territorio";
-  if (id.includes("indicep")) return "Ambiente, derechos y replica";
+  if (id.includes("2021")) return "Educación popular en territorio";
+  if (id.includes("indicep")) return "Ambiente, derechos y réplica";
   if (id.includes("mendieta")) return "Vivienda social y gestion ambiental familiar";
-  return "Organizacion, mujeres y jovenes";
+  return "Organización, mujeres y jóvenes";
 }
 
 function storyLine(id: string) {
-  if (id.includes("2021")) return "Acompane liderazgos, reuniones y materiales educativos junto a comunidades y organizaciones.";
-  if (id.includes("indicep")) return "Trabaje educacion comunitaria vinculada a derechos, territorio y ambiente.";
-  if (id.includes("mendieta")) return "Acompane a familias en vivienda social y cuidado cotidiano del entorno.";
-  return "Acompane procesos territoriales, acuerdos y aprendizajes compartidos.";
-}
-
-function BookPreview({ pages, compact = false }: { pages: string[]; compact?: boolean }) {
-  return (
-    <div className={compact ? "book-preview compact" : "book-preview"} aria-hidden="true">
-      {pages.slice(0, compact ? 3 : 6).map((page, index) => (
-        <span
-          key={page}
-          className="book-page"
-          style={{
-            backgroundImage: `url(${page})`,
-            "--page-index": index,
-          } as CSSProperties}
-        />
-      ))}
-    </div>
-  );
+  if (id.includes("2021")) return "Acompañé liderazgos, reuniones y materiales educativos junto a comunidades y organizaciones.";
+  if (id.includes("indicep")) return "Trabajé educación comunitaria vinculada a derechos, territorio y ambiente.";
+  if (id.includes("mendieta")) return "Acompañé a familias en vivienda social y cuidado cotidiano del entorno.";
+  return "Acompañé procesos territoriales, acuerdos y aprendizajes compartidos.";
 }
