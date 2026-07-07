@@ -331,14 +331,14 @@ a {
   display: block;
   width: 100%;
   max-width: 100%;
-  min-height: 560px;
+  min-height: 500px;
   padding: 0;
   border: 0;
   background: transparent;
   color: inherit;
   text-align: left;
   cursor: pointer;
-  perspective: 1500px;
+  perspective: 1600px;
   overflow: hidden;
   contain: paint;
 }
@@ -349,7 +349,7 @@ a {
   display: block;
   width: 100%;
   max-width: 100%;
-  min-height: 540px;
+  min-height: 470px;
   overflow: hidden;
 }
 
@@ -370,82 +370,93 @@ a {
 }
 
 .book-preview.compact {
-  min-height: 260px;
+  min-height: 248px;
 }
 
 .book-page {
   position: absolute;
-  top: 34px;
+  top: 28px;
   left: 0;
   display: block;
-  width: min(23vw, 285px);
+  width: min(23vw, 270px);
   aspect-ratio: 0.77;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 10px;
   background-color: var(--color-paper);
   background-position: center top;
   background-size: cover;
-  box-shadow: 0 26px 60px rgba(52, 33, 61, 0.22);
+  box-shadow: 0 24px 55px rgba(52, 33, 61, 0.2);
   z-index: calc(20 - var(--page-index));
-  transform: rotate(-3deg) translateZ(20px);
+  transform: translateZ(20px);
   transition: transform 260ms ease, box-shadow 260ms ease;
-  animation: page-drift 6.8s ease-in-out infinite;
-  animation-delay: calc(var(--page-index) * -0.45s);
 }
 
 .book-page.left-page {
-  left: min(4vw, 52px);
-  transform: rotate(-4deg) translateZ(18px);
+  right: 50%;
+  left: auto;
+  border-radius: 10px 2px 2px 10px;
+  transform-origin: right center;
 }
 
 .book-page.right-page {
-  left: min(24vw, 305px);
+  left: 50%;
+  border-radius: 2px 10px 10px 2px;
+  transform-origin: left center;
   z-index: 24;
-  transform: rotate(3deg) translateZ(28px);
 }
 
 .book-stage.closed .left-page {
-  transform: rotate(-7deg) translateX(-8px) translateZ(12px);
+  transform: translateZ(12px);
 }
 
 .book-stage.closed .right-page {
   z-index: 60;
-  transform: rotate(5deg) translateX(-24px) translateZ(80px);
+  transform: translateZ(30px);
 }
 
 .book-stage.open .left-page {
-  transform: rotate(-2.5deg) translateZ(34px);
+  transform: rotateY(2deg) translateZ(24px);
 }
 
 .book-stage.open .right-page {
-  transform: rotate(2.5deg) translateZ(38px);
+  transform: rotateY(-2deg) translateZ(26px);
+}
+
+.book-spread::after {
+  position: absolute;
+  top: 28px;
+  bottom: 44px;
+  left: 50%;
+  z-index: 80;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(52, 33, 61, 0.26), transparent);
+  box-shadow: 0 0 20px rgba(52, 33, 61, 0.16);
+  content: "";
 }
 
 .book-spread .book-page:hover,
 .book-preview .book-page:hover {
-  transform:
-    translateY(-12px)
-    rotate(calc(-4deg + (var(--page-index) * 2deg)))
-    translateZ(70px);
+  transform: translateY(-6px) translateZ(42px);
   box-shadow: 0 34px 80px rgba(52, 33, 61, 0.28);
 }
 
 .book-preview .book-page {
-  width: min(58%, 180px);
-  top: 12px;
+  width: min(49%, 165px);
+  top: 18px;
 }
 
 .book-preview .left-page {
-  left: 0;
+  right: 50%;
+  left: auto;
 }
 
 .book-preview .right-page {
-  left: min(42%, 120px);
+  left: 50%;
 }
 
 .book-preview.closed .right-page {
   z-index: 60;
-  transform: rotate(5deg) translateX(-18px) translateZ(80px);
+  transform: translateZ(30px);
 }
 
 .book-hint {
@@ -557,20 +568,26 @@ a {
 
   .book-stage,
   .book-spread {
-    min-height: 600px;
+    min-height: 360px;
+  }
+
+  .book-spread {
+    width: min(100%, 292px);
+    margin: 0 auto;
   }
 
   .book-page {
-    width: min(54vw, 210px);
-    top: 22px;
+    width: 50%;
+    top: 18px;
   }
 
   .book-page.left-page {
-    left: 2px;
+    right: 50%;
+    left: auto;
   }
 
   .book-page.right-page {
-    left: min(37vw, 145px);
+    left: 50%;
   }
 
   .book-preview {
