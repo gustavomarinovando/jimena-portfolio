@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import media from "@/data/media.json";
 import video from "@/data/video.json";
 import caseStudies from "@/data/case-studies-summary.json";
@@ -193,21 +194,13 @@ export default function Home() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <article className="object-card min-h-[420px] p-6 sm:col-span-2">
-                <div className="absolute right-7 top-7 hidden h-64 w-40 rotate-3 rounded-[18px] bg-[var(--color-lavender)] shadow-2xl sm:block" />
-                <div className="absolute right-16 top-14 hidden h-64 w-40 -rotate-6 rounded-[18px] bg-[var(--color-sun)] shadow-xl sm:block" />
-                <div className="absolute right-11 top-12 hidden h-64 w-40 rotate-1 rounded-[18px] bg-[var(--color-paper)] shadow-2xl sm:block">
-                  <div className="h-20 rounded-t-[18px] bg-[var(--color-violet)]" />
-                  <div className="space-y-3 p-5">
-                    <span className="block h-3 w-24 rounded-full bg-[var(--color-lilac)]" />
-                    <span className="block h-3 w-20 rounded-full bg-[var(--color-lilac)]" />
-                    <span className="block h-16 rounded-[12px] bg-[var(--color-blush)]" />
-                  </div>
-                </div>
+                <BookPreview pages={materials[0].previewPages ?? []} compact />
                 <p className="eyebrow relative z-10">{materials[0].type}</p>
-                <h3 className="relative z-10 mt-24 max-w-sm text-3xl font-black text-[var(--color-plum)] sm:mt-32">
+                <h3 className="relative z-10 mt-52 max-w-sm text-3xl font-black text-[var(--color-plum)] sm:mt-32">
                   {materials[0].title}
                 </h3>
                 <p className="relative z-10 mt-4 max-w-md text-[var(--color-muted)]">{materials[0].description}</p>
+                <a className="button mt-6" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
               </article>
               {materials.slice(1, 5).map((item) => (
                 <article key={item.id} className="object-card p-5">
@@ -276,4 +269,21 @@ function storyLine(id: string) {
   if (id.includes("indicep")) return "Trabaje educacion comunitaria vinculada a derechos, territorio y ambiente.";
   if (id.includes("mendieta")) return "Acompane a familias en vivienda social y cuidado cotidiano del entorno.";
   return "Acompane procesos territoriales, acuerdos y aprendizajes compartidos.";
+}
+
+function BookPreview({ pages, compact = false }: { pages: string[]; compact?: boolean }) {
+  return (
+    <div className={compact ? "book-preview compact" : "book-preview"} aria-hidden="true">
+      {pages.slice(0, compact ? 3 : 6).map((page, index) => (
+        <span
+          key={page}
+          className="book-page"
+          style={{
+            backgroundImage: `url(${page})`,
+            "--page-index": index,
+          } as CSSProperties}
+        />
+      ))}
+    </div>
+  );
 }

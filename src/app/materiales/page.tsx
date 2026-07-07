@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import materials from "@/data/materiales.json";
 
 export const metadata = {
@@ -7,6 +8,8 @@ export const metadata = {
 };
 
 export default function MaterialesPage() {
+  const [featured, ...archive] = materials;
+
   return (
     <>
       <header className="py-6">
@@ -16,24 +19,37 @@ export default function MaterialesPage() {
         <div className="wrap mt-12 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <p className="eyebrow">Archivo visual</p>
-            <h1 className="display mt-4">Materiales que se pueden mirar.</h1>
+            <h1 className="section-title mt-4">Materiales para mirar y hojear.</h1>
           </div>
           <p className="lead max-w-2xl">
-            Presento publicaciones, cartillas, banners, guias, radio y sistematizaciones como objetos de trabajo:
-            piezas que ayudan a explicar, recordar y replicar aprendizajes.
+            Cartillas, guias, radio y sistematizaciones como piezas de trabajo:
+            hechas para explicar, recordar y compartir aprendizajes.
           </p>
         </div>
       </header>
 
       <main className="section">
         <div className="wrap">
+          <section className="material-feature" aria-labelledby="featured-material-title">
+            <div>
+              <p className="eyebrow">{featured.type}</p>
+              <h2 id="featured-material-title" className="section-title mt-3">{featured.title}</h2>
+              <p className="lead mt-5 max-w-xl">{featured.description}</p>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <a className="button" href={featured.pdfPath} target="_blank" rel="noreferrer">Abrir PDF</a>
+                <a className="button secondary glass" href={featured.pdfPath} download>Descargar</a>
+              </div>
+            </div>
+            <BookScroller pages={featured.previewPages ?? []} />
+          </section>
+
           <div className="mb-8 flex flex-wrap gap-2" aria-label="Categorias previstas">
             {["Publicacion", "Cartillas", "Banners", "Guias", "Radio", "Sistematizaciones"].map((label) => (
               <span key={label} className="pill glass">{label}</span>
             ))}
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {materials.map((item) => (
+            {archive.map((item) => (
               <article key={item.id} className="object-card p-6">
                 {item.type === "cuna" ? (
                   <div className="waveform absolute right-6 top-8">
@@ -54,5 +70,28 @@ export default function MaterialesPage() {
         </div>
       </main>
     </>
+  );
+}
+
+function BookScroller({ pages }: { pages: string[] }) {
+  return (
+    <div className="book-stage" aria-label="Vista previa de paginas de la cartilla">
+      <div className="book-spread">
+        {pages.slice(0, 6).map((page, index) => (
+          <a
+            key={page}
+            href="/materials/incidencia-politica.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="book-page"
+            style={{
+              backgroundImage: `url(${page})`,
+              "--page-index": index,
+            } as CSSProperties}
+            aria-label={`Abrir cartilla, vista pagina ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

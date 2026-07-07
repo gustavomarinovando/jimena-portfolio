@@ -1,13 +1,21 @@
 [
   {
-    "id": "cartilla-principal-1",
+    "id": "incidencia-politica-genero",
     "type": "publicacion",
-    "title": "Publicacion o cartilla principal",
+    "title": "Incidencia politica con enfoque de genero",
     "experience": "CIPCA 2021-23",
-    "description": "Pieza principal para presentar un libro, cartilla o banner educativo con portada, contexto y rol.",
-    "pdfPath": "",
+    "description": "Cartilla de trabajo para acompanar conversaciones sobre participacion, liderazgo e incidencia.",
+    "pdfPath": "/materials/incidencia-politica.pdf",
     "language": "ES",
-    "thumbnail": null
+    "thumbnail": "/materials/incidencia-politica/page-00.jpg",
+    "previewPages": [
+      "/materials/incidencia-politica/page-00.jpg",
+      "/materials/incidencia-politica/page-01.jpg",
+      "/materials/incidencia-politica/page-02.jpg",
+      "/materials/incidencia-politica/page-03.jpg",
+      "/materials/incidencia-politica/page-04.jpg",
+      "/materials/incidencia-politica/page-05.jpg"
+    ]
   },
   {
     "id": "manual-fortalecimiento-1",
