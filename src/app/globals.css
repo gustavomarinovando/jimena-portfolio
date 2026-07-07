@@ -373,6 +373,14 @@ a {
   min-height: 248px;
 }
 
+.book-stage.stacked {
+  min-height: 380px;
+}
+
+.book-stage.stacked .book-spread {
+  min-height: 380px;
+}
+
 .book-page {
   position: absolute;
   top: 28px;
@@ -422,6 +430,20 @@ a {
   transform: rotateY(-2deg) translateZ(26px);
 }
 
+.book-single {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 100%;
+}
+
+.book-single .single-page {
+  left: 50%;
+  width: min(100%, 460px);
+  aspect-ratio: 0.77;
+  transform: translateX(-50%);
+}
+
 .book-spread::after {
   position: absolute;
   top: 28px;
@@ -432,12 +454,6 @@ a {
   background: linear-gradient(180deg, transparent, rgba(52, 33, 61, 0.26), transparent);
   box-shadow: 0 0 20px rgba(52, 33, 61, 0.16);
   content: "";
-}
-
-.book-spread .book-page:hover,
-.book-preview .book-page:hover {
-  transform: translateY(-6px) translateZ(42px);
-  box-shadow: 0 34px 80px rgba(52, 33, 61, 0.28);
 }
 
 .book-preview .book-page {
@@ -457,21 +473,6 @@ a {
 .book-preview.closed .right-page {
   z-index: 60;
   transform: translateZ(30px);
-}
-
-.book-hint {
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
-  z-index: 70;
-  border-radius: 999px;
-  padding: 0.55rem 0.78rem;
-  background: rgba(255, 249, 239, 0.82);
-  color: var(--color-plum);
-  font-size: 0.78rem;
-  font-weight: 900;
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(14px);
 }
 
 @keyframes page-drift {
@@ -600,6 +601,16 @@ a {
     width: min(100%, 180px);
     top: calc(var(--page-index) * 16px);
     left: calc(var(--page-index) * 20px);
+  }
+
+  .book-stage.mobile-single,
+  .book-stage.mobile-single .book-single {
+    min-height: 420px;
+  }
+
+  .book-stage.mobile-single .book-single .single-page {
+    width: min(100%, 340px);
+    top: 12px;
   }
 
   .hero-photo-caption {

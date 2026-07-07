@@ -1,16 +1,28 @@
 "use client";
 
-import { useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties, type MouseEvent } from "react";
 
 type MaterialBookProps = {
   pages: string[];
   compact?: boolean;
+  stacked?: boolean;
 };
 
 type Spread = [string | null, string | null];
 
-export function MaterialBook({ pages, compact = false }: MaterialBookProps) {
+export function MaterialBook({ pages, compact = false, stacked = false }: MaterialBookProps) {
   const [turn, setTurn] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 720px)");
+    const update = () => setIsMobile(media.matches);
+
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
   const spreads = useMemo<Spread[]>(() => {
     if (pages.length === 0) return [];
     if (pages.length === 1) return [[null, pages[0]]];
@@ -28,35 +40,64 @@ export function MaterialBook({ pages, compact = false }: MaterialBookProps) {
   const spreadIndex = spreads.length > 0 ? turn % spreads.length : 0;
   const [leftPage, rightPage] = spreads[spreadIndex] ?? [null, null];
   const isClosed = spreadIndex === 0;
+  const mobilePage = pages.length > 0 ? pages[Math.min(turn, pages.length - 1)] : null;
+
+  function handleActivate(event: MouseEvent<HTMLButtonElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const moveForward = event.clientX >= rect.left + rect.width / 2;
+
+    setTurn((current) => {
+      if (isMobile) {
+        if (moveForward) return Math.min(current + 1, pages.length - 1);
+        return Math.max(current - 1, 0);
+      }
+
+      if (moveForward) return current + 1;
+      return current > 0 ? current - 1 : 0;
+    });
+  }
 
   return (
     <button
       type="button"
-      className={`${compact ? "book-preview compact" : "book-stage"} ${isClosed ? "closed" : "open"}`}
-      onClick={() => setTurn((current) => current + 1)}
+      className={`${stacked ? "book-stage stacked" : compact ? "book-preview compact" : "book-stage"} ${isClosed ? "closed" : "open"} ${isMobile ? "mobile-single" : ""}`}
+      onClick={handleActivate}
       aria-label="Cambiar páginas de vista previa"
     >
-      <span className="book-spread" aria-hidden="true">
-        {leftPage ? (
-          <span
-            className="book-page left-page"
-            style={{
-              backgroundImage: `url(${leftPage})`,
-              "--page-index": 0,
-            } as CSSProperties}
-          />
-        ) : null}
-        {rightPage ? (
-          <span
-            className="book-page right-page"
-            style={{
-              backgroundImage: `url(${rightPage})`,
-              "--page-index": 1,
-            } as CSSProperties}
-          />
-        ) : null}
-      </span>
-      <span className="book-hint">{isClosed ? "Toca para abrir" : "Toca para seguir hojeando"}</span>
+      {isMobile ? (
+        <span className="book-single" aria-hidden="true">
+          {mobilePage ? (
+            <span
+              className="book-page single-page"
+              style={{
+                backgroundImage: `url(${mobilePage})`,
+                "--page-index": 0,
+              } as CSSProperties}
+            />
+          ) : null}
+        </span>
+      ) : (
+        <span className="book-spread" aria-hidden="true">
+          {leftPage ? (
+            <span
+              className="book-page left-page"
+              style={{
+                backgroundImage: `url(${leftPage})`,
+                "--page-index": 0,
+              } as CSSProperties}
+            />
+          ) : null}
+          {rightPage ? (
+            <span
+              className="book-page right-page"
+              style={{
+                backgroundImage: `url(${rightPage})`,
+                "--page-index": 1,
+              } as CSSProperties}
+            />
+          ) : null}
+        </span>
+      )}
     </button>
   );
 }

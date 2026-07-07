@@ -190,17 +190,14 @@ export default function Home() {
                 Estoy reuniendo cartillas, guías, audios y sistematizaciones. La idea es mostrar cada pieza como se usó:
                 para explicar, recordar y compartir aprendizajes.
               </p>
-              <Link className="button mt-7" href="/materiales">Ver archivo</Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <article className="object-card min-h-[420px] p-6 sm:col-span-2">
-                <MaterialBook pages={materials[0].previewPages ?? []} compact />
-                <p className="eyebrow relative z-10">{materials[0].type}</p>
-                <h3 className="relative z-10 mt-52 max-w-sm text-3xl font-black text-[var(--color-plum)] sm:mt-32">
-                  Cartilla impresa para hojear.
-                </h3>
-                <p className="relative z-10 mt-4 max-w-md text-[var(--color-muted)]">{materials[0].description}</p>
-                <a className="button mt-6" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
+                <MaterialBook pages={materials[0].previewPages ?? []} compact stacked />
+                <div className="relative z-10 mt-5">
+                  <p className="max-w-md text-[var(--color-muted)]">{materials[0].description}</p>
+                  <a className="button mt-6" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
+                </div>
               </article>
               {materials.slice(1, 5).map((item) => (
                 <article key={item.id} className="object-card p-5">
