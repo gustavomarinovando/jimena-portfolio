@@ -1,0 +1,52 @@
+{
+  "id": "constructora-mendieta-2019-2020",
+  "organization": "Constructora Mendieta",
+  "role": "Responsable del Area Social",
+  "period": { "start": "2019-09", "end": "2020-05" },
+  "locations": ["Pendiente: proyectos de vivienda social y zonas especificas"],
+  "context": "Acompanamiento social en proyectos de vivienda social, con comunicacion y coordinacion junto a familias beneficiarias y autoridades de sus organizaciones.",
+  "audience": ["Familias beneficiarias", "Autoridades de organizaciones", "Comunidades vinculadas a vivienda social"],
+  "challenge": "Convertir practicas de cuidado de la vivienda y del entorno en aprendizajes cotidianos, comprensibles y aplicables por las familias.",
+  "methodology": [
+    "Capacitacion comunitaria",
+    "Informacion y sensibilizacion",
+    "Coordinacion con familias y autoridades",
+    "Educacion ambiental familiar",
+    "Comunicacion clara para practicas cotidianas"
+  ],
+  "activities": [
+    { "description": "Acompanamiento social en proyectos de vivienda social", "output": "Proyectos, zonas y numero de familias por confirmar" },
+    { "description": "Comunicacion y coordinacion con familias beneficiarias", "output": "Autoridades, organizaciones y mecanismos por confirmar" },
+    { "description": "Capacitacion en gestion ambiental familiar", "output": "Agua, energia, residuos y movilidad sostenible segun CV actualizado" },
+    { "description": "Sensibilizacion sobre cuidado de la vivienda y su entorno", "output": "Materiales, sesiones y evidencias por confirmar" }
+  ],
+  "outputs": [
+    { "type": "sesion_capacitacion", "count": "PENDIENTE", "titles": ["Pendiente: temas y sesiones reales"], "downloadable": false },
+    { "type": "material_apoyo", "count": "PENDIENTE", "titles": ["Pendiente: materiales si existen"], "downloadable": true },
+    { "type": "registro_fotografico", "count": "PENDIENTE", "downloadable": false }
+  ],
+  "relevance_girs": [
+    "Gestion adecuada de residuos aparece explicitamente en el CV actualizado",
+    "Uso eficiente del agua y consumo responsable de energia conectan con educacion ambiental cotidiana",
+    "Trabajo con familias beneficiarias ayuda a comunicar cambios de habito sin lenguaje tecnico",
+    "Coordinacion con autoridades de organizaciones es transferible a trabajo con OTBs y comunidades"
+  ],
+  "evidence_status": "PARTIAL",
+  "environmental_topics": "CV actualizado menciona agua, energia, gestion adecuada de residuos y movilidad sostenible; faltan proyectos, fechas finas, materiales y evidencia.",
+  "quantified": {
+    "families": "PENDIENTE: numero exacto o rango",
+    "sessions": "PENDIENTE: numero exacto",
+    "organizations": "PENDIENTE: nombres y autoridades",
+    "materials_produced": "PENDIENTE: confirmar si existen"
+  },
+  "photo_slots": [
+    { "id": "PHOTO_SLOT_MENDIETA_FAMILIES_2019_01", "category": "FAMILIES", "description": "Capacitacion o reunion con familias beneficiarias", "required": true, "metadata_status": "PENDIENTE" },
+    { "id": "PHOTO_SLOT_MENDIETA_HOUSING_2019_02", "category": "HOUSING", "description": "Proyecto de vivienda social o material de sensibilizacion", "required": false, "metadata_status": "PENDIENTE" }
+  ],
+  "content_todos": [
+    "Confirmar proyectos de vivienda social y zonas",
+    "Confirmar numero de familias o grupos beneficiarios",
+    "Confirmar materiales o registros disponibles",
+    "Confirmar si hubo evidencia especifica sobre residuos, agua, energia o movilidad"
+  ]
+}

@@ -3,7 +3,7 @@
     "period": "2025",
     "organization": "Radio Urbana",
     "role": "Responsable de Publicidad y Marketing",
-    "relevanceTag": "Comunicacion y sintesis; relevancia secundaria para esta convocatoria",
+    "relevanceTag": "Comunicacion, sintesis y mensajes para publicos diversos",
     "color": "light",
     "isCaseStudy": false
   },
@@ -23,6 +23,15 @@
     "color": "dark",
     "isCaseStudy": true,
     "caseStudyId": "cipca-2021-2023"
+  },
+  {
+    "period": "2019-2020",
+    "organization": "Constructora Mendieta",
+    "role": "Responsable del Area Social",
+    "relevanceTag": "Vivienda social, familias y gestion ambiental cotidiana",
+    "color": "medium",
+    "isCaseStudy": true,
+    "caseStudyId": "constructora-mendieta-2019-2020"
   },
   {
     "period": "2018-2020",

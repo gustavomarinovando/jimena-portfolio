@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Jimena Ovando Morales | Portafolio CETM",
+  title: "Jimena Ovando Morales | Portafolio profesional",
   description:
-    "Portafolio de evidencia para la convocatoria Educadora Medioambientalista CETM Sacaba.",
+    "Portafolio visual de evidencia sobre educacion popular, participacion comunitaria y comunicacion social.",
 };
 
 export default function RootLayout({

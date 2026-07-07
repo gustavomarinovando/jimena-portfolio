@@ -91,7 +91,11 @@ a {
 }
 
 .section {
-  padding: clamp(56px, 8vw, 112px) 0;
+  padding: clamp(40px, 5.8vw, 78px) 0;
+}
+
+.section-tight {
+  padding-top: clamp(18px, 2.4vw, 34px);
 }
 
 .eyebrow {
@@ -218,6 +222,29 @@ a {
   box-shadow: var(--shadow-hover);
 }
 
+.hero-photo {
+  background-image:
+    linear-gradient(180deg, rgba(52, 33, 61, 0.08), rgba(52, 33, 61, 0.16)),
+    url("/photos/trabajo-territorio.jpg");
+  background-position: 52% center;
+  background-size: cover;
+}
+
+.hero-photo-caption {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: auto;
+  z-index: 2;
+  width: min(62%, 360px);
+  padding: 0.72rem 0.86rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background: rgba(52, 33, 61, 0.42);
+  color: white;
+  backdrop-filter: blur(8px);
+}
+
 .photo-slot::before {
   position: absolute;
   inset: 12px;
@@ -319,13 +346,18 @@ a {
   }
 
   .display {
-    font-size: clamp(2.55rem, 10.5vw, 3.45rem);
+    font-size: clamp(2.2rem, 8.3vw, 2.75rem);
     line-height: 0.98;
   }
 
+  .lead {
+    font-size: 1.04rem;
+    line-height: 1.58;
+  }
+
   .section-title {
-    font-size: clamp(2rem, 9.5vw, 3rem);
-    line-height: 1;
+    font-size: clamp(1.8rem, 8.4vw, 2.55rem);
+    line-height: 1.04;
   }
 
   .photo-slot {
@@ -336,6 +368,21 @@ a {
     top: 50%;
     bottom: auto;
     transform: translateY(-50%);
+  }
+
+  .hero-photo-caption {
+    right: 12px;
+    bottom: 12px;
+    left: auto;
+    width: min(58%, 220px);
+    padding: 0.62rem 0.72rem;
+  }
+
+  .hero-photo-label {
+    max-width: calc(100% - 24px);
+    font-size: 0.82rem;
+    left: 12px;
+    top: 12px;
   }
 }
 

@@ -1,10 +1,10 @@
 [
   {
     "id": "cartilla-pendiente-1",
-    "type": "cartilla",
-    "title": "Cartilla territorial por confirmar",
+    "type": "publicacion",
+    "title": "Publicacion o cartilla principal por integrar",
     "experience": "CIPCA 2021-23",
-    "description": "Entrada reservada para una cartilla real de fortalecimiento organizativo o gestion territorial. Titulo y archivo pendientes.",
+    "description": "Pieza principal para presentar un libro, cartilla o banner educativo con portada, contexto y rol.",
     "pdfPath": "",
     "language": "ES",
     "thumbnail": null
@@ -14,17 +14,17 @@
     "type": "manual",
     "title": "Manual de fortalecimiento por confirmar",
     "experience": "CIPCA 2021-23",
-    "description": "Entrada reservada para un manual real de diagnostico o planificacion organizativa.",
+    "description": "Manual o guia de diagnostico, planificacion organizativa o formacion comunitaria.",
     "pdfPath": "",
     "language": "ES",
     "thumbnail": null
   },
   {
     "id": "cuna-pendiente-1",
-    "type": "cuña",
+    "type": "cuna",
     "title": "Guion de cuna radial por confirmar",
     "experience": "CIPCA 2021-23",
-    "description": "Entrada reservada para un guion o audio real de cuna radial producido por Jimena.",
+    "description": "Guion o audio radial para explicar mensajes comunitarios en lenguaje accesible.",
     "pdfPath": "",
     "language": "ES",
     "thumbnail": null
@@ -34,7 +34,7 @@
     "type": "guia",
     "title": "Guia metodologica por confirmar",
     "experience": "INDICEP 2013-15",
-    "description": "Entrada reservada para una guia real de diagnostico participativo o facilitacion.",
+    "description": "Guia metodologica para diagnostico participativo, facilitacion o replica.",
     "pdfPath": "",
     "language": "ES",
     "thumbnail": null
@@ -44,7 +44,7 @@
     "type": "sistematizacion",
     "title": "Sistematizacion por confirmar",
     "experience": "CIPCA 2015-16",
-    "description": "Entrada reservada para una sistematizacion real disponible para revision o descarga.",
+    "description": "Sistematizacion o documento de aprendizaje para revisar procesos y resultados.",
     "pdfPath": "",
     "language": "ES",
     "thumbnail": null

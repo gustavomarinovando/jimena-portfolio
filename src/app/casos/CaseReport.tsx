@@ -31,9 +31,9 @@ export function CaseReport({ data }: { data: CaseData }) {
           <div className="evidence-surface min-h-[360px] p-5">
             <div className="photo-slot min-h-[320px]">
               <div className="photo-caption">
-                <p className="text-xs font-black uppercase tracking-normal text-[var(--color-sun)]">Foto del caso pendiente</p>
+                <p className="text-xs font-black uppercase tracking-normal text-[var(--color-sun)]">Evidencia por integrar</p>
                 <h2 className="text-2xl font-black">{storyTitle(data.id)}</h2>
-                <p className="mt-2 text-sm text-white/82">Este espacio espera evidencia fotografica con metadata y permisos.</p>
+                <p className="mt-2 text-sm text-white/82">Aqui integrare fotografia real con metadata y permisos.</p>
               </div>
             </div>
           </div>
@@ -49,11 +49,11 @@ export function CaseReport({ data }: { data: CaseData }) {
           </div>
         </section>
 
-        <section className="section pt-0" aria-labelledby="actions-title">
+        <section className="section pt-6" aria-labelledby="actions-title">
           <div className="wrap grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="eyebrow">Que hizo Jimena</p>
-              <h2 id="actions-title" className="section-title mt-3">Acciones visibles, no relato largo.</h2>
+              <p className="eyebrow">Que hice</p>
+              <h2 id="actions-title" className="section-title mt-3">Acciones visibles, sin relato largo.</h2>
               <p className="lead mt-5">{boundaryText(data.id)}</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -67,7 +67,7 @@ export function CaseReport({ data }: { data: CaseData }) {
           </div>
         </section>
 
-        <section className="section pt-0" aria-labelledby="method-title">
+        <section className="section pt-6" aria-labelledby="method-title">
           <div className="wrap">
             <p className="eyebrow">Metodo aplicado</p>
             <h2 id="method-title" className="section-title mt-3">Una practica participativa y verificable.</h2>
@@ -79,7 +79,7 @@ export function CaseReport({ data }: { data: CaseData }) {
           </div>
         </section>
 
-        <section className="section pt-0" aria-labelledby="gallery-title">
+        <section className="section pt-6" aria-labelledby="gallery-title">
           <div className="wrap">
             <p className="eyebrow">Galeria preparada</p>
             <h2 id="gallery-title" className="section-title mt-3">Fotos, materiales y contexto.</h2>
@@ -88,7 +88,7 @@ export function CaseReport({ data }: { data: CaseData }) {
                 <article key={title} className="photo-slot min-h-[280px]">
                   <div className="photo-caption">
                     <h3 className="text-xl font-black">{title}</h3>
-                    <p className="mt-1 text-sm text-white/82">Pendiente de imagen real, alt text y caption aprobado.</p>
+                    <p className="mt-1 text-sm text-white/82">Integrare imagen real, alt text y caption aprobado.</p>
                   </div>
                 </article>
               ))}
@@ -96,10 +96,10 @@ export function CaseReport({ data }: { data: CaseData }) {
           </div>
         </section>
 
-        <section className="section pt-0" aria-labelledby="pending-title">
+        <section className="section pt-6" aria-labelledby="pending-title">
           <div className="wrap glass rounded-[28px] p-6 sm:p-8">
             <p className="eyebrow">Antes de publicar</p>
-            <h2 id="pending-title" className="mt-3 text-3xl font-black text-[var(--color-plum)]">Pendientes de verificacion</h2>
+            <h2 id="pending-title" className="mt-3 text-3xl font-black text-[var(--color-plum)]">Datos que voy a confirmar</h2>
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               {[data.environmental_topics, ...data.content_todos.slice(0, 5)].map((item) => (
                 <p key={item} className="rounded-[18px] bg-white/55 p-4 text-[var(--color-muted)]">{item}</p>
@@ -124,12 +124,14 @@ function Fact({ title, body }: { title: string; body: string }) {
 function storyTitle(id: string) {
   if (id.includes("2021")) return "Educacion popular en territorio";
   if (id.includes("indicep")) return "Ambiente y educacion comunitaria";
+  if (id.includes("mendieta")) return "Gestion ambiental familiar";
   return "Organizacion y coordinacion municipal";
 }
 
 function boundaryText(id: string) {
-  if (id.includes("indicep")) return "La mencion ambiental existe en el CV; los temas exactos aun deben confirmarse.";
-  return "La experiencia es relevante por metodologia, territorio y organizacion; los numeros siguen pendientes.";
+  if (id.includes("indicep")) return "Menciono medio ambiente en mi CV; todavia debo precisar los temas exactos para publicarlos con mas fuerza.";
+  if (id.includes("mendieta")) return "Mi experiencia ambiental familiar aparece en el CV actualizado; aun debo sumar fotos, materiales y numeros.";
+  return "Esta experiencia es relevante por metodologia, territorio y organizacion; todavia debo precisar cifras y materiales.";
 }
 
 function shortContext(context: string) {

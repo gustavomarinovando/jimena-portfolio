@@ -23,10 +23,10 @@ export default function GIRSPage() {
         <div className="wrap mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <div>
             <p className="eyebrow">GIRS y educacion ambiental</p>
-            <h1 className="display mt-4">Un puente, no un sobreclaim.</h1>
+            <h1 className="display mt-4">Educacion ambiental desde la participacion.</h1>
           </div>
           <p className="lead max-w-2xl">
-            La evidencia actual esta en metodologia participativa. La aplicacion a residuos debe validarse con contenido tecnico, contexto municipal y experiencias piloto.
+            Aporto metodologia participativa, comunicacion clara y trabajo territorial para acompanar procesos de aprendizaje sobre residuos y cuidado ambiental.
           </p>
         </div>
       </header>
@@ -50,7 +50,7 @@ export default function GIRSPage() {
               {audiences.map((audience) => (
                 <article key={audience} className="glass rounded-[22px] p-5">
                   <h3 className="text-2xl font-black text-[var(--color-plum)]">{audience}</h3>
-                  <p className="mt-3 text-[var(--color-muted)]">Estrategia pendiente de diagnostico y validacion.</p>
+                  <p className="mt-3 text-[var(--color-muted)]">Diseno mensajes y dinamicas a partir del contexto y de la audiencia.</p>
                 </article>
               ))}
             </div>
@@ -60,7 +60,7 @@ export default function GIRSPage() {
           <div className="wrap glass rounded-[28px] p-6 sm:p-8">
             <p className="eyebrow">Contexto local seguro</p>
             <h2 className="mt-3 text-3xl font-black text-[var(--color-plum)]">GERES, PCRO/PCRR, Educa Recicla y Ley 755 son contexto publico.</h2>
-            <p className="lead mt-4">No se presentan como experiencia previa de Jimena. Funcionan como mapa de aprendizaje y coordinacion.</p>
+            <p className="lead mt-4">Los uso como mapa de aprendizaje y coordinacion, sin presentarlos como experiencia previa propia.</p>
           </div>
         </section>
       </main>

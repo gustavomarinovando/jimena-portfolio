@@ -12,6 +12,14 @@ const capabilityTiles = [
   ["Organizar", "Liderazgos, acuerdos y participacion local."],
 ];
 
+const vacancySignals = [
+  ["Ambiente cotidiano", "Agua, energia, residuos y cuidado del entorno familiar."],
+  ["Territorio", "Comunidades, OTBs, organizaciones y coordinacion local."],
+  ["Formacion", "Talleres con mujeres, jovenes y liderazgos comunitarios."],
+  ["Replica", "Cartillas, radio y materiales para compartir aprendizajes."],
+  ["Interculturalidad", "Dialogo comunitario y Quechua avanzado."],
+];
+
 const method = [
   ["Escuchar", "Partir del contexto y de la voz de la gente."],
   ["Construir", "Ordenar acuerdos, necesidades y saberes locales."],
@@ -20,46 +28,40 @@ const method = [
 ];
 
 export default function Home() {
-  const heroSlot = media.photoSlots[0];
-
   return (
     <>
-      <header className="relative overflow-hidden pb-16 pt-6 sm:pb-24">
-        <nav className="wrap glass relative z-10 hidden items-center justify-end rounded-full px-4 py-3 sm:flex">
+      <header className="relative overflow-hidden pb-3 pt-6 sm:pb-4">
+        <nav className="wrap glass relative z-10 hidden items-center justify-between rounded-full px-4 py-3 sm:flex">
+          <Link href="/" className="px-2 font-black text-[var(--color-plum)] no-underline">Portafolio visual de evidencia</Link>
           <div className="hidden gap-2 sm:flex">
-            <Link className="pill" href="#experiencias">Experiencias</Link>
+            <Link className="pill" href="#casos">Casos</Link>
             <Link className="pill" href="#video">Video</Link>
             <Link className="pill" href="#materiales">Materiales</Link>
           </div>
         </nav>
 
-        <div className="wrap relative z-10 mt-12 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="wrap relative z-10 mt-8 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="reveal">
-            <p className="eyebrow">Portafolio visual de evidencia</p>
+            <p className="eyebrow">Portafolio profesional</p>
             <h1 className="display mt-4">Jimena Ovando</h1>
             <p className="lead mt-6 max-w-xl">
-              Educacion popular, participacion comunitaria y comunicacion que conecta.
-              Trabajo construido junto a comunidades y organizaciones.
+              <span className="block">Educacion popular, participacion y comunicacion.</span>
+              <span className="block">Trabajo con comunidades, grupos e instituciones.</span>
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link className="button w-full sm:w-auto" href="#experiencias">Ver experiencias</Link>
-              <Link className="button secondary glass w-full sm:w-auto" href="#video">Conocer su trabajo</Link>
+              <Link className="button w-full sm:w-auto" href="#casos">Ver casos</Link>
+              <Link className="button secondary glass w-full sm:w-auto" href="#video">Ver presentacion</Link>
             </div>
           </div>
 
-          <div className="evidence-surface min-h-[340px] sm:min-h-[560px] p-5 sm:p-7">
-            <div className="photo-slot h-full min-h-[300px] sm:min-h-[500px]">
-              <div className="absolute left-6 top-6 z-10 rounded-full bg-[var(--color-sun)] px-4 py-2 text-sm font-black text-[var(--color-plum)]">
-                {heroSlot.shortTitle}
+          <div className="evidence-surface min-h-[280px] p-5 sm:min-h-[310px] sm:p-6">
+            <div className="photo-slot hero-photo h-full min-h-[240px] sm:min-h-[262px]">
+              <div className="hero-photo-label absolute left-4 top-4 z-10 rounded-full bg-[var(--color-sun)] px-4 py-2 text-sm font-black text-[var(--color-plum)] sm:left-6 sm:top-6">
+                Trabajo en territorio
               </div>
-              <div className="absolute right-8 top-16 h-28 w-28 rounded-full bg-[var(--color-sun)] opacity-90 blur-[1px] float-soft" />
-              <div className="absolute bottom-28 left-10 h-20 w-20 rounded-full bg-[var(--color-blush)] opacity-80 float-soft delay" />
-              <div className="photo-caption">
-                <p className="text-sm font-black uppercase tracking-normal text-[var(--color-sun)]">Foto principal pendiente</p>
-                <p className="mt-2 text-lg font-black">{heroSlot.caption}</p>
-                <p className="mt-2 text-sm text-white/82">
-                  El espacio esta listo para una imagen autentica con metadata y permiso.
-                </p>
+              <div className="hero-photo-caption">
+                <p className="text-xs font-black uppercase tracking-normal text-[var(--color-sun)]">Evidencia visual</p>
+                <p className="mt-1 text-sm font-black sm:text-base">Facilito grupos en territorio.</p>
               </div>
             </div>
           </div>
@@ -67,16 +69,37 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="section pt-0" aria-labelledby="proof-title">
+        <section className="section section-tight" aria-labelledby="proof-title">
           <div className="wrap">
-            <h2 id="proof-title" className="section-title max-w-3xl">Aprender se construye con la gente.</h2>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <h2 id="proof-title" className="text-4xl font-black leading-tight text-[var(--color-plum)] sm:text-5xl">Lo que aporto en campo.</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {capabilityTiles.map(([title, body], index) => (
                 <article key={title} className="glass lift rounded-[22px] p-5" style={{ animationDelay: `${index * 70}ms` }}>
                   <div className="mb-5 h-12 w-12 rounded-full bg-[var(--color-sun)] text-center text-2xl leading-[3rem] text-[var(--color-plum)] float-soft">
                     {index + 1}
                   </div>
                   <h3 className="text-2xl font-black text-[var(--color-plum)]">{title}</h3>
+                  <p className="mt-2 text-[var(--color-muted)]">{body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section pt-2" aria-labelledby="fit-title">
+          <div className="wrap grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+            <div>
+              <p className="eyebrow">Capacidades profesionales</p>
+              <h2 id="fit-title" className="section-title mt-3">Entrar a territorio, formar grupos y dejar herramientas.</h2>
+              <p className="lead mt-5">
+                Mi aporte esta en convertir temas complejos en procesos participativos:
+                escuchar, explicar, organizar y producir materiales utiles para la comunidad.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {vacancySignals.map(([title, body]) => (
+                <article key={title} className="glass lift rounded-[22px] p-5">
+                  <h3 className="text-xl font-black text-[var(--color-plum)]">{title}</h3>
                   <p className="mt-2 text-[var(--color-muted)]">{body}</p>
                 </article>
               ))}
@@ -139,11 +162,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experiencias" className="section" aria-labelledby="stories-title">
+        <section id="casos" className="section" aria-labelledby="stories-title">
           <div className="wrap">
-            <p className="eyebrow">Tres historias seleccionadas</p>
-            <h2 id="stories-title" className="section-title mt-3">Experiencia que se puede mirar, ordenar y verificar</h2>
-            <div className="mt-9 grid gap-5 lg:grid-cols-3">
+            <p className="eyebrow">Historias seleccionadas</p>
+            <h2 id="stories-title" className="section-title mt-3">Casos que muestran como trabajo.</h2>
+            <div className="mt-9 grid gap-5 md:grid-cols-2">
               {caseStudies.map((study, index) => (
                 <article key={study.id} className="object-card p-6">
                   <div className="absolute inset-x-0 top-0 h-28 bg-[var(--color-lavender)]" />
@@ -165,16 +188,34 @@ export default function Home() {
           <div className="wrap grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
               <p className="eyebrow">Materiales como objetos</p>
-              <h2 id="materials-title" className="section-title mt-3">Cartillas, guias, radio y sistematizacion.</h2>
+              <h2 id="materials-title" className="section-title mt-3">Un archivo que se pueda hojear.</h2>
               <p className="lead mt-5">
-                El archivo visual esta preparado para mostrar trabajo real. Los titulos y archivos permanecen pendientes hasta que Jimena los entregue.
+                Cuando integre fotos, banners o una pequena publicacion, cada pieza debe mostrar:
+                portada, contexto, mi rol y posibilidad de revisar el material.
               </p>
               <Link className="button mt-7" href="/materiales">Ver archivo</Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              {materials.slice(0, 4).map((item, index) => (
+              <article className="object-card min-h-[420px] p-6 sm:col-span-2">
+                <div className="absolute right-7 top-7 hidden h-64 w-40 rotate-3 rounded-[18px] bg-[var(--color-lavender)] shadow-2xl sm:block" />
+                <div className="absolute right-16 top-14 hidden h-64 w-40 -rotate-6 rounded-[18px] bg-[var(--color-sun)] shadow-xl sm:block" />
+                <div className="absolute right-11 top-12 hidden h-64 w-40 rotate-1 rounded-[18px] bg-[var(--color-paper)] shadow-2xl sm:block">
+                  <div className="h-20 rounded-t-[18px] bg-[var(--color-violet)]" />
+                  <div className="space-y-3 p-5">
+                    <span className="block h-3 w-24 rounded-full bg-[var(--color-lilac)]" />
+                    <span className="block h-3 w-20 rounded-full bg-[var(--color-lilac)]" />
+                    <span className="block h-16 rounded-[12px] bg-[var(--color-blush)]" />
+                  </div>
+                </div>
+                <p className="eyebrow relative z-10">{materials[0].type}</p>
+                <h3 className="relative z-10 mt-24 max-w-sm text-3xl font-black text-[var(--color-plum)] sm:mt-32">
+                  {materials[0].title}
+                </h3>
+                <p className="relative z-10 mt-4 max-w-md text-[var(--color-muted)]">{materials[0].description}</p>
+              </article>
+              {materials.slice(1, 5).map((item, index) => (
                 <article key={item.id} className="object-card p-5">
-                  {item.type === "cuña" ? (
+                  {item.type === "cuna" ? (
                     <div className="waveform absolute right-6 top-7">
                       {[22, 44, 30, 52, 26, 48, 34].map((height, i) => <span key={i} style={{ height }} />)}
                     </div>
@@ -185,7 +226,7 @@ export default function Home() {
                   <h3 className="relative z-10 mt-24 max-w-[70%] text-xl font-black text-[var(--color-plum)] sm:mt-28">
                     {item.title}
                   </h3>
-                  <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">{index < 2 ? "Objeto pendiente de archivo real." : "Metadata pendiente."}</p>
+                <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">{index < 2 ? "Listo para integrar archivo real." : "Listo para metadata final."}</p>
                 </article>
               ))}
             </div>
@@ -230,11 +271,13 @@ export default function Home() {
 function storyTitle(id: string) {
   if (id.includes("2021")) return "Educacion popular en territorio";
   if (id.includes("indicep")) return "Ambiente, derechos y replica";
+  if (id.includes("mendieta")) return "Vivienda social y gestion ambiental familiar";
   return "Organizacion, mujeres y jovenes";
 }
 
 function storyLine(id: string) {
-  if (id.includes("2021")) return "Acompanamiento, liderazgo y materiales educativos junto a comunidades y organizaciones.";
-  if (id.includes("indicep")) return "Experiencia con educacion comunitaria y ambiente, con temas especificos aun por confirmar.";
-  return "Coordinacion municipal, sistematizacion y procesos territoriales con enfoque participativo.";
+  if (id.includes("2021")) return "Acompano procesos de liderazgo y materiales educativos junto a comunidades y organizaciones.";
+  if (id.includes("indicep")) return "Facilito educacion comunitaria vinculada a territorio y ambiente, con temas especificos por precisar.";
+  if (id.includes("mendieta")) return "Capacito a familias en agua, energia, residuos y cuidado del entorno en proyectos de vivienda social.";
+  return "Coordino, sistematizo y acompano procesos territoriales con enfoque participativo.";
 }
