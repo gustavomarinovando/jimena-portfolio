@@ -41,10 +41,13 @@ export default function Home() {
           </div>
         </nav>
 
-        <div className="wrap relative z-10 mt-8 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="wrap relative z-10 mt-8 grid items-start gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="reveal">
             <p className="eyebrow">Portafolio profesional</p>
-            <h1 className="display mt-4">Jimena Ovando</h1>
+            <h1 className="display hero-name mt-4" aria-label="Jimena Ovando">
+              <span className="word-line">{animatedName("Jimena")}</span>
+              <span className="word-line">{animatedName("Ovando")}</span>
+            </h1>
             <p className="lead mt-6 max-w-xl">
               <span className="block">Educación popular, participación y comunicación.</span>
               <span className="block">Trabajo con comunidades, grupos e instituciones.</span>
@@ -266,4 +269,16 @@ function storyLine(id: string) {
   if (id.includes("indicep")) return "Trabajé educación comunitaria vinculada a derechos, territorio y ambiente.";
   if (id.includes("mendieta")) return "Acompañé a familias en vivienda social y cuidado cotidiano del entorno.";
   return "Acompañé procesos territoriales, acuerdos y aprendizajes compartidos.";
+}
+
+function animatedName(value: string) {
+  return value.split("").map((char, index) => (
+    <span
+      key={`${value}-${index}`}
+      className="hero-letter"
+      style={{ animationDelay: `${index * 38}ms` }}
+    >
+      {char}
+    </span>
+  ));
 }

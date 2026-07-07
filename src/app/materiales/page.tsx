@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MaterialBook } from "@/components/MaterialBook";
+import { FeaturedMaterial } from "@/components/FeaturedMaterial";
 import materials from "@/data/materiales.json";
 
 export const metadata = {
@@ -16,12 +16,9 @@ export default function MaterialesPage() {
         <nav className="wrap glass rounded-full px-4 py-3">
           <Link href="/" className="font-black text-[var(--color-plum)] underline">Inicio</Link>
         </nav>
-        <div className="wrap mt-12 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
-            <p className="eyebrow">Archivo visual</p>
-            <h1 className="section-title mt-4">Materiales para mirar y hojear.</h1>
-          </div>
-          <p className="lead max-w-2xl">
+        <div className="wrap mt-12 grid gap-6 md:grid-cols-[1.1fr_0.9fr] md:items-end">
+          <h1 className="section-title title-reveal">Materiales para mirar y hojear.</h1>
+          <p className="lead max-w-2xl md:justify-self-end">
             Cartillas, guías, radio y sistematizaciones como piezas de trabajo:
             hechas para explicar, recordar y compartir aprendizajes.
           </p>
@@ -30,16 +27,7 @@ export default function MaterialesPage() {
 
       <main className="section">
         <div className="wrap">
-          <section className="material-feature" aria-labelledby="featured-material-title">
-            <MaterialBook pages={featured.previewPages ?? []} stacked />
-            <div>
-              <p id="featured-material-title" className="lead max-w-xl">{featured.description}</p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <a className="button" href={featured.pdfPath} target="_blank" rel="noreferrer">Abrir PDF</a>
-                <a className="button secondary glass" href={featured.pdfPath} download>Descargar</a>
-              </div>
-            </div>
-          </section>
+          <FeaturedMaterial description={featured.description} pdfPath={featured.pdfPath} pages={featured.previewPages ?? []} />
 
           <div className="mb-8 flex flex-wrap gap-2" aria-label="Categorias previstas">
             {["Publicacion", "Cartillas", "Banners", "Guias", "Radio", "Sistematizaciones"].map((label) => (

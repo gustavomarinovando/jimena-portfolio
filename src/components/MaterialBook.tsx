@@ -6,11 +6,12 @@ type MaterialBookProps = {
   pages: string[];
   compact?: boolean;
   stacked?: boolean;
+  onTurnChange?: (turn: number) => void;
 };
 
 type Spread = [string | null, string | null];
 
-export function MaterialBook({ pages, compact = false, stacked = false }: MaterialBookProps) {
+export function MaterialBook({ pages, compact = false, stacked = false, onTurnChange }: MaterialBookProps) {
   const [turn, setTurn] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -47,13 +48,18 @@ export function MaterialBook({ pages, compact = false, stacked = false }: Materi
     const moveForward = event.clientX >= rect.left + rect.width / 2;
 
     setTurn((current) => {
-      if (isMobile) {
-        if (moveForward) return Math.min(current + 1, pages.length - 1);
-        return Math.max(current - 1, 0);
-      }
+      const nextTurn = (() => {
+        if (isMobile) {
+          if (moveForward) return Math.min(current + 1, pages.length - 1);
+          return Math.max(current - 1, 0);
+        }
 
-      if (moveForward) return current + 1;
-      return current > 0 ? current - 1 : 0;
+        if (moveForward) return current + 1;
+        return current > 0 ? current - 1 : 0;
+      })();
+
+      onTurnChange?.(nextTurn);
+      return nextTurn;
     });
   }
 
