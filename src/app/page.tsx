@@ -45,8 +45,7 @@ export default function Home() {
           <div className="reveal">
             <p className="eyebrow">Portafolio profesional</p>
             <h1 className="display hero-name mt-4" aria-label="Jimena Ovando">
-              <span className="word-line">{animatedName("Jimena")}</span>
-              <span className="word-line">{animatedName("Ovando")}</span>
+              <span className="word-line">{animatedName("Jimena")} {" "}{animatedName("Ovando")}</span>
             </h1>
             <p className="lead mt-6 max-w-xl">
               <span className="block">Educación popular, participación y comunicación.</span>

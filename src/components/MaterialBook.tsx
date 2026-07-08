@@ -24,6 +24,18 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
     return () => media.removeEventListener("change", update);
   }, []);
 
+  useEffect(() => {
+    const preload = [...new Set(pages)].map((src) => {
+      const image = new Image();
+      image.src = src;
+      return image;
+    });
+
+    return () => {
+      preload.length = 0;
+    };
+  }, [pages]);
+
   const spreads = useMemo<Spread[]>(() => {
     if (pages.length === 0) return [];
     if (pages.length === 1) return [[null, pages[0]]];
@@ -103,6 +115,9 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
           ) : null}
         </span>
       )}
+      <span className="sr-only">
+        {mobilePage ?? leftPage ?? rightPage ?? ""}
+      </span>
     </button>
   );
 }
