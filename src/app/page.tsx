@@ -14,12 +14,12 @@ const capabilityTiles = [
   ["Organizar", "Acuerdos, liderazgos y trabajo compartido."],
 ];
 
-const vacancySignals = [
-  ["Cuidado cotidiano", "Agua, energía, residuos y entorno familiar explicados desde la vida diaria."],
+const capabilitySignals = [
   ["Territorio", "Comunidades, organizaciones y coordinación local, con los pies en el lugar."],
   ["Formación", "Talleres con mujeres, jóvenes y liderazgos comunitarios."],
-  ["Replica", "Cartillas, radio y materiales para que lo aprendido siga circulando."],
-  ["Interculturalidad", "Dialogo comunitario y Quechua para acercar la conversacion."],
+  ["Género e inclusión", "Diagnósticos participativos, liderazgo de mujeres y trabajo con personas con discapacidad."],
+  ["Réplica", "Cartillas, radio y materiales para que lo aprendido siga circulando."],
+  ["Interculturalidad", "Diálogo comunitario y quechua para acercar la conversación."],
 ];
 
 const method = [
@@ -34,7 +34,7 @@ export default function Home() {
     <>
       <header className="relative overflow-hidden pb-3 pt-6 sm:pb-4">
         <nav className="wrap glass relative z-10 hidden items-center justify-between rounded-full px-4 py-3 sm:flex">
-          <Link href="/" className="px-2 font-black text-[var(--color-plum)] no-underline">Portafolio profesional</Link>
+          <Link href="/" className="px-2 font-black text-[var(--color-plum)] no-underline">Jimena Ovando</Link>
           <div className="hidden gap-2 sm:flex">
             <Link className="pill" href="#casos">Casos</Link>
             <Link className="pill" href="#video">Video</Link>
@@ -44,7 +44,7 @@ export default function Home() {
 
         <div className="wrap relative z-10 mt-8 grid items-start gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal className="hero-stack">
-            <p className="eyebrow hero-eyebrow">Portafolio profesional</p>
+            <p className="eyebrow hero-eyebrow">Socióloga · Comunicadora Social</p>
             <span className="hero-accent" aria-hidden="true" />
             <h1 className="display hero-name mt-4" aria-label="Jimena Ovando">
               <span className="hero-name-mask">
@@ -108,7 +108,7 @@ export default function Home() {
               </div>
             </Reveal>
             <div className="grid gap-3 sm:grid-cols-2">
-              {vacancySignals.map(([title, body], index) => (
+              {capabilitySignals.map(([title, body], index) => (
                 <Reveal key={title} delayMs={index * 80}>
                   <article className="glass lift rounded-[22px] p-5">
                     <h3 className="text-xl font-black text-[var(--color-plum)]">{title}</h3>
@@ -289,16 +289,37 @@ export default function Home() {
   );
 }
 
+const storyCopy: Record<string, { title: string; line: string }> = {
+  "cipca-2021-2023": {
+    title: "Educación popular en territorio",
+    line: "Acompañé liderazgos, reuniones y materiales educativos junto a comunidades y organizaciones.",
+  },
+  "indicep-2013-2015": {
+    title: "Ambiente, derechos y réplica",
+    line: "Trabajé educación comunitaria vinculada a derechos, territorio y ambiente.",
+  },
+  "cipca-2015-2016": {
+    title: "Organización, mujeres y jóvenes",
+    line: "Acompañé procesos territoriales, acuerdos y aprendizajes compartidos.",
+  },
+  "constructora-mendieta-2019-2020": {
+    title: "Vivienda social y gestión ambiental familiar",
+    line: "Acompañé a familias en vivienda social y cuidado cotidiano del entorno.",
+  },
+  "indicep-2023-2024": {
+    title: "Género, liderazgo y diálogo intercultural",
+    line: "Lideré diagnósticos participativos y facilité espacios de formación en género e interculturalidad.",
+  },
+  "asodifim-2018-2020": {
+    title: "Inclusión y educación social",
+    line: "Acompañé procesos formativos e institucionales de inclusión junto a personas con discapacidad.",
+  },
+};
+
 function storyTitle(id: string) {
-  if (id.includes("2021")) return "Educación popular en territorio";
-  if (id.includes("indicep")) return "Ambiente, derechos y réplica";
-  if (id.includes("mendieta")) return "Vivienda social y gestion ambiental familiar";
-  return "Organización, mujeres y jóvenes";
+  return storyCopy[id]?.title ?? "Organización, mujeres y jóvenes";
 }
 
 function storyLine(id: string) {
-  if (id.includes("2021")) return "Acompañé liderazgos, reuniones y materiales educativos junto a comunidades y organizaciones.";
-  if (id.includes("indicep")) return "Trabajé educación comunitaria vinculada a derechos, territorio y ambiente.";
-  if (id.includes("mendieta")) return "Acompañé a familias en vivienda social y cuidado cotidiano del entorno.";
-  return "Acompañé procesos territoriales, acuerdos y aprendizajes compartidos.";
+  return storyCopy[id]?.line ?? "Acompañé procesos territoriales, acuerdos y aprendizajes compartidos.";
 }

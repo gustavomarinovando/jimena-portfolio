@@ -58,5 +58,33 @@
       "Sensibilizacion sobre cuidado de la vivienda y su entorno",
       "Puente practico entre educacion comunitaria y habitos ambientales"
     ]
+  },
+  {
+    "id": "indicep-2023-2024",
+    "organization": "INDICEP",
+    "role": "Experta en Genero",
+    "period": "Sept 2023 - Feb 2024",
+    "locations": ["Pendiente: organizaciones y comunidades locales"],
+    "evidence_status": "PARCIAL: experiencia incluida en CV actualizado; detalles y evidencia pendientes",
+    "highlights": [
+      "Diagnosticos participativos con organizaciones locales",
+      "Espacios formativos y dialogo intercultural",
+      "Fortalecimiento de liderazgos y participacion equitativa",
+      "Materiales de apoyo con metodologias de educacion popular"
+    ]
+  },
+  {
+    "id": "asodifim-2018-2020",
+    "organization": "ASODIFIM-CO",
+    "role": "Educadora Social",
+    "period": "Jul 2018 - Dic 2020",
+    "locations": ["Pendiente: zonas y grupos especificos"],
+    "evidence_status": "PARCIAL: experiencia incluida en CV actualizado; detalles y evidencia pendientes",
+    "highlights": [
+      "Proyectos de fortalecimiento institucional e inclusion",
+      "Trabajo con personas con discapacidad fisica motora",
+      "Procesos formativos de liderazgo, participacion e incidencia",
+      "Materiales impresos y audiovisuales de sensibilizacion"
+    ]
   }
 ]

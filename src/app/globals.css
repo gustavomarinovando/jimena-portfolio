@@ -731,8 +731,12 @@ a {
     line-height: 0.98;
   }
 
+  .hero-stack {
+    container-type: inline-size;
+  }
+
   .hero-name {
-    font-size: clamp(2.1rem, calc(0.3rem + 10vw), 3.4rem);
+    font-size: clamp(1.9rem, 12.5cqw, 5.4rem);
     line-height: 0.94;
   }
 
