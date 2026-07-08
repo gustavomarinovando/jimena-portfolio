@@ -732,8 +732,8 @@ a {
   }
 
   .hero-name {
-    font-size: clamp(3.1rem, 14vw, 5.4rem);
-    line-height: 0.9;
+    font-size: clamp(2.1rem, calc(0.3rem + 10vw), 3.4rem);
+    line-height: 0.94;
   }
 
   .hero-photo {
