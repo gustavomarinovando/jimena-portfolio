@@ -40,7 +40,6 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
 
   const spreadIndex = spreads.length > 0 ? turn % spreads.length : 0;
   const [leftPage, rightPage] = spreads[spreadIndex] ?? [null, null];
-  const isClosed = spreadIndex === 0;
   const mobilePage = pages.length > 0 ? pages[Math.min(turn, pages.length - 1)] : null;
 
   function handleActivate(event: MouseEvent<HTMLButtonElement>) {
@@ -48,15 +47,15 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
     const moveForward = event.clientX >= rect.left + rect.width / 2;
 
     setTurn((current) => {
-      const nextTurn = (() => {
-        if (isMobile) {
-          if (moveForward) return Math.min(current + 1, pages.length - 1);
-          return Math.max(current - 1, 0);
-        }
-
-        if (moveForward) return current + 1;
-        return current > 0 ? current - 1 : 0;
-      })();
+      const nextTurn = isMobile
+        ? moveForward
+          ? Math.min(current + 1, pages.length - 1)
+          : Math.max(current - 1, 0)
+        : moveForward
+          ? current + 1
+          : current > 0
+            ? current - 1
+            : 0;
 
       onTurnChange?.(nextTurn);
       return nextTurn;
@@ -66,7 +65,7 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
   return (
     <button
       type="button"
-      className={`${stacked ? "book-stage stacked" : compact ? "book-preview compact" : "book-stage"} ${isClosed ? "closed" : "open"} ${isMobile ? "mobile-single" : ""}`}
+      className={`${stacked ? "book-stage stacked" : compact ? "book-preview compact" : "book-stage"} ${isMobile ? "mobile-single" : ""}`}
       onClick={handleActivate}
       aria-label="Cambiar páginas de vista previa"
     >

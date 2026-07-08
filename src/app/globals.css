@@ -116,20 +116,20 @@ a {
 }
 
 .hero-name {
-  font-size: clamp(3.4rem, 8.8vw, 8.4rem);
-  line-height: 0.84;
+  font-size: clamp(2.9rem, 7.8vw, 7rem);
+  line-height: 0.9;
   letter-spacing: -0.04em;
-  display: grid;
+  display: block;
+  white-space: nowrap;
 }
 
 .word-line {
-  display: block;
-  overflow: hidden;
+  display: inline;
 }
 
 .hero-letter {
   display: inline-block;
-  animation: letter-rise 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: letter-rise 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .section-title {
@@ -427,6 +427,8 @@ a {
   z-index: calc(20 - var(--page-index));
   transform: translateZ(20px);
   transition: transform 260ms ease, box-shadow 260ms ease;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
 .book-page.left-page {
@@ -591,8 +593,8 @@ a {
   }
 
   .hero-name {
-    font-size: clamp(2.9rem, 13vw, 4.4rem);
-    line-height: 0.88;
+    font-size: clamp(2.5rem, 10.6vw, 4.2rem);
+    line-height: 0.9;
   }
 
   .lead {
