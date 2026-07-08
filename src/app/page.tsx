@@ -46,7 +46,11 @@ export default function Home() {
           <Reveal className="hero-stack">
             <p className="eyebrow hero-eyebrow">Portafolio profesional</p>
             <span className="hero-accent" aria-hidden="true" />
-            <h1 className="display hero-name mt-4" aria-label="Jimena Ovando">Jimena Ovando</h1>
+            <h1 className="display hero-name mt-4" aria-label="Jimena Ovando">
+              <span className="hero-name-mask">
+                <span className="hero-name-text">Jimena Ovando</span>
+              </span>
+            </h1>
             <p className="lead hero-subtitle mt-6 max-w-xl">
               <span className="block">Educación popular, participación y comunicación.</span>
               <span className="block">Trabajo con comunidades, grupos e instituciones.</span>
@@ -195,7 +199,6 @@ export default function Home() {
                     <p className="eyebrow">{study.period}</p>
                     <h3 className="mt-2 text-2xl font-black text-[var(--color-plum)]">{storyTitle(study.id)}</h3>
                     <p className="mt-3 text-[var(--color-muted)]">{storyLine(study.id)}</p>
-                    <Link className="button mt-6" href={`/casos/${study.id}`}>Ver experiencia</Link>
                   </article>
                 </Reveal>
               ))}
@@ -278,7 +281,6 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap gap-3">
               <a className="button" href={`mailto:${footer.contact.email}`}>Contacto</a>
-              <Link className="button secondary" href="/trayectoria">Trayectoria</Link>
             </div>
           </div>
         </div>

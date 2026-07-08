@@ -40,12 +40,31 @@ html {
 body {
   margin: 0;
   overflow-x: clip;
-  background:
-    radial-gradient(circle at 82% 8%, rgba(245, 215, 110, 0.45), transparent 22rem),
-    radial-gradient(circle at 10% 18%, rgba(217, 199, 238, 0.75), transparent 24rem),
-    linear-gradient(180deg, var(--color-cream), #fbf3f6 55%, var(--color-cream));
+  background: var(--color-cream);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+  The decorative warm/lavender wash used to live on `body` as percentage-based
+  radial-gradients. Percentages there resolve against the FULL document height,
+  which grows every time a section/photo is added — so the glow (and the pink
+  55% stop) drifted to a different, unpredictable point on the page and could
+  land mid-section, causing a section title to sit half on flat cream and half
+  on a gradient. Scoping the wash to the hero header (which has a fixed,
+  predictable size) keeps it contained to the hero and keeps every section
+  below it on a clean, flat background.
+*/
+header::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 82% 10%, rgba(245, 215, 110, 0.45), transparent 60%),
+    radial-gradient(circle at 8% 24%, rgba(217, 199, 238, 0.75), transparent 62%),
+    linear-gradient(180deg, var(--color-cream), #fbf3f6 82%, var(--color-cream));
 }
 
 body::before {
@@ -123,6 +142,17 @@ a {
   width: 100%;
   max-width: 100%;
   white-space: nowrap;
+}
+
+.hero-name-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+.hero-name-text {
+  display: inline-block;
 }
 
 .section-title {
@@ -558,7 +588,7 @@ a {
 
 .reveal-scope {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(18px) scale(0.98);
   filter: blur(6px);
   transition:
     opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -569,7 +599,7 @@ a {
 
 .reveal-scope.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   filter: blur(0);
 }
 
@@ -594,6 +624,61 @@ a {
 .reveal-scope.is-visible .hero-accent,
 .reveal-scope.is-visible .section-accent {
   transform: scaleX(1);
+}
+
+/*
+  The hero name gets its own editorial "curtain" reveal instead of moving as
+  one flat block with the rest of the hero stack. .hero-stack.reveal-scope
+  cancels the generic block-level transition (opacity/transform/filter) so
+  each child below can be staggered on its own timing: eyebrow, then the
+  accent line, then the name lifting out of its mask, then subtitle, then CTA.
+*/
+.hero-stack.reveal-scope {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
+.hero-stack .hero-accent {
+  transition-delay: 90ms;
+}
+
+.hero-eyebrow,
+.hero-subtitle,
+.hero-cta {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 640ms cubic-bezier(0.22, 1, 0.36, 1), transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-stack.is-visible .hero-eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0ms;
+}
+
+.hero-stack.is-visible .hero-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 540ms;
+}
+
+.hero-stack.is-visible .hero-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 740ms;
+}
+
+.hero-name-text {
+  transform: translateY(112%) scale(1.025);
+  opacity: 0;
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1) 220ms, opacity 560ms ease 220ms;
+}
+
+.hero-stack.is-visible .hero-name-text {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .section-heading {
@@ -623,158 +708,4 @@ a {
 
 @keyframes float-soft {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-6px) rotate(1.5deg); }
-}
-
-@keyframes reveal {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes hero-photo-settle {
-  from { transform: scale(1.03); }
-  to { transform: scale(1); }
-}
-
-@media (max-width: 720px) {
-  .wrap {
-    width: min(640px, calc(100% - 28px));
-  }
-
-  .display {
-    font-size: clamp(2.2rem, 8.3vw, 2.75rem);
-    line-height: 0.98;
-  }
-
-  .hero-name {
-    font-size: clamp(3.1rem, 14vw, 5.4rem);
-    line-height: 0.9;
-  }
-
-  .hero-photo {
-    animation-duration: 720ms;
-    transform: scale(1.015);
-  }
-
-  .lead {
-    font-size: 1.04rem;
-    line-height: 1.58;
-  }
-
-  .section-title {
-    font-size: clamp(1.8rem, 8.4vw, 2.55rem);
-    line-height: 1.04;
-  }
-
-  .photo-slot {
-    min-height: 250px;
-  }
-
-  .photo-caption {
-    top: 50%;
-    bottom: auto;
-    transform: translateY(-50%);
-  }
-
-  .material-feature {
-    padding: 1rem 0.75rem;
-  }
-
-  .material-feature .section-title {
-    max-width: 100%;
-    font-size: clamp(1.78rem, 7.4vw, 2.18rem);
-    line-height: 1.08;
-    overflow-wrap: anywhere;
-  }
-
-  .material-feature .button {
-    width: 100%;
-  }
-
-  .book-stage,
-  .book-spread {
-    min-height: 420px;
-  }
-
-  .book-spread {
-    width: min(100%, 320px);
-    margin: 0 auto;
-  }
-
-  .book-page {
-    width: 50%;
-    top: 18px;
-  }
-
-  .book-page.left-page {
-    right: 50%;
-    left: auto;
-  }
-
-  .book-page.right-page {
-    left: 50%;
-  }
-
-  .book-preview {
-    top: 24px;
-    right: 12px;
-    width: 56%;
-  }
-
-  .book-preview .book-page {
-    width: min(100%, 180px);
-    top: calc(var(--page-index) * 16px);
-    left: calc(var(--page-index) * 20px);
-  }
-
-  .book-stage.mobile-single,
-  .book-stage.mobile-single .book-single {
-    min-height: 460px;
-  }
-
-  .book-stage.mobile-single .book-single .single-page {
-    width: min(100%, 360px);
-    top: 12px;
-  }
-
-  .reveal-scope {
-    transform: translateY(14px);
-    filter: none;
-    transition-duration: 540ms;
-  }
-
-  .hero-photo-caption {
-    right: 12px;
-    bottom: 12px;
-    left: auto;
-    width: min(58%, 220px);
-    padding: 0.62rem 0.72rem;
-  }
-
-  .hero-photo-label {
-    max-width: calc(100% - 24px);
-    font-size: 0.82rem;
-    left: 12px;
-    top: 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-
-  .reveal-scope,
-  .reveal-scope.is-visible,
-  .hero-photo {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-    animation: none !important;
-  }
-}
+  50% { transform:
