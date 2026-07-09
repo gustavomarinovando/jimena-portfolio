@@ -220,13 +220,25 @@ export default function Home() {
             </Reveal>
 
             <Reveal delayMs={100} className="mt-8">
-              <article className="object-card p-6">
-                <MaterialBook pages={materials[0].previewPages ?? []} stacked />
-                <div className="relative z-10 mt-4 grid grid-cols-[1fr_auto] items-start gap-3 sm:gap-4">
-                  <p className="text-sm text-[var(--color-muted)] sm:text-base">{materials[0].description}</p>
-                  <a className="button shrink-0 px-4 text-sm sm:px-[1.12rem] sm:text-base" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
+              <div className="grid gap-4 lg:grid-cols-[0.65fr_0.35fr]">
+                <article className="object-card p-6">
+                  <MaterialBook pages={materials[0].previewPages ?? []} stacked />
+                  <div className="relative z-10 mt-4 grid grid-cols-[1fr_auto] items-start gap-3 sm:gap-4">
+                    <p className="text-sm text-[var(--color-muted)] sm:text-base">{materials[0].description}</p>
+                    <a className="button shrink-0 px-4 text-sm sm:px-[1.12rem] sm:text-base" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
+                  </div>
+                </article>
+                <div className="material-banner hidden lg:flex lg:flex-col lg:justify-between">
+                  <div>
+                    <p className="eyebrow text-[var(--color-sun)]">{materials[0].type}</p>
+                    <h3 className="mt-3 text-2xl font-black leading-tight">{materials[0].title}</h3>
+                  </div>
+                  <div className="mt-6 grid gap-1 text-sm text-white/80">
+                    <p>{materials[0].experience}</p>
+                    <p>{materials[0].previewPages?.length ?? 0} páginas · {materials[0].language}</p>
+                  </div>
                 </div>
-              </article>
+              </div>
             </Reveal>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
