@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MaterialBook } from "@/components/MaterialBook";
 import { ProducerGallery } from "@/components/ProducerGallery";
+import { HeroName } from "@/components/HeroName";
 import { Reveal } from "@/components/Reveal";
 import media from "@/data/media.json";
 import video from "@/data/video.json";
@@ -53,7 +54,7 @@ export default function Home() {
             <Link className="pill" href="#materiales">Materiales</Link>
             <span className="pill-group">
               <Link className="pill" href="#contacto">Contacto</Link>
-              <a className="pill-whatsapp" href="https://wa.me/59170799201" target="_blank" rel="noreferrer" aria-label="Chatear por WhatsApp">
+              <a className="whatsapp-icon-link" href="https://wa.me/59170799201" target="_blank" rel="noreferrer" aria-label="Chatear por WhatsApp">
                 <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
                   <path d={whatsappIconPath} />
                 </svg>
@@ -65,13 +66,8 @@ export default function Home() {
         <header className="relative pb-3 pt-3 sm:pb-4">
           <div className="wrap relative z-10 mt-6 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <Reveal className="hero-stack">
-              <span className="hero-accent" aria-hidden="true" />
-              <h1 className="display hero-name" aria-label="Jimena Ovando">
-                <span className="hero-name-mask">
-                  <span className="hero-name-text">Jimena Ovando</span>
-                </span>
-              </h1>
-              <p className="eyebrow hero-eyebrow mt-4">Socióloga · Comunicadora Social</p>
+              <HeroName />
+              <p className="eyebrow hero-eyebrow hero-eyebrow-centered mt-4">Socióloga · Comunicadora Social</p>
               <p className="lead hero-subtitle mt-4 max-w-xl">
                 <span className="block">Educación popular, participación y comunicación.</span>
                 <span className="block">Trabajo con comunidades, grupos e instituciones.</span>
@@ -248,7 +244,7 @@ export default function Home() {
                     <a className="button shrink-0 px-4 text-sm sm:px-[1.12rem] sm:text-base" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
                   </div>
                 </article>
-                <div className="material-banner hidden lg:flex lg:flex-col lg:justify-center">
+                <div className="material-banner flex flex-col lg:justify-center">
                   <ProducerGallery groups={producerGroups} />
                 </div>
               </div>

@@ -532,7 +532,6 @@ a {
   left: auto;
   border-radius: 10px 2px 2px 10px;
   transform-origin: right center;
-  animation: page-turn-in-left 620ms cubic-bezier(0.45, 0, 0.2, 1) both;
 }
 
 .book-page.right-page {
@@ -540,26 +539,57 @@ a {
   border-radius: 2px 10px 10px 2px;
   transform-origin: left center;
   z-index: 24;
-  animation: page-turn-in-right 620ms cubic-bezier(0.45, 0, 0.2, 1) both;
 }
 
 /*
-  A real hinge flip, not a settle-in wobble: the incoming page starts
-  rotated almost edge-on (as if still swinging over from the opposite
-  side of the spine), dim and hidden, sweeps through the turn, and
-  only becomes fully opaque/lit once it's most of the way flat -
-  mirroring how a physical page catches the light as it comes down.
+  A literal page flip: the turning page is two faces (front = current
+  page, back = the page underneath, pre-rotated 180deg so it reads
+  right-way-round once the parent hits 180deg) glued back-to-back with
+  backface-visibility:hidden. Rotating the pair around the spine edge
+  is enough - no JS-timed image swap needed, the back face is just
+  revealed naturally as the front rotates past 90deg. The page that
+  ISN'T being touched stays completely still, so only one side of the
+  spread ever appears to move (right page turns left going forward,
+  left page turns right going back), instead of the old approach where
+  both pages wobbled on every turn.
 */
-@keyframes page-turn-in-left {
-  0% { opacity: 0; transform: translateZ(20px) rotateY(-108deg) scale(0.95); filter: brightness(0.6); }
-  55% { opacity: 1; filter: brightness(0.82); }
-  100% { opacity: 1; transform: translateZ(20px) rotateY(0deg) scale(1); filter: brightness(1); }
+.flip-page {
+  background: none;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  z-index: 30;
 }
 
-@keyframes page-turn-in-right {
-  0% { opacity: 0; transform: translateZ(20px) rotateY(108deg) scale(0.95); filter: brightness(0.6); }
-  55% { opacity: 1; filter: brightness(0.82); }
-  100% { opacity: 1; transform: translateZ(20px) rotateY(0deg) scale(1); filter: brightness(1); }
+.page-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  background-position: center top;
+  background-size: cover;
+  backface-visibility: hidden;
+}
+
+.page-face.back {
+  transform: rotateY(180deg);
+}
+
+.flip-right-forward {
+  animation: flip-right-forward-anim 680ms cubic-bezier(0.45, 0, 0.2, 1) both;
+}
+
+.flip-left-backward {
+  animation: flip-left-backward-anim 680ms cubic-bezier(0.45, 0, 0.2, 1) both;
+}
+
+@keyframes flip-right-forward-anim {
+  from { transform: translateZ(20px) rotateY(0deg); }
+  to { transform: translateZ(20px) rotateY(-180deg); }
+}
+
+@keyframes flip-left-backward-anim {
+  from { transform: translateZ(20px) rotateY(0deg); }
+  to { transform: translateZ(20px) rotateY(180deg); }
 }
 
 .book-nav-hint {
@@ -621,22 +651,42 @@ a {
 
 .book-single {
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: center;
   width: 100%;
   min-height: 100%;
 }
 
 .book-single .single-page {
-  left: 50%;
+  position: relative;
+  left: auto;
   width: min(100%, 460px);
   aspect-ratio: 0.77;
-  animation: page-fade-in 600ms cubic-bezier(0.45, 0, 0.2, 1) both;
 }
 
-@keyframes page-fade-in {
-  0% { opacity: 0; transform: translateX(-50%) rotateY(70deg) scale(0.95); filter: brightness(0.65); }
-  55% { opacity: 1; filter: brightness(0.85); }
-  100% { opacity: 1; transform: translateX(-50%) rotateY(0deg) scale(1); filter: brightness(1); }
+/* Mobile: no flip, just a plain slide - simpler, cheaper, and reads fine at this size. */
+.slide-page {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: both;
+}
+
+.slide-forward {
+  animation-name: slide-in-from-right;
+}
+
+.slide-backward {
+  animation-name: slide-in-from-left;
+}
+
+@keyframes slide-in-from-right {
+  from { opacity: 0; transform: translateX(56px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-from-left {
+  from { opacity: 0; transform: translateX(-56px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .featured-copy {
@@ -928,7 +978,6 @@ a {
   align-content: start;
 }
 
-.hero-accent,
 .section-accent {
   display: block;
   width: 2.75rem;
@@ -940,7 +989,6 @@ a {
   transition: transform 680ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.reveal-scope.is-visible .hero-accent,
 .reveal-scope.is-visible .section-accent {
   transform: scaleX(1);
 }
@@ -957,10 +1005,6 @@ a {
   transform: none;
   filter: none;
   transition: none;
-}
-
-.hero-stack .hero-accent {
-  transition-delay: 90ms;
 }
 
 .hero-eyebrow,
@@ -987,6 +1031,38 @@ a {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 780ms;
+}
+
+.hero-eyebrow-centered {
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.hero-font-label {
+  margin-top: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.whatsapp-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  color: #25d366;
+  transition: transform 200ms ease;
+}
+
+.whatsapp-icon-link:hover {
+  transform: translateY(-2px);
+}
+
+.whatsapp-icon-link svg {
+  width: 26px;
+  height: 26px;
 }
 
 .hero-name-text {

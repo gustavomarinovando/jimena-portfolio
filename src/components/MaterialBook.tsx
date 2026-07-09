@@ -10,10 +10,12 @@ type MaterialBookProps = {
 };
 
 type Spread = [string | null, string | null];
+type Flip = { dir: "forward" | "backward"; nextTurn: number };
 
 export function MaterialBook({ pages, compact = false, stacked = false, onTurnChange }: MaterialBookProps) {
   const [turn, setTurn] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [flip, setFlip] = useState<Flip | null>(null);
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 720px)");
@@ -54,24 +56,35 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
   const [leftPage, rightPage] = spreads[spreadIndex] ?? [null, null];
   const mobilePage = pages.length > 0 ? pages[Math.min(turn, pages.length - 1)] : null;
 
+  const nextSpreadIndex = flip && spreads.length > 0 ? flip.nextTurn % spreads.length : null;
+  const [nextLeftPage, nextRightPage] = nextSpreadIndex !== null ? (spreads[nextSpreadIndex] ?? [null, null]) : [null, null];
+  const nextMobilePage = flip && pages.length > 0 ? pages[Math.min(flip.nextTurn, pages.length - 1)] : null;
+
   function handleActivate(event: MouseEvent<HTMLButtonElement>) {
+    if (flip) return;
+
     const rect = event.currentTarget.getBoundingClientRect();
     const moveForward = event.clientX >= rect.left + rect.width / 2;
 
-    setTurn((current) => {
-      const nextTurn = isMobile
-        ? moveForward
-          ? Math.min(current + 1, pages.length - 1)
-          : Math.max(current - 1, 0)
-        : moveForward
-          ? current + 1
-          : current > 0
-            ? current - 1
-            : 0;
+    const nextTurn = isMobile
+      ? moveForward
+        ? Math.min(turn + 1, pages.length - 1)
+        : Math.max(turn - 1, 0)
+      : moveForward
+        ? turn + 1
+        : turn > 0
+          ? turn - 1
+          : 0;
 
-      onTurnChange?.(nextTurn);
-      return nextTurn;
-    });
+    if (nextTurn === turn) return;
+    setFlip({ dir: moveForward ? "forward" : "backward", nextTurn });
+  }
+
+  function commitFlip() {
+    if (!flip) return;
+    setTurn(flip.nextTurn);
+    onTurnChange?.(flip.nextTurn);
+    setFlip(null);
   }
 
   return (
@@ -83,37 +96,48 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
     >
       {isMobile ? (
         <span className="book-single" aria-hidden="true">
-          {mobilePage ? (
+          {flip ? (
             <span
-              key={mobilePage}
-              className="book-page single-page"
-              style={{
-                backgroundImage: `url(${mobilePage})`,
-                "--page-index": 0,
-              } as CSSProperties}
+              key={`slide-${flip.nextTurn}`}
+              className={`book-page single-page slide-page slide-${flip.dir}`}
+              style={{ backgroundImage: nextMobilePage ? `url(${nextMobilePage})` : undefined }}
+              onAnimationEnd={commitFlip}
             />
+          ) : mobilePage ? (
+            <span className="book-page single-page" style={{ backgroundImage: `url(${mobilePage})` }} />
           ) : null}
         </span>
       ) : (
         <span className="book-spread" aria-hidden="true">
-          {leftPage ? (
+          {flip?.dir === "backward" ? (
             <span
-              key={leftPage}
+              key={`flip-left-${flip.nextTurn}`}
+              className="book-page left-page flip-page flip-left-backward"
+              onAnimationEnd={commitFlip}
+            >
+              {leftPage ? <span className="page-face front" style={{ backgroundImage: `url(${leftPage})` }} /> : null}
+              {nextLeftPage ? <span className="page-face back" style={{ backgroundImage: `url(${nextLeftPage})` }} /> : null}
+            </span>
+          ) : leftPage ? (
+            <span
               className="book-page left-page"
-              style={{
-                backgroundImage: `url(${leftPage})`,
-                "--page-index": 0,
-              } as CSSProperties}
+              style={{ backgroundImage: `url(${leftPage})`, "--page-index": 0 } as CSSProperties}
             />
           ) : null}
-          {rightPage ? (
+
+          {flip?.dir === "forward" ? (
             <span
-              key={rightPage}
+              key={`flip-right-${flip.nextTurn}`}
+              className="book-page right-page flip-page flip-right-forward"
+              onAnimationEnd={commitFlip}
+            >
+              {rightPage ? <span className="page-face front" style={{ backgroundImage: `url(${rightPage})` }} /> : null}
+              {nextRightPage ? <span className="page-face back" style={{ backgroundImage: `url(${nextRightPage})` }} /> : null}
+            </span>
+          ) : rightPage ? (
+            <span
               className="book-page right-page"
-              style={{
-                backgroundImage: `url(${rightPage})`,
-                "--page-index": 1,
-              } as CSSProperties}
+              style={{ backgroundImage: `url(${rightPage})`, "--page-index": 1 } as CSSProperties}
             />
           ) : null}
         </span>
