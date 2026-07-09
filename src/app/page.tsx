@@ -27,7 +27,7 @@ const method = [
   ["Escuchar", "Llegar primero a entender el contexto y a las personas."],
   ["Construir", "Ordenar ideas, necesidades y acuerdos con el grupo."],
   ["Facilitar", "Volver cercanos los temas difíciles."],
-  ["Multiplicar", "Dejar herramientas para que el aprendizaje continue."],
+  ["Multiplicar", "Dejar herramientas para que el aprendizaje continúe."],
 ];
 
 export default function Home() {
@@ -59,7 +59,7 @@ export default function Home() {
             </p>
             <div className="hero-cta mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link className="button w-full sm:w-auto" href="#trayectoria">Ver trayectoria</Link>
-              <Link className="button secondary glass w-full sm:w-auto" href="#video">Ver presentacion</Link>
+              <Link className="button secondary glass w-full sm:w-auto" href="#video">Ver presentación</Link>
             </div>
           </Reveal>
 
@@ -84,7 +84,7 @@ export default function Home() {
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {capabilityTiles.map(([title, body], index) => (
                 <Reveal key={title} delayMs={index * 80}>
-                  <article className="glass lift rounded-[22px] p-5">
+                  <article className="glass lift h-full rounded-[22px] p-5">
                     <div className="mb-5 h-12 w-12 rounded-full bg-[var(--color-sun)] text-center text-2xl leading-[3rem] text-[var(--color-plum)] float-soft">
                       {index + 1}
                     </div>
@@ -112,7 +112,7 @@ export default function Home() {
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {capabilitySignals.map(([title, body], index) => (
                 <Reveal key={title} delayMs={index * 80}>
-                  <article className="glass lift rounded-[22px] p-5">
+                  <article className="glass lift h-full rounded-[22px] p-5">
                     <h3 className="text-xl font-black text-[var(--color-plum)]">{title}</h3>
                     <p className="mt-2 text-[var(--color-muted)]">{body}</p>
                   </article>
@@ -130,7 +130,7 @@ export default function Home() {
                 <h2 id="video-title" className="section-title mt-3">Mi forma de trabajar</h2>
                 <p className="lead mt-5 max-w-2xl">{video.description}</p>
                 <p className="mt-5 inline-flex rounded-full bg-[var(--color-lavender)] px-4 py-2 text-sm font-black text-[var(--color-plum)]">
-                  Estado: video en preparacion
+                  Estado: video en preparación
                 </p>
               </div>
             </Reveal>
@@ -139,12 +139,12 @@ export default function Home() {
                 <div className="absolute left-8 top-8 rounded-full bg-[var(--color-sun)] px-4 py-2 text-sm font-black text-[var(--color-plum)]">
                   {video.durationLabel}
                 </div>
-                <button className="absolute left-1/2 top-1/2 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-0 bg-[var(--color-sun)] text-sm font-black uppercase tracking-normal text-[var(--color-plum)] shadow-2xl" type="button" aria-label="Video en preparacion" disabled>
+                <button className="absolute left-1/2 top-1/2 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-0 bg-[var(--color-sun)] text-sm font-black uppercase tracking-normal text-[var(--color-plum)] shadow-2xl" type="button" aria-label="Video en preparación" disabled>
                   <span aria-hidden="true">pronto</span>
                 </button>
                 <div className="absolute inset-x-6 bottom-6 rounded-[18px] bg-white/12 p-4 backdrop-blur-xl">
                   <h3 className="text-2xl font-black">{video.title}</h3>
-                  <p className="mt-1 text-white/75">Sin autoplay. Con soporte previsto para subtitulos y transcripcion.</p>
+                  <p className="mt-1 text-white/75">Sin autoplay. Con soporte previsto para subtítulos y transcripción.</p>
                 </div>
               </div>
             </Reveal>
@@ -156,13 +156,13 @@ export default function Home() {
             <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <Reveal>
                 <div>
-                  <p className="eyebrow">Trabajo en imagenes</p>
+                  <p className="eyebrow">Trabajo en imágenes</p>
                   <h2 id="mosaic-title" className="section-title mt-3">La experiencia se tiene que poder ver.</h2>
                 </div>
               </Reveal>
               <Reveal delayMs={120}>
                 <p className="max-w-md text-[var(--color-muted)]">
-                  Estoy ordenando el archivo de fotos y materiales. Mientras tanto, esta seccion muestra que tipo de trabajo debe aparecer aqui.
+                  Talleres, comunidad, formación y materiales en terreno: así se documenta el trabajo, actividad por actividad.
                 </p>
               </Reveal>
             </div>
@@ -232,7 +232,7 @@ export default function Home() {
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {materials.slice(1, 5).map((item, index) => (
                 <Reveal key={item.id} delayMs={index * 80}>
-                  <article className="object-card p-5">
+                  <article className="object-card h-full p-5">
                     {item.type === "cuna" ? (
                       <div className="waveform absolute right-6 top-7">
                         {[22, 44, 30, 52, 26, 48, 34].map((height, i) => <span key={i} style={{ height }} />)}
@@ -244,7 +244,7 @@ export default function Home() {
                     <h3 className="relative z-10 mt-24 max-w-[70%] text-xl font-black text-[var(--color-plum)] sm:mt-28">
                       {item.title}
                     </h3>
-                    <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">Material de trabajo y comunicación.</p>
+                    <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">{item.description}</p>
                   </article>
                 </Reveal>
               ))}
@@ -255,14 +255,14 @@ export default function Home() {
         <section className="section-wash section" aria-labelledby="method-title">
           <div className="wrap">
             <div className="section-heading">
-              <p className="eyebrow">Metodo en cuatro verbos</p>
+              <p className="eyebrow">Método en cuatro verbos</p>
               <span className="section-accent" aria-hidden="true" />
               <h2 id="method-title" className="section-title mt-3">Escuchar. Construir. Facilitar. Multiplicar.</h2>
             </div>
             <div className="mt-10 grid gap-4 md:grid-cols-4">
               {method.map(([title, body], index) => (
                 <Reveal key={title} delayMs={index * 80}>
-                  <article className="glass lift rounded-[22px] p-5">
+                  <article className="glass lift h-full rounded-[22px] p-5">
                     <p className="text-sm font-black text-[var(--color-violet)]">0{index + 1}</p>
                     <h3 className="mt-8 text-2xl font-black text-[var(--color-plum)]">{title}</h3>
                     <p className="mt-2 text-[var(--color-muted)]">{body}</p>

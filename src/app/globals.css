@@ -998,12 +998,7 @@ a {
 
   .book-stage.mobile-single,
   .book-stage.mobile-single .book-single {
-    min-height: 460px;
-  }
-
-  .book-stage.stacked.mobile-single,
-  .book-stage.stacked.mobile-single .book-single {
-    min-height: 300px;
+    min-height: 490px;
   }
 
   .book-stage.mobile-single .book-single .single-page {
