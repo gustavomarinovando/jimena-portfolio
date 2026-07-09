@@ -652,6 +652,7 @@ a {
 .book-single {
   position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 100%;
   min-height: 100%;
@@ -976,6 +977,7 @@ a {
   gap: 0.35rem;
   min-width: 0;
   align-content: start;
+  container-type: inline-size;
 }
 
 .section-accent {
@@ -1034,9 +1036,10 @@ a {
 }
 
 .hero-eyebrow-centered {
-  width: 100%;
-  font-size: 1rem;
+  max-width: 36rem;
+  font-size: clamp(0.85rem, 4.9cqw, 1.5rem);
   text-align: center;
+  white-space: nowrap;
 }
 
 .hero-font-label {
@@ -1124,10 +1127,6 @@ a {
   .display {
     font-size: clamp(2.2rem, 8.3vw, 2.75rem);
     line-height: 0.98;
-  }
-
-  .hero-stack {
-    container-type: inline-size;
   }
 
   .hero-name {
@@ -1221,7 +1220,6 @@ a {
 
   .book-stage.mobile-single .book-single .single-page {
     width: min(100%, 360px);
-    top: 12px;
   }
 
   .reveal-scope {
