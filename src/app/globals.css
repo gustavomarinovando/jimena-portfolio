@@ -67,6 +67,33 @@ header::before {
     linear-gradient(180deg, var(--color-cream), #fbf3f6 82%, var(--color-cream));
 }
 
+/*
+  Reuses the header::before pattern (see comment above) for a few sections
+  below the hero, so the page doesn't read as "one gradient hero + flat
+  beige everything else". Each ::before is scoped to its OWN section box
+  (position:relative + inset:0), never to body/html, so it can never drift
+  the way the old body-level wash did.
+*/
+.section-wash {
+  position: relative;
+}
+
+.section-wash::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 90% 4%, rgba(245, 215, 110, 0.24), transparent 55%),
+    radial-gradient(circle at 2% 98%, rgba(217, 199, 238, 0.34), transparent 58%);
+}
+
+.section-wash > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
 body::before {
   position: fixed;
   inset: 0;
@@ -109,12 +136,16 @@ a {
   margin: 0 auto;
 }
 
+[id] {
+  scroll-margin-top: 96px;
+}
+
 .section {
-  padding: clamp(40px, 5.8vw, 78px) 0;
+  padding: clamp(30px, 4.2vw, 56px) 0;
 }
 
 .section-tight {
-  padding-top: clamp(18px, 2.4vw, 34px);
+  padding-top: clamp(14px, 1.8vw, 24px);
 }
 
 .eyebrow {
@@ -135,13 +166,11 @@ a {
 }
 
 .hero-name {
-  font-size: clamp(3.7rem, 10.4vw, 9.4rem);
-  line-height: 0.86;
-  letter-spacing: -0.05em;
+  font-size: clamp(3.2rem, 5.6vw, 5.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
   display: block;
-  width: 100%;
-  max-width: 100%;
-  white-space: nowrap;
+  max-width: 36rem;
 }
 
 .hero-name-mask {
@@ -429,11 +458,11 @@ a {
 }
 
 .book-stage.stacked {
-  min-height: 520px;
+  min-height: 400px;
 }
 
 .book-stage.stacked .book-spread {
-  min-height: 520px;
+  min-height: 400px;
 }
 
 .book-page {
@@ -450,8 +479,7 @@ a {
   background-size: cover;
   box-shadow: 0 24px 55px rgba(52, 33, 61, 0.2);
   z-index: calc(20 - var(--page-index));
-  transform: translateZ(20px);
-  transition: transform 260ms ease, box-shadow 260ms ease;
+  transition: box-shadow 260ms ease;
   backface-visibility: hidden;
   will-change: transform, opacity;
 }
@@ -461,6 +489,7 @@ a {
   left: auto;
   border-radius: 10px 2px 2px 10px;
   transform-origin: right center;
+  animation: page-turn-in-left 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .book-page.right-page {
@@ -468,6 +497,57 @@ a {
   border-radius: 2px 10px 10px 2px;
   transform-origin: left center;
   z-index: 24;
+  animation: page-turn-in-right 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes page-turn-in-left {
+  from { opacity: 0.001; transform: translateZ(20px) rotateY(-14deg) scale(0.97); filter: brightness(0.88); }
+  to { opacity: 1; transform: translateZ(20px) rotateY(0deg) scale(1); filter: brightness(1); }
+}
+
+@keyframes page-turn-in-right {
+  from { opacity: 0.001; transform: translateZ(20px) rotateY(14deg) scale(0.97); filter: brightness(0.88); }
+  to { opacity: 1; transform: translateZ(20px) rotateY(0deg) scale(1); filter: brightness(1); }
+}
+
+.book-nav-hint {
+  position: absolute;
+  top: 50%;
+  z-index: 90;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(52, 33, 61, 0.55);
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: opacity 220ms ease;
+  animation: nav-hint-flash 3.2s ease 500ms 1 both;
+}
+
+.book-nav-hint.prev {
+  left: 10px;
+}
+
+.book-nav-hint.next {
+  right: 10px;
+}
+
+@keyframes nav-hint-flash {
+  0%, 100% { opacity: 0; }
+  18%, 58% { opacity: 1; }
+}
+
+@media (hover: hover) {
+  .book-stage:hover .book-nav-hint {
+    opacity: 1;
+  }
 }
 
 .book-stage.closed .left-page {
@@ -498,7 +578,12 @@ a {
   left: 50%;
   width: min(100%, 460px);
   aspect-ratio: 0.77;
-  transform: translateX(-50%);
+  animation: page-fade-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0.001; transform: translateX(-50%) scale(0.97); filter: brightness(0.9); }
+  to { opacity: 1; transform: translateX(-50%) scale(1); filter: brightness(1); }
 }
 
 .featured-copy {
@@ -564,6 +649,97 @@ a {
   }
 }
 
+.timeline {
+  position: relative;
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2.1rem);
+}
+
+.timeline::before {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 27px;
+  z-index: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-sun), var(--color-lilac) 55%, transparent);
+  content: "";
+}
+
+.timeline-item {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: start;
+  gap: 1.1rem;
+}
+
+.timeline-badge {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-soft);
+}
+
+.timeline-badge.light {
+  background: var(--color-lilac);
+  color: var(--color-plum);
+}
+
+.timeline-badge.medium {
+  background: var(--color-violet);
+}
+
+.timeline-badge.dark {
+  background: var(--color-plum);
+}
+
+.timeline-card {
+  padding: 1.3rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-soft);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.whatsapp-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #25d366;
+  color: white;
+  box-shadow: var(--shadow-hover);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.whatsapp-fab svg {
+  width: 28px;
+  height: 28px;
+}
+
 .lift {
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
@@ -606,6 +782,7 @@ a {
 .hero-stack {
   display: grid;
   gap: 0.35rem;
+  min-width: 0;
   align-content: start;
 }
 
@@ -738,6 +915,9 @@ a {
   .hero-name {
     font-size: clamp(1.9rem, 12.5cqw, 5.4rem);
     line-height: 0.94;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
   }
 
   .hero-photo {
@@ -821,6 +1001,11 @@ a {
     min-height: 460px;
   }
 
+  .book-stage.stacked.mobile-single,
+  .book-stage.stacked.mobile-single .book-single {
+    min-height: 300px;
+  }
+
   .book-stage.mobile-single .book-single .single-page {
     width: min(100%, 360px);
     top: 12px;
@@ -849,6 +1034,39 @@ a {
     font-size: 0.82rem;
     left: 12px;
     top: 12px;
+  }
+
+  .book-nav-hint {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+  }
+
+  .timeline-item {
+    grid-template-columns: 44px 1fr;
+    gap: 0.85rem;
+  }
+
+  .timeline-badge {
+    width: 44px;
+    height: 44px;
+    font-size: 0.82rem;
+  }
+
+  .timeline::before {
+    left: 21px;
+  }
+
+  .whatsapp-fab {
+    right: 14px;
+    bottom: 14px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-fab svg {
+    width: 25px;
+    height: 25px;
   }
 }
 

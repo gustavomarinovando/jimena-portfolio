@@ -3,9 +3,9 @@ import { MaterialBook } from "@/components/MaterialBook";
 import { Reveal } from "@/components/Reveal";
 import media from "@/data/media.json";
 import video from "@/data/video.json";
-import caseStudies from "@/data/case-studies-summary.json";
 import materials from "@/data/materiales.json";
 import footer from "@/data/footer.json";
+import trayectoria from "@/data/trayectoria.json";
 
 const capabilityTiles = [
   ["Facilitar", "Talleres donde la gente conversa, pregunta y decide."],
@@ -20,6 +20,7 @@ const capabilitySignals = [
   ["Género e inclusión", "Diagnósticos participativos, liderazgo de mujeres y trabajo con personas con discapacidad."],
   ["Réplica", "Cartillas, radio y materiales para que lo aprendido siga circulando."],
   ["Interculturalidad", "Diálogo comunitario y quechua para acercar la conversación."],
+  ["Sistematización", "Documentar procesos y aprendizajes para que la organización los conserve y los use después."],
 ];
 
 const method = [
@@ -32,17 +33,18 @@ const method = [
 export default function Home() {
   return (
     <>
-      <header className="relative overflow-hidden pb-3 pt-6 sm:pb-4">
-        <nav className="wrap glass relative z-10 hidden items-center justify-between rounded-full px-4 py-3 sm:flex">
-          <Link href="/" className="px-2 font-black text-[var(--color-plum)] no-underline">Jimena Ovando</Link>
-          <div className="hidden gap-2 sm:flex">
-            <Link className="pill" href="#casos">Casos</Link>
-            <Link className="pill" href="#video">Video</Link>
-            <Link className="pill" href="#materiales">Materiales</Link>
-          </div>
-        </nav>
+      <nav className="wrap glass sticky top-3 z-40 mt-4 hidden items-center justify-between rounded-full px-4 py-3 sm:mt-6 sm:flex">
+        <Link href="/" className="px-2 font-black text-[var(--color-plum)] no-underline">Jimena Ovando</Link>
+        <div className="hidden gap-2 sm:flex">
+          <Link className="pill" href="#trayectoria">Trayectoria</Link>
+          <Link className="pill" href="#video">Video</Link>
+          <Link className="pill" href="#materiales">Materiales</Link>
+          <Link className="pill" href="#contacto">Contacto</Link>
+        </div>
+      </nav>
 
-        <div className="wrap relative z-10 mt-8 grid items-start gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+      <header className="relative overflow-hidden pb-3 pt-3 sm:pb-4">
+        <div className="wrap relative z-10 mt-6 grid items-start gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal className="hero-stack">
             <p className="eyebrow hero-eyebrow">Socióloga · Comunicadora Social</p>
             <span className="hero-accent" aria-hidden="true" />
@@ -56,7 +58,7 @@ export default function Home() {
               <span className="block">Trabajo con comunidades, grupos e instituciones.</span>
             </p>
             <div className="hero-cta mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link className="button w-full sm:w-auto" href="#casos">Ver casos</Link>
+              <Link className="button w-full sm:w-auto" href="#trayectoria">Ver trayectoria</Link>
               <Link className="button secondary glass w-full sm:w-auto" href="#video">Ver presentacion</Link>
             </div>
           </Reveal>
@@ -95,7 +97,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section pt-2" aria-labelledby="fit-title">
+        <section className="section-wash section pt-2" aria-labelledby="fit-title">
           <div className="wrap grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <Reveal>
               <div>
@@ -107,7 +109,7 @@ export default function Home() {
                 </p>
               </div>
             </Reveal>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {capabilitySignals.map(([title, body], index) => (
                 <Reveal key={title} delayMs={index * 80}>
                   <article className="glass lift rounded-[22px] p-5">
@@ -180,26 +182,24 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="casos" className="section" aria-labelledby="stories-title">
+        <section id="trayectoria" className="section-wash section" aria-labelledby="trajectory-title">
           <div className="wrap">
             <div className="section-heading">
-              <p className="eyebrow">Historias seleccionadas</p>
+              <p className="eyebrow">Trayectoria</p>
               <span className="section-accent" aria-hidden="true" />
-              <h2 id="stories-title" className="section-title mt-3">Casos que muestran como trabajo.</h2>
+              <h2 id="trajectory-title" className="section-title mt-3">Roles que muestran una misma forma de trabajar.</h2>
             </div>
-            <div className="mt-9 grid gap-5 md:grid-cols-2">
-              {caseStudies.map((study, index) => (
-                <Reveal key={study.id} delayMs={index * 80}>
-                  <article className="object-card p-6">
-                    <div className="absolute inset-x-0 top-0 h-28 bg-[var(--color-lavender)]" />
-                    <div className="relative z-10 mb-10 h-36 rounded-[18px] bg-[var(--color-violet)] p-4 text-white">
-                      <p className="text-sm font-black text-[var(--color-sun)]">Caso {index + 1}</p>
-                      <p className="mt-12 text-lg font-black">{study.organization}</p>
+            <div className="mt-9 timeline">
+              {trayectoria.map((node, index) => (
+                <Reveal key={`${node.period}-${node.organization}-${node.role}`} delayMs={index * 60}>
+                  <div className="timeline-item">
+                    <span className={`timeline-badge ${node.color}`} aria-hidden="true">{orgInitials(node.organization)}</span>
+                    <div className="timeline-card">
+                      <p className="eyebrow">{node.period} · {node.organization}</p>
+                      <h3 className="mt-2 text-xl font-black text-[var(--color-plum)]">{node.role}</h3>
+                      <p className="mt-2 text-[var(--color-muted)]">{timelineLine(node)}</p>
                     </div>
-                    <p className="eyebrow">{study.period}</p>
-                    <h3 className="mt-2 text-2xl font-black text-[var(--color-plum)]">{storyTitle(study.id)}</h3>
-                    <p className="mt-3 text-[var(--color-muted)]">{storyLine(study.id)}</p>
-                  </article>
+                  </div>
                 </Reveal>
               ))}
             </div>
@@ -207,27 +207,29 @@ export default function Home() {
         </section>
 
         <section id="materiales" className="section" aria-labelledby="materials-title">
-          <div className="wrap grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="wrap">
             <Reveal>
-              <div>
-                <p className="eyebrow">Materiales como objetos</p>
-                <h2 id="materials-title" className="section-title mt-3">Materiales que no se quedan en una carpeta.</h2>
+              <div className="max-w-2xl">
+                <p className="eyebrow">Materiales que dejan huella</p>
+                <h2 id="materials-title" className="section-title mt-3">Piezas que la gente sigue usando.</h2>
                 <p className="lead mt-5">
-                  Estoy reuniendo cartillas, guías, audios y sistematizaciones. La idea es mostrar cada pieza como se usó:
-                  para explicar, recordar y compartir aprendizajes.
+                  Cartillas, guías, audios y sistematizaciones pensados para que el aprendizaje no se quede en el taller:
+                  se explican, se comparten y se vuelven a consultar.
                 </p>
               </div>
             </Reveal>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Reveal className="sm:col-span-2">
-                <article className="object-card min-h-[420px] p-6 sm:col-span-2">
-                  <MaterialBook pages={materials[0].previewPages ?? []} compact stacked />
-                  <div className="relative z-10 mt-5">
-                    <p className="max-w-md text-[var(--color-muted)]">{materials[0].description}</p>
-                    <a className="button mt-6" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
-                  </div>
-                </article>
-              </Reveal>
+
+            <Reveal delayMs={100} className="mt-8">
+              <article className="object-card p-6">
+                <MaterialBook pages={materials[0].previewPages ?? []} stacked />
+                <div className="relative z-10 mt-4 grid grid-cols-[1fr_auto] items-start gap-3 sm:gap-4">
+                  <p className="text-sm text-[var(--color-muted)] sm:text-base">{materials[0].description}</p>
+                  <a className="button shrink-0 px-4 text-sm sm:px-[1.12rem] sm:text-base" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
+                </div>
+              </article>
+            </Reveal>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {materials.slice(1, 5).map((item, index) => (
                 <Reveal key={item.id} delayMs={index * 80}>
                   <article className="object-card p-5">
@@ -250,7 +252,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section" aria-labelledby="method-title">
+        <section className="section-wash section" aria-labelledby="method-title">
           <div className="wrap">
             <div className="section-heading">
               <p className="eyebrow">Metodo en cuatro verbos</p>
@@ -272,7 +274,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="section pb-10 pt-12">
+      <footer id="contacto" className="section pb-10 pt-12">
         <div className="wrap glass rounded-[28px] p-6 sm:p-8">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
@@ -285,41 +287,40 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <a
+        className="whatsapp-fab"
+        href="https://wa.me/59170799201"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chatear por WhatsApp"
+      >
+        <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+          <path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.35.65 4.55 1.78 6.43L4 29l7.75-1.73a11.9 11.9 0 0 0 4.26.78h.01c6.63 0 12-5.38 12-12.01C28.02 8.38 22.64 3 16.01 3Zm0 21.8h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-4.6 1.03 1.05-4.48-.24-.37a9.78 9.78 0 0 1-1.5-5.36c0-5.42 4.42-9.83 9.85-9.83 2.63 0 5.1 1.03 6.96 2.89a9.76 9.76 0 0 1 2.88 6.94c0 5.42-4.43 9.78-9.98 9.78Zm5.4-7.34c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.19-.24-.57-.48-.5-.66-.5-.17 0-.37-.02-.56-.02-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.24-.68.24-1.27.17-1.4-.07-.13-.27-.2-.56-.35Z" />
+        </svg>
+      </a>
     </>
   );
 }
 
-const storyCopy: Record<string, { title: string; line: string }> = {
-  "cipca-2021-2023": {
-    title: "Educación popular en territorio",
-    line: "Acompañé liderazgos, reuniones y materiales educativos junto a comunidades y organizaciones.",
-  },
-  "indicep-2013-2015": {
-    title: "Ambiente, derechos y réplica",
-    line: "Trabajé educación comunitaria vinculada a derechos, territorio y ambiente.",
-  },
-  "cipca-2015-2016": {
-    title: "Organización, mujeres y jóvenes",
-    line: "Acompañé procesos territoriales, acuerdos y aprendizajes compartidos.",
-  },
-  "constructora-mendieta-2019-2020": {
-    title: "Vivienda social y gestión ambiental familiar",
-    line: "Acompañé a familias en vivienda social y cuidado cotidiano del entorno.",
-  },
-  "indicep-2023-2024": {
-    title: "Género, liderazgo y diálogo intercultural",
-    line: "Lideré diagnósticos participativos y facilité espacios de formación en género e interculturalidad.",
-  },
-  "asodifim-2018-2020": {
-    title: "Inclusión y educación social",
-    line: "Acompañé procesos formativos e institucionales de inclusión junto a personas con discapacidad.",
-  },
+const timelineCopy: Record<string, string> = {
+  "2025|Radio Urbana": "Estrategias de publicidad y mensajes de marketing para audiencias masivas, con la misma lógica de comunicación clara que en el trabajo comunitario.",
+  "2023-2024|INDICEP": "Diagnósticos participativos y espacios de formación en género e interculturalidad, fortaleciendo liderazgos y participación equitativa.",
+  "2021-2023|CIPCA Regional Cochabamba": "Acompañamiento técnico-social a comunidades, diseño de cartillas y cuñas radiales, y coordinación con gobiernos municipales.",
+  "2019-2020|Constructora Mendieta": "Capacitación en desarrollo comunitario y gestión ambiental familiar para familias de vivienda social.",
+  "2018-2020|ASODIFIM-CO": "Procesos formativos de liderazgo e incidencia junto a personas con discapacidad, con materiales impresos y audiovisuales de sensibilización.",
+  "2015-2016|CIPCA Regional Cochabamba": "Fortalecimiento organizativo, gestión de demandas territoriales y sistematización de experiencias con mujeres y jóvenes.",
+  "2013-2015|INDICEP": "Educación popular en derechos, territorio y ambiente, con formación de líderes comunitarios y diálogo intercultural.",
 };
 
-function storyTitle(id: string) {
-  return storyCopy[id]?.title ?? "Organización, mujeres y jóvenes";
+function timelineLine(node: { period: string; organization: string; relevanceTag: string }) {
+  return timelineCopy[`${node.period}|${node.organization}`] ?? node.relevanceTag;
 }
 
-function storyLine(id: string) {
-  return storyCopy[id]?.line ?? "Acompañé procesos territoriales, acuerdos y aprendizajes compartidos.";
+function orgInitials(name: string) {
+  const [first, second] = name.split(/\s+/);
+  if (first && first === first.toUpperCase() && first.length > 1) {
+    return first.slice(0, 2);
+  }
+  return `${first?.[0] ?? ""}${second?.[0] ?? ""}`.toUpperCase();
 }

@@ -85,6 +85,7 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
         <span className="book-single" aria-hidden="true">
           {mobilePage ? (
             <span
+              key={mobilePage}
               className="book-page single-page"
               style={{
                 backgroundImage: `url(${mobilePage})`,
@@ -97,6 +98,7 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
         <span className="book-spread" aria-hidden="true">
           {leftPage ? (
             <span
+              key={leftPage}
               className="book-page left-page"
               style={{
                 backgroundImage: `url(${leftPage})`,
@@ -106,6 +108,7 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
           ) : null}
           {rightPage ? (
             <span
+              key={rightPage}
               className="book-page right-page"
               style={{
                 backgroundImage: `url(${rightPage})`,
@@ -115,6 +118,8 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
           ) : null}
         </span>
       )}
+      <span className="book-nav-hint prev" aria-hidden="true">‹</span>
+      <span className="book-nav-hint next" aria-hidden="true">›</span>
       <span className="sr-only">
         {mobilePage ?? leftPage ?? rightPage ?? ""}
       </span>
