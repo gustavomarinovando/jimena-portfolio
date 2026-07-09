@@ -727,11 +727,20 @@ a {
   z-index: 1;
 }
 
+/*
+  Fixed px dimensions on purpose, not height:100%/flex:1. This sits
+  inside a grid-stretched column flex (.material-banner), and the
+  unconstrained <img> underneath has a large intrinsic size (the
+  source photos are 800x1200). With percentage heights, that intrinsic
+  size leaks into the grid's track-sizing pass before the percentage
+  chain resolves, inflating .material-banner - and therefore its
+  grid-stretched sibling, the cartilla card - to match the image's
+  raw pixel height. Fixed values break that circular dependency.
+*/
 .producer-gallery {
   display: flex;
-  flex: 1;
   gap: 0.6rem;
-  height: 100%;
+  height: 420px;
   padding-bottom: 0.3rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -740,8 +749,8 @@ a {
 .producer-photo {
   position: relative;
   flex: 0 0 auto;
-  height: 100%;
-  aspect-ratio: 2 / 3;
+  width: 280px;
+  height: 420px;
   overflow: hidden;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.12);

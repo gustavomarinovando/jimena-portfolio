@@ -248,7 +248,7 @@ export default function Home() {
                     <a className="button shrink-0 px-4 text-sm sm:px-[1.12rem] sm:text-base" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
                   </div>
                 </article>
-                <div className="material-banner hidden lg:flex lg:flex-col">
+                <div className="material-banner hidden lg:flex lg:flex-col lg:justify-center">
                   <ProducerGallery groups={producerGroups} />
                 </div>
               </div>
