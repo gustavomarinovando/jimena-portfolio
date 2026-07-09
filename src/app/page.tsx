@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MaterialBook } from "@/components/MaterialBook";
+import { ProducerGallery } from "@/components/ProducerGallery";
 import { Reveal } from "@/components/Reveal";
 import media from "@/data/media.json";
 import video from "@/data/video.json";
@@ -23,12 +24,14 @@ const capabilitySignals = [
   ["Sistematización", "Documentar procesos y aprendizajes para que la organización los conserve y los use después."],
 ];
 
+// TODO(jimena): placeholder lorem ipsum captions - swap for real copy once
+// she confirms what each group/product actually is.
 const producerGroups = [
-  { slug: "agrocaine", name: "Agrocaine" },
-  { slug: "apanp", name: "APANP" },
-  { slug: "apec-t", name: "APEC-T" },
-  { slug: "astricha", name: "Astricha" },
-  { slug: "san-carlos", name: "San Carlos" },
+  { slug: "agrocaine", name: "Agrocaine", caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+  { slug: "apanp", name: "APANP", caption: "Sed do eiusmod tempor incididunt ut labore et dolore magna." },
+  { slug: "apec-t", name: "APEC-T", caption: "Ut enim ad minim veniam, quis nostrud exercitation ullamco." },
+  { slug: "astricha", name: "Astricha", caption: "Duis aute irure dolor in reprehenderit in voluptate velit." },
+  { slug: "san-carlos", name: "San Carlos", caption: "Excepteur sint occaecat cupidatat non proident, sunt in culpa." },
 ];
 
 const method = [
@@ -246,20 +249,7 @@ export default function Home() {
                   </div>
                 </article>
                 <div className="material-banner hidden lg:flex lg:flex-col">
-                  <div>
-                    <p className="eyebrow text-[var(--color-sun)]">En terreno con productores</p>
-                    <h3 className="mt-3 text-2xl font-black leading-tight">Grupos rurales en Feicobol y Fexco.</h3>
-                  </div>
-                  <div className="producer-gallery">
-                    {producerGroups.map((group) => (
-                      <img
-                        key={group.slug}
-                        src={`/photos/productores/${group.slug}.png`}
-                        alt={`Grupo productivo ${group.name} en feria`}
-                        loading="lazy"
-                      />
-                    ))}
-                  </div>
+                  <ProducerGallery groups={producerGroups} />
                 </div>
               </div>
             </Reveal>
