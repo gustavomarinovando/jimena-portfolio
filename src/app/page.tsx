@@ -23,6 +23,14 @@ const capabilitySignals = [
   ["Sistematización", "Documentar procesos y aprendizajes para que la organización los conserve y los use después."],
 ];
 
+const producerGroups = [
+  { slug: "agrocaine", name: "Agrocaine" },
+  { slug: "apanp", name: "APANP" },
+  { slug: "apec-t", name: "APEC-T" },
+  { slug: "astricha", name: "Astricha" },
+  { slug: "san-carlos", name: "San Carlos" },
+];
+
 const method = [
   ["Escuchar", "Llegar primero a entender el contexto y a las personas."],
   ["Construir", "Ordenar ideas, necesidades y acuerdos con el grupo."],
@@ -33,45 +41,54 @@ const method = [
 export default function Home() {
   return (
     <>
-      <nav className="wrap glass sticky top-3 z-40 mt-4 hidden items-center justify-between rounded-full px-4 py-3 sm:mt-6 sm:flex">
-        <Link href="/" className="px-2 font-black text-[var(--color-plum)] no-underline">Jimena Ovando</Link>
-        <div className="hidden gap-2 sm:flex">
-          <Link className="pill" href="#trayectoria">Trayectoria</Link>
-          <Link className="pill" href="#video">Video</Link>
-          <Link className="pill" href="#materiales">Materiales</Link>
-          <Link className="pill" href="#contacto">Contacto</Link>
-        </div>
-      </nav>
+      <div className="hero-wash relative">
+        <nav className="wrap glass sticky top-3 z-40 mt-4 hidden items-center justify-between rounded-full px-4 py-3 sm:mt-6 sm:flex">
+          <Link href="/" className="nav-monogram" aria-label="Jimena Ovando - inicio">JO</Link>
+          <div className="hidden gap-2 sm:flex">
+            <Link className="pill" href="#trayectoria">Trayectoria</Link>
+            <Link className="pill" href="#video">Video</Link>
+            <Link className="pill" href="#materiales">Materiales</Link>
+            <span className="pill-group">
+              <Link className="pill" href="#contacto">Contacto</Link>
+              <a className="pill-whatsapp" href="https://wa.me/59170799201" target="_blank" rel="noreferrer" aria-label="Chatear por WhatsApp">
+                <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                  <path d={whatsappIconPath} />
+                </svg>
+              </a>
+            </span>
+          </div>
+        </nav>
 
-      <header className="relative overflow-hidden pb-3 pt-3 sm:pb-4">
-        <div className="wrap relative z-10 mt-6 grid items-start gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <Reveal className="hero-stack">
-            <p className="eyebrow hero-eyebrow">Socióloga · Comunicadora Social</p>
-            <span className="hero-accent" aria-hidden="true" />
-            <h1 className="display hero-name mt-4" aria-label="Jimena Ovando">
-              <span className="hero-name-mask">
-                <span className="hero-name-text">Jimena Ovando</span>
-              </span>
-            </h1>
-            <p className="lead hero-subtitle mt-6 max-w-xl">
-              <span className="block">Educación popular, participación y comunicación.</span>
-              <span className="block">Trabajo con comunidades, grupos e instituciones.</span>
-            </p>
-            <div className="hero-cta mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link className="button w-full sm:w-auto" href="#trayectoria">Ver trayectoria</Link>
-              <Link className="button secondary glass w-full sm:w-auto" href="#video">Ver presentación</Link>
-            </div>
-          </Reveal>
-
-          <Reveal className="evidence-surface min-h-[280px] p-5 sm:min-h-[310px] sm:p-6" delayMs={180}>
-            <div className="photo-slot hero-photo h-full min-h-[240px] sm:min-h-[262px]">
-              <div className="hero-photo-label absolute left-4 top-4 z-10 rounded-full bg-[var(--color-sun)] px-4 py-2 text-sm font-black text-[var(--color-plum)] sm:left-6 sm:top-6">
-                En taller, con la gente
+        <header className="relative pb-3 pt-3 sm:pb-4">
+          <div className="wrap relative z-10 mt-6 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <Reveal className="hero-stack">
+              <span className="hero-accent" aria-hidden="true" />
+              <h1 className="display hero-name" aria-label="Jimena Ovando">
+                <span className="hero-name-mask">
+                  <span className="hero-name-text">Jimena Ovando</span>
+                </span>
+              </h1>
+              <p className="eyebrow hero-eyebrow mt-4">Socióloga · Comunicadora Social</p>
+              <p className="lead hero-subtitle mt-4 max-w-xl">
+                <span className="block">Educación popular, participación y comunicación.</span>
+                <span className="block">Trabajo con comunidades, grupos e instituciones.</span>
+              </p>
+              <div className="hero-cta mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link className="button w-full sm:w-auto" href="#trayectoria">Ver trayectoria</Link>
+                <Link className="button secondary glass w-full sm:w-auto" href="#video">Ver presentación</Link>
               </div>
-            </div>
-          </Reveal>
-        </div>
-      </header>
+            </Reveal>
+
+            <Reveal className="evidence-surface min-h-[280px] p-5 sm:p-6 lg:min-h-0" delayMs={180}>
+              <div className="photo-slot hero-photo h-full min-h-[240px] sm:min-h-[262px]">
+                <div className="hero-photo-label absolute left-4 top-4 z-10 rounded-full bg-[var(--color-sun)] px-4 py-2 text-sm font-black text-[var(--color-plum)] sm:left-6 sm:top-6">
+                  En taller, con la gente
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </header>
+      </div>
 
       <main>
         <section className="section section-tight" aria-labelledby="proof-title">
@@ -168,8 +185,8 @@ export default function Home() {
             </div>
             <div className="grid gap-4 lg:grid-cols-4 lg:grid-rows-[220px_220px]">
               {media.photoSlots.slice(1).map((slot, index) => (
-                <Reveal key={slot.id} delayMs={index * 80}>
-                  <article className={`photo-slot ${index === 0 ? "lg:col-span-2 lg:row-span-2" : ""}`}>
+                <Reveal key={slot.id} delayMs={index * 80} className={index === 0 ? "lg:col-span-2 lg:row-span-2" : ""}>
+                  <article className="photo-slot h-full">
                     <div className="photo-caption">
                       <p className="text-xs font-black uppercase tracking-normal text-[var(--color-sun)]">{slot.category}</p>
                       <h3 className="mt-1 text-xl font-black">{slot.shortTitle}</h3>
@@ -228,14 +245,20 @@ export default function Home() {
                     <a className="button shrink-0 px-4 text-sm sm:px-[1.12rem] sm:text-base" href={materials[0].pdfPath} target="_blank" rel="noreferrer">Abrir cartilla</a>
                   </div>
                 </article>
-                <div className="material-banner hidden lg:flex lg:flex-col lg:justify-between">
+                <div className="material-banner hidden lg:flex lg:flex-col">
                   <div>
-                    <p className="eyebrow text-[var(--color-sun)]">{materials[0].type}</p>
-                    <h3 className="mt-3 text-2xl font-black leading-tight">{materials[0].title}</h3>
+                    <p className="eyebrow text-[var(--color-sun)]">En terreno con productores</p>
+                    <h3 className="mt-3 text-2xl font-black leading-tight">Grupos rurales en Feicobol y Fexco.</h3>
                   </div>
-                  <div className="mt-6 grid gap-1 text-sm text-white/80">
-                    <p>{materials[0].experience}</p>
-                    <p>{materials[0].previewPages?.length ?? 0} páginas · {materials[0].language}</p>
+                  <div className="producer-gallery">
+                    {producerGroups.map((group) => (
+                      <img
+                        key={group.slug}
+                        src={`/photos/productores/${group.slug}.png`}
+                        alt={`Grupo productivo ${group.name} en feria`}
+                        loading="lazy"
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -295,25 +318,21 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap gap-3">
               <a className="button" href={`mailto:${footer.contact.email}`}>Contacto</a>
+              <a className="pill-whatsapp" href="https://wa.me/59170799201" target="_blank" rel="noreferrer" aria-label="Chatear por WhatsApp">
+                <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                  <path d={whatsappIconPath} />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
       </footer>
-
-      <a
-        className="whatsapp-fab"
-        href="https://wa.me/59170799201"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chatear por WhatsApp"
-      >
-        <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-          <path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.35.65 4.55 1.78 6.43L4 29l7.75-1.73a11.9 11.9 0 0 0 4.26.78h.01c6.63 0 12-5.38 12-12.01C28.02 8.38 22.64 3 16.01 3Zm0 21.8h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-4.6 1.03 1.05-4.48-.24-.37a9.78 9.78 0 0 1-1.5-5.36c0-5.42 4.42-9.83 9.85-9.83 2.63 0 5.1 1.03 6.96 2.89a9.76 9.76 0 0 1 2.88 6.94c0 5.42-4.43 9.78-9.98 9.78Zm5.4-7.34c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.19-.24-.57-.48-.5-.66-.5-.17 0-.37-.02-.56-.02-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.24-.68.24-1.27.17-1.4-.07-.13-.27-.2-.56-.35Z" />
-        </svg>
-      </a>
     </>
   );
 }
+
+const whatsappIconPath =
+  "M16.01 3C9.38 3 4 8.38 4 15.01c0 2.35.65 4.55 1.78 6.43L4 29l7.75-1.73a11.9 11.9 0 0 0 4.26.78h.01c6.63 0 12-5.38 12-12.01C28.02 8.38 22.64 3 16.01 3Zm0 21.8h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-4.6 1.03 1.05-4.48-.24-.37a9.78 9.78 0 0 1-1.5-5.36c0-5.42 4.42-9.83 9.85-9.83 2.63 0 5.1 1.03 6.96 2.89a9.76 9.76 0 0 1 2.88 6.94c0 5.42-4.43 9.78-9.98 9.78Zm5.4-7.34c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.19-.24-.57-.48-.5-.66-.5-.17 0-.37-.02-.56-.02-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.24-.68.24-1.27.17-1.4-.07-.13-.27-.2-.56-.35Z";
 
 const timelineCopy: Record<string, string> = {
   "2025|Radio Urbana": "Estrategias de publicidad y mensajes de marketing para audiencias masivas, con la misma lógica de comunicación clara que en el trabajo comunitario.",

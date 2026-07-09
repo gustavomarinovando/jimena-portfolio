@@ -55,7 +55,7 @@ body {
   predictable size) keeps it contained to the hero and keeps every section
   below it on a clean, flat background.
 */
-header::before {
+.hero-wash::before {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -133,7 +133,8 @@ a {
 
 .wrap {
   width: min(1160px, calc(100% - 32px));
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 [id] {
@@ -222,6 +223,48 @@ a {
   border-radius: 999px;
   color: var(--color-plum);
   font-weight: 800;
+  text-decoration: none;
+}
+
+.pill-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pill-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 999px;
+  background: #25d366;
+  color: white;
+  transition: transform 200ms ease;
+}
+
+.pill-whatsapp:hover {
+  transform: translateY(-2px);
+}
+
+.pill-whatsapp svg {
+  width: 18px;
+  height: 18px;
+}
+
+.nav-monogram {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: var(--color-plum);
+  color: white;
+  font-weight: 900;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
   text-decoration: none;
 }
 
@@ -489,7 +532,7 @@ a {
   left: auto;
   border-radius: 10px 2px 2px 10px;
   transform-origin: right center;
-  animation: page-turn-in-left 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: page-turn-in-left 620ms cubic-bezier(0.45, 0, 0.2, 1) both;
 }
 
 .book-page.right-page {
@@ -497,17 +540,26 @@ a {
   border-radius: 2px 10px 10px 2px;
   transform-origin: left center;
   z-index: 24;
-  animation: page-turn-in-right 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: page-turn-in-right 620ms cubic-bezier(0.45, 0, 0.2, 1) both;
 }
 
+/*
+  A real hinge flip, not a settle-in wobble: the incoming page starts
+  rotated almost edge-on (as if still swinging over from the opposite
+  side of the spine), dim and hidden, sweeps through the turn, and
+  only becomes fully opaque/lit once it's most of the way flat -
+  mirroring how a physical page catches the light as it comes down.
+*/
 @keyframes page-turn-in-left {
-  from { opacity: 0.001; transform: translateZ(20px) rotateY(-14deg) scale(0.97); filter: brightness(0.88); }
-  to { opacity: 1; transform: translateZ(20px) rotateY(0deg) scale(1); filter: brightness(1); }
+  0% { opacity: 0; transform: translateZ(20px) rotateY(-108deg) scale(0.95); filter: brightness(0.6); }
+  55% { opacity: 1; filter: brightness(0.82); }
+  100% { opacity: 1; transform: translateZ(20px) rotateY(0deg) scale(1); filter: brightness(1); }
 }
 
 @keyframes page-turn-in-right {
-  from { opacity: 0.001; transform: translateZ(20px) rotateY(14deg) scale(0.97); filter: brightness(0.88); }
-  to { opacity: 1; transform: translateZ(20px) rotateY(0deg) scale(1); filter: brightness(1); }
+  0% { opacity: 0; transform: translateZ(20px) rotateY(108deg) scale(0.95); filter: brightness(0.6); }
+  55% { opacity: 1; filter: brightness(0.82); }
+  100% { opacity: 1; transform: translateZ(20px) rotateY(0deg) scale(1); filter: brightness(1); }
 }
 
 .book-nav-hint {
@@ -578,12 +630,13 @@ a {
   left: 50%;
   width: min(100%, 460px);
   aspect-ratio: 0.77;
-  animation: page-fade-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: page-fade-in 600ms cubic-bezier(0.45, 0, 0.2, 1) both;
 }
 
 @keyframes page-fade-in {
-  from { opacity: 0.001; transform: translateX(-50%) scale(0.97); filter: brightness(0.9); }
-  to { opacity: 1; transform: translateX(-50%) scale(1); filter: brightness(1); }
+  0% { opacity: 0; transform: translateX(-50%) rotateY(70deg) scale(0.95); filter: brightness(0.65); }
+  55% { opacity: 1; filter: brightness(0.85); }
+  100% { opacity: 1; transform: translateX(-50%) rotateY(0deg) scale(1); filter: brightness(1); }
 }
 
 .featured-copy {
@@ -674,6 +727,28 @@ a {
   z-index: 1;
 }
 
+.producer-gallery {
+  display: flex;
+  flex: 1;
+  gap: 0.6rem;
+  min-height: 0;
+  margin-top: 1.1rem;
+  padding-bottom: 0.3rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.producer-gallery img {
+  flex: 0 0 auto;
+  height: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  object-fit: cover;
+  scroll-snap-align: start;
+  box-shadow: 0 12px 28px rgba(24, 14, 31, 0.35);
+}
+
 .timeline {
   position: relative;
   display: grid;
@@ -740,29 +815,37 @@ a {
   box-shadow: var(--shadow-hover);
 }
 
-.whatsapp-fab {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 60;
-  display: grid;
-  place-items: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 999px;
-  background: #25d366;
-  color: white;
-  box-shadow: var(--shadow-hover);
-  transition: transform 220ms ease, box-shadow 220ms ease;
-}
+/*
+  Zigzag layout for desktop: the spine moves to the horizontal center,
+  each row becomes a 3-column grid (card | badge | card), and the card
+  alternates sides via nth-child on the Reveal wrapper (the actual
+  grid-item sibling of .timeline - .timeline-item itself is one level
+  too deep to be targeted by nth-child here). Mobile/tablet keep the
+  single left-aligned column defined above.
+*/
+@media (min-width: 1024px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-1px);
+  }
 
-.whatsapp-fab:hover {
-  transform: translateY(-4px) scale(1.05);
-}
+  .timeline-item {
+    grid-template-columns: 1fr 56px 1fr;
+    gap: 2rem;
+  }
 
-.whatsapp-fab svg {
-  width: 28px;
-  height: 28px;
+  .timeline-badge {
+    grid-column: 2;
+    justify-self: center;
+  }
+
+  .timeline-card {
+    grid-column: 1;
+  }
+
+  .timeline > .reveal-scope:nth-child(even) .timeline-card {
+    grid-column: 3;
+  }
 }
 
 .lift {
@@ -857,19 +940,19 @@ a {
 .hero-stack.is-visible .hero-eyebrow {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0ms;
+  transition-delay: 480ms;
 }
 
 .hero-stack.is-visible .hero-subtitle {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 540ms;
+  transition-delay: 600ms;
 }
 
 .hero-stack.is-visible .hero-cta {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 740ms;
+  transition-delay: 780ms;
 }
 
 .hero-name-text {
@@ -1077,17 +1160,6 @@ a {
     left: 21px;
   }
 
-  .whatsapp-fab {
-    right: 14px;
-    bottom: 14px;
-    width: 50px;
-    height: 50px;
-  }
-
-  .whatsapp-fab svg {
-    width: 25px;
-    height: 25px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
