@@ -218,15 +218,24 @@ export default function Home() {
               {trayectoria.map((node, index) => (
                 <Reveal key={`${node.period}-${node.organization}-${node.role}`} delayMs={index * 60}>
                   <div className="timeline-item">
-                    <span className={`timeline-badge ${node.color}`} aria-hidden="true">{orgInitials(node.organization)}</span>
+                    <span className={`timeline-badge ${node.color}`} aria-hidden="true">
+                      {node.logo ? (
+                        <img src={`/logos/${node.logo}.jpg`} alt="" loading="lazy" />
+                      ) : (
+                        orgInitials(node.organization)
+                      )}
+                    </span>
                     <div className="timeline-card">
                       <p className="eyebrow">{node.period} · {node.organization}</p>
                       <h3 className="mt-2 text-xl font-black text-[var(--color-plum)]">{node.role}</h3>
                       <p className="mt-2 text-[var(--color-muted)]">{timelineLine(node)}</p>
                     </div>
-                    {node.logo ? (
-                      <div className="timeline-logo-card">
-                        <img src={`/logos/${node.logo}.jpg`} alt={`Logo de ${node.organization}`} loading="lazy" />
+                    {node.orgDescription ? (
+                      <div className="timeline-extra">
+                        <p className="timeline-extra-org">{node.orgDescription}</p>
+                        <ul className="timeline-extra-list">
+                          {node.extendedHighlights?.map((item) => <li key={item}>{item}</li>)}
+                        </ul>
                       </div>
                     ) : null}
                   </div>

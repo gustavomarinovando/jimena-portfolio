@@ -120,7 +120,8 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
             </span>
           ) : leftPage ? (
             <span
-              className="book-page left-page"
+              key={leftPage}
+              className="book-page left-page settle-page"
               style={{ backgroundImage: `url(${leftPage})`, "--page-index": 0 } as CSSProperties}
             />
           ) : null}
@@ -136,7 +137,8 @@ export function MaterialBook({ pages, compact = false, stacked = false, onTurnCh
             </span>
           ) : rightPage ? (
             <span
-              className="book-page right-page"
+              key={rightPage}
+              className="book-page right-page settle-page"
               style={{ backgroundImage: `url(${rightPage})`, "--page-index": 1 } as CSSProperties}
             />
           ) : null}

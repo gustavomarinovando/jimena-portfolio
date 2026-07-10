@@ -6,7 +6,13 @@
     "relevanceTag": "Comunicación, síntesis y mensajes para públicos diversos",
     "color": "light",
     "isCaseStudy": false,
-    "logo": "ru"
+    "logo": "ru",
+    "orgDescription": "Emisora radial: estrategias y contenidos de comunicación para públicos y clientes diversos.",
+    "extendedHighlights": [
+      "Desarrollé estrategias y contenidos de comunicación para fortalecer el posicionamiento de la emisora.",
+      "Elaboré propuestas comunicacionales y comerciales, con redacción y síntesis para diferentes públicos.",
+      "Coordiné acciones de promoción y difusión en medios digitales y tradicionales."
+    ]
   },
   {
     "period": "2023-2024",
@@ -15,7 +21,13 @@
     "relevanceTag": "Diagnósticos participativos, enfoque de género, materiales",
     "color": "medium",
     "isCaseStudy": false,
-    "logo": "indicep"
+    "logo": "indicep",
+    "orgDescription": "Educación popular y trabajo comunitario en derechos, territorio y medio ambiente.",
+    "extendedHighlights": [
+      "Lideré diagnósticos participativos con organizaciones locales.",
+      "Facilité espacios formativos y de diálogo intercultural para fortalecer liderazgos y participación equitativa.",
+      "Elaboré contenidos y materiales de apoyo con metodologías de educación popular."
+    ]
   },
   {
     "period": "2021-2023",
@@ -25,7 +37,13 @@
     "color": "dark",
     "isCaseStudy": true,
     "caseStudyId": "cipca-2021-2023",
-    "logo": "cipca"
+    "logo": "cipca",
+    "orgDescription": "Desarrollo rural: acompañamiento a comunidades campesinas e indígenas y fortalecimiento organizativo territorial.",
+    "extendedHighlights": [
+      "Acompañamiento técnico-social a comunidades en fortalecimiento organizativo y gestión territorial.",
+      "Facilité talleres participativos y procesos de formación de liderazgos.",
+      "Diseñé y coordiné cartillas, manuales y cuñas radiales para réplica de aprendizajes."
+    ]
   },
   {
     "period": "2019-2020",
@@ -35,7 +53,13 @@
     "color": "medium",
     "isCaseStudy": true,
     "caseStudyId": "constructora-mendieta-2019-2020",
-    "logo": "cm"
+    "logo": "cm",
+    "orgDescription": "Empresa constructora con un área social dedicada al acompañamiento de familias en proyectos de vivienda.",
+    "extendedHighlights": [
+      "Acompañé procesos sociales en proyectos de vivienda, coordinando con familias y autoridades.",
+      "Desarrollé capacitación en gestión ambiental familiar: agua, energía, residuos y movilidad sostenible.",
+      "Facilité procesos de sensibilización sobre el cuidado de la vivienda y su entorno."
+    ]
   },
   {
     "period": "2018-2020",
@@ -44,7 +68,13 @@
     "relevanceTag": "Educación social, inclusión, materiales comunicacionales",
     "color": "medium",
     "isCaseStudy": false,
-    "logo": "aso"
+    "logo": "aso",
+    "orgDescription": "Asociación dedicada a la inclusión y el fortalecimiento institucional de personas con discapacidad física motora.",
+    "extendedHighlights": [
+      "Gestioné proyectos de fortalecimiento institucional e inclusión.",
+      "Diseñé y facilité procesos formativos de liderazgo, participación e incidencia.",
+      "Elaboré materiales impresos y audiovisuales para campañas de sensibilización."
+    ]
   },
   {
     "period": "2015-2016",
@@ -54,7 +84,13 @@
     "color": "dark",
     "isCaseStudy": true,
     "caseStudyId": "cipca-2015-2016",
-    "logo": "cipca"
+    "logo": "cipca",
+    "orgDescription": "Desarrollo rural: acompañamiento a comunidades campesinas e indígenas y fortalecimiento organizativo territorial.",
+    "extendedHighlights": [
+      "Acompañé a organizaciones rurales en demandas territoriales ante instancias municipales.",
+      "Apoyé fortalecimiento organizativo y sistematización de experiencias con mujeres y jóvenes.",
+      "Contribuí a la formación de líderes y lideresas y al diálogo intercultural."
+    ]
   },
   {
     "period": "2013-2015",
@@ -64,6 +100,12 @@
     "color": "dark",
     "isCaseStudy": true,
     "caseStudyId": "indicep-2013-2015",
-    "logo": "indicep"
+    "logo": "indicep",
+    "orgDescription": "Educación popular y trabajo comunitario en derechos, territorio y medio ambiente.",
+    "extendedHighlights": [
+      "Facilité talleres de capacitación comunitaria en derechos, territorio y medio ambiente.",
+      "Acompañé procesos organizativos y de formación de liderazgos en contextos rurales.",
+      "Apoyé la elaboración de materiales educativos para réplica comunitaria."
+    ]
   }
 ]

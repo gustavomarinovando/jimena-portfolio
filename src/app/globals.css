@@ -186,7 +186,7 @@ a {
   column-gap: 0.22em;
   line-height: 0.94;
   letter-spacing: -0.03em;
-  max-width: 36rem;
+  min-width: 0;
 }
 
 .hero-name-line {
@@ -652,6 +652,25 @@ a {
   to { transform: translateZ(20px) rotateY(180deg); }
 }
 
+/*
+  The page NOT being turned (left page on a forward flip, right page
+  on a backward flip) still changes content every spread - it just
+  used to do it with an instant, unanimated background-image swap the
+  moment the flip committed, which read as a blank/broken flash next
+  to the other side's full 3D flip. A quick crossfade (keyed by src,
+  so it replays on every commit) keeps both sides of the spread
+  transitioning together instead of one side animating dramatically
+  while the other side just pops.
+*/
+.settle-page {
+  animation: settle-page-anim 320ms ease both;
+}
+
+@keyframes settle-page-anim {
+  from { opacity: 0; transform: translateZ(20px) scale(0.985); }
+  to { opacity: 1; transform: translateZ(20px) scale(1); }
+}
+
 .book-nav-hint {
   position: absolute;
   top: 50%;
@@ -921,8 +940,10 @@ a {
 }
 
 .timeline-badge {
+  position: relative;
   display: grid;
   place-items: center;
+  overflow: hidden;
   width: 56px;
   height: 56px;
   border-radius: 999px;
@@ -931,6 +952,13 @@ a {
   font-weight: 900;
   letter-spacing: 0.02em;
   box-shadow: var(--shadow-soft);
+}
+
+.timeline-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .timeline-badge.light {
@@ -961,35 +989,40 @@ a {
 }
 
 /*
-  Logos are wildly inconsistent assets (landscape wordmarks, a dark
-  square badge, an oval, a circle) - object-fit:contain + a fixed-height
-  cap on the <img> (no forced box dimensions on the image itself) is
-  the only treatment that survives all of them without cropping or
-  distorting any single one. White card behind it because most of the
-  source files already bake in a white background, so this keeps the
-  seam invisible for those and just reads as a mount for the odd one
-  (Radio Urbana) that doesn't.
+  Desktop-only: fills the zigzag's opposite side now that logos moved
+  into the spine badge. What the org does, plus a couple of extra
+  highlights from her CV that don't fit the main card's one-line
+  summary. Off by default (mobile has no room for it without pushing
+  the actual card out of view) - only switched on inside the
+  min-width:1024px block below, alongside the same column-alternation
+  logic the card itself uses.
 */
-.timeline-logo-card {
+.timeline-extra {
+  display: none;
   grid-column: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 0.55rem;
   margin-top: 0.75rem;
-  padding: 0.9rem 1.1rem;
-  min-height: 64px;
-  background: white;
-  border: 1px solid var(--color-line);
+  padding: 1.1rem 1.3rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px dashed var(--color-line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-soft);
 }
 
-.timeline-logo-card img {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 56px;
+.timeline-extra-org {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-violet);
+}
+
+.timeline-extra-list {
+  display: grid;
+  gap: 0.4rem;
+  padding-left: 1.1rem;
+  list-style: disc;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--color-muted);
 }
 
 /*
@@ -1007,7 +1040,7 @@ a {
   }
 
   .hero-name-line {
-    font-size: clamp(3.2rem, 30.5cqw, 11rem);
+    font-size: clamp(3.2rem, 28cqw, 10rem);
   }
 
   .timeline::before {
@@ -1029,7 +1062,8 @@ a {
     grid-column: 1;
   }
 
-  .timeline-logo-card {
+  .timeline-extra {
+    display: flex;
     grid-column: 3;
     margin-top: 0;
     align-self: center;
@@ -1039,7 +1073,7 @@ a {
     grid-column: 3;
   }
 
-  .timeline > .reveal-scope:nth-child(even) .timeline-logo-card {
+  .timeline > .reveal-scope:nth-child(even) .timeline-extra {
     grid-column: 1;
   }
 }
@@ -1147,8 +1181,8 @@ a {
 }
 
 .hero-eyebrow-centered {
-  max-width: 36rem;
-  font-size: clamp(0.85rem, 4.9cqw, 1.5rem);
+  width: 100%;
+  font-size: clamp(0.85rem, 4.5cqw, 1.4rem);
   text-align: center;
   white-space: nowrap;
 }
