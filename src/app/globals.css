@@ -166,12 +166,32 @@ a {
   hyphens: auto;
 }
 
+/*
+  Two independent words, not one wrapping string: a single font-size
+  clamp made the wrapped block's OUTER box match hero-subtitle's
+  width, but each individual line ("Jimena" / "Ovando" alone) only
+  filled about half of it - a single six-letter word just can't
+  reach a 36rem line at any sane font-size without becoming
+  cartoonishly huge. Sizing each word on its own (same cqw technique
+  as .hero-eyebrow-centered) lets each line genuinely reach the same
+  edges as the subtitle below it, on both breakpoints.
+*/
 .hero-name {
-  font-size: clamp(3.2rem, 5.6vw, 5.6rem);
+  font-family: var(--font-space-grotesk);
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.22em;
   line-height: 0.94;
   letter-spacing: -0.03em;
-  display: block;
   max-width: 36rem;
+}
+
+.hero-name-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .hero-name-mask {
@@ -240,7 +260,7 @@ a {
   height: 42px;
   padding: 0;
   border-radius: 999px;
-  background: #25d366;
+  background: #34213d;
   color: white;
   transition: transform 200ms ease;
 }
@@ -255,17 +275,57 @@ a {
 }
 
 .nav-monogram {
-  display: inline-grid;
-  place-items: center;
+  position: relative;
+  display: inline-block;
   width: 38px;
   height: 38px;
   border-radius: 999px;
   background: var(--color-plum);
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: width 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-monogram:hover,
+.nav-monogram:focus-visible {
+  width: 156px;
+}
+
+.nav-monogram-initials,
+.nav-monogram-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
   color: white;
   font-weight: 900;
   font-size: 0.9rem;
   letter-spacing: 0.02em;
-  text-decoration: none;
+  transition: opacity 200ms ease;
+}
+
+.nav-monogram-initials {
+  width: 38px;
+  justify-content: center;
+}
+
+.nav-monogram-full {
+  padding-left: 14px;
+  opacity: 0;
+}
+
+.nav-monogram:hover .nav-monogram-initials,
+.nav-monogram:focus-visible .nav-monogram-initials {
+  opacity: 0;
+}
+
+.nav-monogram:hover .nav-monogram-full,
+.nav-monogram:focus-visible .nav-monogram-full {
+  opacity: 1;
+  transition-delay: 140ms;
 }
 
 .button {
@@ -909,6 +969,15 @@ a {
   single left-aligned column defined above.
 */
 @media (min-width: 1024px) {
+  .hero-name {
+    flex-direction: column;
+    column-gap: 0;
+  }
+
+  .hero-name-line {
+    font-size: clamp(3.2rem, 30.5cqw, 11rem);
+  }
+
   .timeline::before {
     left: 50%;
     transform: translateX(-1px);
@@ -1042,12 +1111,6 @@ a {
   white-space: nowrap;
 }
 
-.hero-font-label {
-  margin-top: 0.35rem;
-  font-size: 0.7rem;
-  color: var(--color-muted);
-  text-align: center;
-}
 
 .whatsapp-icon-link {
   display: inline-flex;
@@ -1055,7 +1118,7 @@ a {
   justify-content: center;
   width: 38px;
   height: 38px;
-  color: #25d366;
+  color: var(--color-plum);
   transition: transform 200ms ease;
 }
 
@@ -1130,11 +1193,13 @@ a {
   }
 
   .hero-name {
-    font-size: clamp(1.9rem, 12.5cqw, 5.4rem);
     line-height: 0.94;
     width: 100%;
     max-width: 100%;
-    white-space: nowrap;
+  }
+
+  .hero-name-line {
+    font-size: clamp(1.9rem, 12.5cqw, 5.4rem);
   }
 
   .hero-photo {
