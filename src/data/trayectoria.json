@@ -5,7 +5,8 @@
     "role": "Responsable de Publicidad y Marketing",
     "relevanceTag": "Comunicación, síntesis y mensajes para públicos diversos",
     "color": "light",
-    "isCaseStudy": false
+    "isCaseStudy": false,
+    "logo": "ru"
   },
   {
     "period": "2023-2024",
@@ -13,7 +14,8 @@
     "role": "Experta en Genero",
     "relevanceTag": "Diagnósticos participativos, enfoque de género, materiales",
     "color": "medium",
-    "isCaseStudy": false
+    "isCaseStudy": false,
+    "logo": "indicep"
   },
   {
     "period": "2021-2023",
@@ -22,7 +24,8 @@
     "relevanceTag": "Caso 1: territorio, materiales, articulación local",
     "color": "dark",
     "isCaseStudy": true,
-    "caseStudyId": "cipca-2021-2023"
+    "caseStudyId": "cipca-2021-2023",
+    "logo": "cipca"
   },
   {
     "period": "2019-2020",
@@ -31,7 +34,8 @@
     "relevanceTag": "Vivienda social, familias y gestión ambiental cotidiana",
     "color": "medium",
     "isCaseStudy": true,
-    "caseStudyId": "constructora-mendieta-2019-2020"
+    "caseStudyId": "constructora-mendieta-2019-2020",
+    "logo": "cm"
   },
   {
     "period": "2018-2020",
@@ -39,7 +43,8 @@
     "role": "Educadora Social",
     "relevanceTag": "Educación social, inclusión, materiales comunicacionales",
     "color": "medium",
-    "isCaseStudy": false
+    "isCaseStudy": false,
+    "logo": "aso"
   },
   {
     "period": "2015-2016",
@@ -48,7 +53,8 @@
     "relevanceTag": "Caso 3: coordinación municipal, mujeres/jóvenes, sistematización",
     "color": "dark",
     "isCaseStudy": true,
-    "caseStudyId": "cipca-2015-2016"
+    "caseStudyId": "cipca-2015-2016",
+    "logo": "cipca"
   },
   {
     "period": "2013-2015",
@@ -57,6 +63,7 @@
     "relevanceTag": "Caso 2: educación popular, territorio, ambiente por verificar",
     "color": "dark",
     "isCaseStudy": true,
-    "caseStudyId": "indicep-2013-2015"
+    "caseStudyId": "indicep-2013-2015",
+    "logo": "indicep"
   }
 ]

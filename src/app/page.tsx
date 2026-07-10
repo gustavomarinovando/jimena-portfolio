@@ -224,6 +224,11 @@ export default function Home() {
                       <h3 className="mt-2 text-xl font-black text-[var(--color-plum)]">{node.role}</h3>
                       <p className="mt-2 text-[var(--color-muted)]">{timelineLine(node)}</p>
                     </div>
+                    {node.logo ? (
+                      <div className="timeline-logo-card">
+                        <img src={`/logos/${node.logo}.jpg`} alt={`Logo de ${node.organization}`} loading="lazy" />
+                      </div>
+                    ) : null}
                   </div>
                 </Reveal>
               ))}

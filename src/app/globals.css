@@ -961,6 +961,38 @@ a {
 }
 
 /*
+  Logos are wildly inconsistent assets (landscape wordmarks, a dark
+  square badge, an oval, a circle) - object-fit:contain + a fixed-height
+  cap on the <img> (no forced box dimensions on the image itself) is
+  the only treatment that survives all of them without cropping or
+  distorting any single one. White card behind it because most of the
+  source files already bake in a white background, so this keeps the
+  seam invisible for those and just reads as a mount for the odd one
+  (Radio Urbana) that doesn't.
+*/
+.timeline-logo-card {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  min-height: 64px;
+  background: white;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.timeline-logo-card img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 56px;
+}
+
+/*
   Zigzag layout for desktop: the spine moves to the horizontal center,
   each row becomes a 3-column grid (card | badge | card), and the card
   alternates sides via nth-child on the Reveal wrapper (the actual
@@ -997,8 +1029,18 @@ a {
     grid-column: 1;
   }
 
+  .timeline-logo-card {
+    grid-column: 3;
+    margin-top: 0;
+    align-self: center;
+  }
+
   .timeline > .reveal-scope:nth-child(even) .timeline-card {
     grid-column: 3;
+  }
+
+  .timeline > .reveal-scope:nth-child(even) .timeline-logo-card {
+    grid-column: 1;
   }
 }
 
