@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MaterialBook } from "@/components/MaterialBook";
 import { ProducerGallery } from "@/components/ProducerGallery";
 import { CunaPlayer } from "@/components/CunaPlayer";
+import { TimelineOrgToggle } from "@/components/TimelineOrgToggle";
 import { Reveal } from "@/components/Reveal";
 import media from "@/data/media.json";
 import video from "@/data/video.json";
@@ -230,13 +231,17 @@ export default function Home() {
                       <p className="eyebrow">{node.period} · {node.organization}</p>
                       <h3 className="mt-2 text-xl font-black text-[var(--color-plum)]">{node.role}</h3>
                       <p className="mt-2 text-[var(--color-muted)]">{timelineLine(node)}</p>
+                      {node.extendedHighlights?.length ? (
+                        <ul className="timeline-card-list">
+                          {node.extendedHighlights.map((item) => <li key={item}>{item}</li>)}
+                        </ul>
+                      ) : null}
+                      {node.orgDescription ? <TimelineOrgToggle organization={node.organization} description={node.orgDescription} /> : null}
                     </div>
                     {node.orgDescription ? (
                       <div className="timeline-extra">
+                        <p className="timeline-extra-label">Sobre la organización</p>
                         <p className="timeline-extra-org">{node.orgDescription}</p>
-                        <ul className="timeline-extra-list">
-                          {node.extendedHighlights?.map((item) => <li key={item}>{item}</li>)}
-                        </ul>
                       </div>
                     ) : null}
                   </div>
