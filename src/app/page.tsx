@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MaterialBook } from "@/components/MaterialBook";
 import { ProducerGallery } from "@/components/ProducerGallery";
+import { CunaPlayer } from "@/components/CunaPlayer";
 import { Reveal } from "@/components/Reveal";
 import media from "@/data/media.json";
 import video from "@/data/video.json";
@@ -274,24 +275,29 @@ export default function Home() {
             </Reveal>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {materials.slice(1, 5).map((item, index) => (
-                <Reveal key={item.id} delayMs={index * 80}>
-                  <article className="object-card h-full p-5">
-                    {item.type === "cuna" ? (
-                      <div className="waveform absolute right-6 top-7">
-                        {[22, 44, 30, 52, 26, 48, 34].map((height, i) => <span key={i} style={{ height }} />)}
-                      </div>
-                    ) : (
-                      <div className="mock-doc" />
-                    )}
-                    <p className="eyebrow relative z-10">{item.type}</p>
-                    <h3 className="relative z-10 mt-24 max-w-[70%] text-xl font-black text-[var(--color-plum)] sm:mt-28">
-                      {item.title}
-                    </h3>
-                    <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">{item.description}</p>
-                  </article>
-                </Reveal>
-              ))}
+              {materials.slice(1, 5).map((item, index) => {
+                const cuna = item.audioTakes && item.script ? { audioTakes: item.audioTakes, script: item.script } : null;
+
+                return (
+                  <Reveal key={item.id} delayMs={index * 80}>
+                    <article className={`object-card h-full p-5 ${cuna ? "flex flex-col" : ""}`}>
+                      {!cuna ? <div className="mock-doc" /> : null}
+                      <p className="eyebrow relative z-10">{item.type}</p>
+                      <h3
+                        className={`relative z-10 mt-4 text-xl font-black text-[var(--color-plum)] ${cuna ? "" : "mt-24 max-w-[70%] sm:mt-28"}`}
+                      >
+                        {item.title}
+                      </h3>
+                      <p className="relative z-10 mt-3 text-sm text-[var(--color-muted)]">{item.description}</p>
+                      {cuna ? (
+                        <div className="relative z-10 mt-4">
+                          <CunaPlayer takes={cuna.audioTakes} script={cuna.script} />
+                        </div>
+                      ) : null}
+                    </article>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>

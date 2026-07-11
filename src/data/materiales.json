@@ -51,13 +51,47 @@
   },
   {
     "id": "cuna-radial-1",
-    "type": "cuna",
-    "title": "Guion de cuna radial",
-    "experience": "CIPCA 2021-23",
-    "description": "Guion o audio radial para explicar mensajes comunitarios en lenguaje accesible.",
+    "type": "cuña",
+    "title": "Cuña radial bilingüe: mujeres y planificación territorial",
+    "experience": "Toro Toro 2021-23",
+    "description": "Cuña radial en quechua y castellano sobre la participación de las mujeres en la elaboración del Plan Territorial de Desarrollo Integral (PTDI), grabada en dos tomas para radio comunitaria.",
     "pdfPath": "",
-    "language": "ES",
-    "thumbnail": null
+    "language": "QU/ES",
+    "thumbnail": null,
+    "audioTakes": [
+      { "id": "toma-1", "label": "Toma 1 · quechua", "src": "/materials/cuna-ptdi/toma-1.mp3" },
+      { "id": "toma-2", "label": "Toma 2 · alterna", "src": "/materials/cuna-ptdi/toma-2.mp3" }
+    ],
+    "script": [
+      { "cue": true, "speaker": "CONTROL", "line": "Cabezal: Las mujeres en la elaboración del PTDI" },
+      {
+        "speaker": "VOZ EN OFF",
+        "line": "Sumando imprescindiblemente la mirada de las mujeres, sus saberes, sensibilidad, percepciones y experiencias, ellas deben ser partícipes del proceso de elaboración de los PTDIs… La historia ha demostrado que son capaces de generar propuestas y proyectos que generen cambios en el vivir bien…"
+      },
+      { "cue": true, "speaker": "CONTROL", "line": "Cabezal sonido" },
+      { "cue": true, "speaker": "CONTROL", "line": "Mujeres conversando" },
+      { "speaker": "JACINTO", "line": "(Gritando) doña Anita" },
+      { "speaker": "ANITA", "line": "¿Por qué estás gritando Don Jacinto?, me estás asustando" },
+      {
+        "speaker": "JACINTO",
+        "line": "Me llegó esta convocatoria para las mujeres de la Subcentral y tienen que ir a la reunión, justo es pues para elaborar el Plan Territorial de Desarrollo Integral, de acuerdo a la ley todos los municipios, regiones y gobernaciones del país tenemos que tener nuestra planificación para los siguientes 5 años."
+      },
+      { "speaker": "ANITA", "line": "Pero si a las mujeres nunca nos han tomado en cuenta para nada" },
+      {
+        "speaker": "CARMEN",
+        "line": "Ay Doña Anita, cómo vas a decir eso, tanto nos hemos capacitado en los programas de formación de liderazgo, hasta propuestas se han elaborado y presentado al concejo, y tanto que nos ha costado que lo aprueben. Tenemos derecho a participar en la elaboración del Plan Territorial de Desarrollo Integral, más bien reuniremos a todas las mujeres y revisaremos nuestras propuestas."
+      },
+      { "cue": true, "speaker": "CONTROL", "line": "Mujeres hablando en voz baja" },
+      { "speaker": "ANITA", "line": "Warmi wawas, mucho hablan, más bien iremos a llamar para corregir nuestra propuesta" },
+      { "speaker": "CARMEN", "line": "Está bien, vamos a organizarnos bien" },
+      { "speaker": "ANITA", "line": "Enseguida, estoy, iré a dejar encargo en casa" },
+      { "cue": true, "speaker": "CONTROL", "line": "Música suave" },
+      {
+        "speaker": "VOZ EN OFF",
+        "line": "Porque las mujeres son parte de la comunidad, deben ser tomadas en cuenta en el proceso de elaboración de los planes territoriales de desarrollo integral."
+      },
+      { "cue": true, "speaker": "CONTROL", "line": "Música" }
+    ]
   },
   {
     "id": "guia-metodologica-1",

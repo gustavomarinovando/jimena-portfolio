@@ -492,6 +492,167 @@ a {
   width: 6px;
   border-radius: 99px;
   background: var(--color-violet);
+  transition: transform 320ms ease;
+}
+
+.waveform.is-playing span {
+  animation: waveform-bounce 900ms ease-in-out infinite;
+}
+
+@keyframes waveform-bounce {
+  0%, 100% { transform: scaleY(0.55); }
+  50% { transform: scaleY(1); }
+}
+
+.cuna-player {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.cuna-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.cuna-play {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--color-plum);
+  color: var(--color-cream);
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.cuna-play:hover {
+  background: var(--color-violet);
+  transform: scale(1.05);
+}
+
+.cuna-play svg {
+  width: 18px;
+  height: 18px;
+}
+
+.cuna-takes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cuna-take-pill {
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  background: transparent;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.cuna-take-pill.is-active {
+  background: var(--color-plum);
+  border-color: var(--color-plum);
+  color: var(--color-cream);
+}
+
+.cuna-take-pill:not(.is-active):hover {
+  border-color: var(--color-violet);
+  color: var(--color-violet);
+}
+
+.cuna-script-toggle {
+  margin-left: auto;
+  color: var(--color-violet);
+  border-color: var(--color-violet);
+}
+
+.cuna-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: rgba(52, 33, 61, 0.55);
+  backdrop-filter: blur(2px);
+  animation: cuna-fade-in 200ms ease both;
+}
+
+@keyframes cuna-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cuna-modal {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: min(80vh, 640px);
+  overflow-y: auto;
+  border-radius: var(--radius);
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-hover);
+  padding: 2rem 1.6rem 1.6rem;
+}
+
+.cuna-modal-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--color-muted);
+  background: var(--color-lavender);
+}
+
+.cuna-modal-close:hover {
+  color: var(--color-plum);
+}
+
+.cuna-script-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.cuna-script-list li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.cuna-script-speaker {
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--color-violet);
+  text-transform: uppercase;
+}
+
+.cuna-script-line {
+  color: var(--color-plum);
+}
+
+.cuna-script-list li.is-cue .cuna-script-speaker,
+.cuna-script-list li.is-cue .cuna-script-line {
+  color: var(--color-muted);
+  font-style: italic;
 }
 
 .material-feature {
