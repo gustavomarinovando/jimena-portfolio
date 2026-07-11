@@ -1,0 +1,66 @@
+{
+  "slug": "taller-principal",
+  "title": "El taller que cambió los roles",
+  "meta": "2 días · Octubre",
+  "hook": "Hombres pelando cebollas, mujeres liderando la conversación, niños y jóvenes participando de todo. Dos días completos que terminaron en la calle.",
+  "ctaLabel": "Ver el taller completo",
+  "intro": "Texto pendiente — 2 a 3 líneas de contexto: dónde, con quiénes, y por qué este taller fue distinto a los demás.",
+  "days": [
+    {
+      "id": "dia-1",
+      "label": "Día 1",
+      "date": "10 de octubre",
+      "moments": [
+        {
+          "id": "apertura-1",
+          "title": "Apertura",
+          "text": "Texto pendiente — llegada del grupo mixto: se planta que participan hombres, mujeres, niños y jóvenes desde el arranque.",
+          "photoCount": 3
+        },
+        {
+          "id": "taller-en-marcha",
+          "title": "El taller en marcha",
+          "text": "Texto pendiente — la conversación, las preguntas, la construcción de acuerdos.",
+          "photoCount": 3
+        },
+        {
+          "id": "intercambio-de-roles",
+          "title": "Intercambio de roles",
+          "text": "Texto pendiente — el momento propio: hombres pelando cebollas, mujeres liderando la conversación.",
+          "photoCount": 4
+        },
+        {
+          "id": "cierre-dia-1",
+          "title": "Cierre del día 1",
+          "text": "Texto pendiente — pancartas y materiales terminados, listos para el día 2.",
+          "photoCount": 2
+        }
+      ]
+    },
+    {
+      "id": "dia-2",
+      "label": "Día 2",
+      "date": "11 de octubre · Día de la Mujer en Bolivia",
+      "moments": [
+        {
+          "id": "apertura-2",
+          "title": "Apertura del día 2",
+          "text": "Texto pendiente — se nombra la fecha, sin subrayarla de más.",
+          "photoCount": 2
+        },
+        {
+          "id": "la-marcha",
+          "title": "La marcha",
+          "text": "Texto pendiente — las pancartas del día 1 salen a la calle.",
+          "photoCount": 3
+        },
+        {
+          "id": "la-feria",
+          "title": "La feria",
+          "text": "Texto pendiente — cierre comunitario.",
+          "photoCount": 3
+        }
+      ]
+    }
+  ]
+}

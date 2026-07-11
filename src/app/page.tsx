@@ -9,6 +9,7 @@ import video from "@/data/video.json";
 import materials from "@/data/materiales.json";
 import footer from "@/data/footer.json";
 import trayectoria from "@/data/trayectoria.json";
+import tallerPrincipal from "@/data/taller-principal.json";
 
 const capabilityTiles = [
   ["Facilitar", "Talleres donde la gente conversa, pregunta y decide."],
@@ -206,6 +207,27 @@ export default function Home() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="section" aria-labelledby="taller-teaser-title">
+          <div className="wrap">
+            <Reveal>
+              <div className="taller-teaser lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="taller-teaser-photo">
+                  <span className="taller-teaser-meta">{tallerPrincipal.meta}</span>
+                  <span className="taller-teaser-photo-label">Foto pendiente</span>
+                </div>
+                <div>
+                  <p className="eyebrow">Taller destacado</p>
+                  <h2 id="taller-teaser-title" className="section-title mt-3">{tallerPrincipal.title}</h2>
+                  <p className="lead mt-5">{tallerPrincipal.hook}</p>
+                  <Link className="button mt-7 inline-flex" href={`/${tallerPrincipal.slug}`}>
+                    {tallerPrincipal.ctaLabel}
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 
