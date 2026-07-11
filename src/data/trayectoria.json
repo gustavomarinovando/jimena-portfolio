@@ -7,7 +7,7 @@
     "color": "light",
     "isCaseStudy": false,
     "logo": "ru",
-    "orgDescription": "Emisora de Cochabamba en 95.2 FM y streaming las 24 horas, con programación variada para públicos urbanos de edades y gustos muy distintos."
+    "orgDescription": "Emisora de Cochabamba en 95.2 FM y streaming las 24 horas, con una programación que mezcla rock, pop, baladas y clásicos de distintas décadas para públicos urbanos muy variados."
   },
   {
     "period": "2023-2024",
@@ -17,7 +17,7 @@
     "color": "medium",
     "isCaseStudy": false,
     "logo": "indicep",
-    "orgDescription": "Instituto cochabambino de educación popular fundado en 1969, con más de cinco décadas acompañando a comunidades campesinas e indígenas del norte de Potosí y el suroeste de Cochabamba."
+    "orgDescription": "Instituto cochabambino de educación popular fundado en 1969; sus programas de alfabetización en el norte de Potosí y el suroeste de Cochabamba impulsaron históricamente la participación política de mujeres indígenas."
   },
   {
     "period": "2021-2023",
@@ -39,7 +39,7 @@
     "isCaseStudy": true,
     "caseStudyId": "constructora-mendieta-2019-2020",
     "logo": "cm",
-    "orgDescription": "Empresa constructora de vivienda en Cochabamba, con un área social propia dedicada a acompañar a las familias compradoras durante la obra y la entrega."
+    "orgDescription": "Empresa constructora de vivienda en Cochabamba, con un área social propia dedicada a acompañar a las familias compradoras durante la obra y la entrega, incluyendo orientación sobre el uso de los servicios básicos del nuevo hogar."
   },
   {
     "period": "2018-2020",
@@ -49,7 +49,7 @@
     "color": "medium",
     "isCaseStudy": false,
     "logo": "aso",
-    "orgDescription": "Asociación cochabambina de personas con discapacidad físico-motora (ASODIFIMO), que promueve la inclusión y el acceso a derechos junto a otras organizaciones de la ciudad."
+    "orgDescription": "Asociación cochabambina de personas con discapacidad físico-motora (ASODIFIMO), que promueve la inclusión y el acceso a derechos junto a otras organizaciones de la ciudad, coordinando actividades como caminatas urbanas de incidencia."
   },
   {
     "period": "2015-2016",
@@ -71,6 +71,6 @@
     "isCaseStudy": true,
     "caseStudyId": "indicep-2013-2015",
     "logo": "indicep",
-    "orgDescription": "Instituto cochabambino de educación popular fundado en 1969, con programas de alfabetización y formación comunitaria en el norte de Potosí y el suroeste de Cochabamba."
+    "orgDescription": "Instituto cochabambino de educación popular fundado en 1969; sus programas de alfabetización y formación comunitaria pusieron en práctica la pedagogía de Paulo Freire en el norte de Potosí y el suroeste de Cochabamba."
   }
 ]
