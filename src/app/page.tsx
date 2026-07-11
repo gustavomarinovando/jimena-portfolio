@@ -197,6 +197,14 @@ export default function Home() {
               {media.photoSlots.slice(1).map((slot, index) => (
                 <Reveal key={slot.id} delayMs={index * 80} className={index === 0 ? "lg:col-span-2 lg:row-span-2" : ""}>
                   <article className="photo-slot h-full">
+                    {slot.src ? (
+                      <div
+                        className="photo-slot-image"
+                        style={{ backgroundImage: `url(${slot.src})`, backgroundPosition: slot.focalPoint }}
+                        role="img"
+                        aria-label={slot.alt}
+                      />
+                    ) : null}
                     <div className="photo-caption">
                       <p className="text-xs font-black uppercase tracking-normal text-[var(--color-sun)]">{slot.category}</p>
                       <h3 className="mt-1 text-xl font-black">{slot.shortTitle}</h3>

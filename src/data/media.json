@@ -18,8 +18,8 @@
     },
     {
       "id": "PHOTO_SLOT_WORKSHOP",
-      "src": "",
-      "alt": "",
+      "src": "/photos/mosaic/talleres.jpg",
+      "alt": "Facilitador explicando con laptop y proyector frente a un grupo comunitario",
       "caption": "Talleres donde se conversa, se pregunta y se construyen acuerdos.",
       "shortTitle": "Talleres",
       "organization": "",
@@ -27,15 +27,15 @@
       "location": "",
       "category": "workshop",
       "role": "",
-      "verificationStatus": "pending",
+      "verificationStatus": "verified",
       "featured": true,
       "aspectRatio": "5 / 4",
-      "focalPoint": "center"
+      "focalPoint": "62% 42%"
     },
     {
       "id": "PHOTO_SLOT_COMMUNITY",
-      "src": "",
-      "alt": "",
+      "src": "/photos/mosaic/comunidad.jpg",
+      "alt": "Asamblea comunitaria reunida en un salón",
       "caption": "Reuniones, acuerdos y acompañamiento a organizaciones.",
       "shortTitle": "Comunidad",
       "organization": "",
@@ -43,15 +43,15 @@
       "location": "",
       "category": "community",
       "role": "",
-      "verificationStatus": "pending",
+      "verificationStatus": "verified",
       "featured": true,
       "aspectRatio": "1 / 1",
-      "focalPoint": "center"
+      "focalPoint": "center 40%"
     },
     {
       "id": "PHOTO_SLOT_WOMEN",
-      "src": "",
-      "alt": "",
+      "src": "/photos/mosaic/mujeres.jpg",
+      "alt": "Mujeres en un taller sobre derechos, de pie en círculo con tarjetas de valores",
       "caption": "Espacios de formación, liderazgo y participación.",
       "shortTitle": "Mujeres",
       "organization": "",
@@ -59,15 +59,15 @@
       "location": "",
       "category": "women",
       "role": "",
-      "verificationStatus": "pending",
+      "verificationStatus": "verified",
       "featured": true,
       "aspectRatio": "1 / 1",
-      "focalPoint": "center"
+      "focalPoint": "center 35%"
     },
     {
       "id": "PHOTO_SLOT_YOUTH",
-      "src": "",
-      "alt": "",
+      "src": "/photos/mosaic/jovenes.jpg",
+      "alt": "Jóvenes trabajando en grupo sobre un ejercicio escrito en un taller",
       "caption": "Diálogos y actividades pensadas para aprender desde la experiencia.",
       "shortTitle": "Jovenes",
       "organization": "",
@@ -75,15 +75,15 @@
       "location": "",
       "category": "youth",
       "role": "",
-      "verificationStatus": "pending",
+      "verificationStatus": "verified",
       "featured": true,
       "aspectRatio": "4 / 5",
-      "focalPoint": "center"
+      "focalPoint": "38% center"
     },
     {
       "id": "PHOTO_SLOT_MATERIALS",
-      "src": "",
-      "alt": "",
+      "src": "/photos/mosaic/materiales.jpg",
+      "alt": "Grupo comunitario con las manos levantadas durante un taller, fotografía de la cartilla de incidencia política",
       "caption": "Cartillas, guías y piezas de comunicación pensadas para acompañar el trabajo de campo.",
       "shortTitle": "Materiales de trabajo",
       "organization": "",
@@ -91,10 +91,10 @@
       "location": "",
       "category": "materials",
       "role": "",
-      "verificationStatus": "pending",
+      "verificationStatus": "verified",
       "featured": true,
       "aspectRatio": "5 / 3",
-      "focalPoint": "center"
+      "focalPoint": "center 30%"
     }
   ]
 }

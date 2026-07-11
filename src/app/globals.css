@@ -402,6 +402,41 @@ a {
   transform: translateY(-2px) scale(0.995);
 }
 
+/*
+  Photo sits on its own layer under the caption so the hover zoom can
+  scale just the image without dragging the glass caption panel along
+  with it. Reveal-in and hover-zoom both drive the same `transform` via
+  plain transitions (not @keyframes) so they compose cleanly instead of
+  a held animation end-state fighting a later :hover rule for priority.
+*/
+.photo-slot-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1), transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-scope.is-visible .photo-slot-image {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.photo-slot:hover .photo-slot-image {
+  transform: scale(1.06);
+}
+
+.photo-slot::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(52, 33, 61, 0) 45%, rgba(52, 33, 61, 0.78) 100%);
+  content: "";
+}
+
 .hero-photo {
   background-image:
     linear-gradient(180deg, rgba(52, 33, 61, 0.08), rgba(52, 33, 61, 0.16)),
@@ -430,6 +465,7 @@ a {
 .photo-slot::before {
   position: absolute;
   inset: 12px;
+  z-index: 2;
   border: 1px solid rgba(255, 255, 255, 0.38);
   border-radius: calc(var(--radius) - 8px);
   content: "";
