@@ -231,11 +231,6 @@ export default function Home() {
                       <p className="eyebrow">{node.period} · {node.organization}</p>
                       <h3 className="mt-2 text-xl font-black text-[var(--color-plum)]">{node.role}</h3>
                       <p className="mt-2 text-[var(--color-muted)]">{timelineLine(node)}</p>
-                      {node.extendedHighlights?.length ? (
-                        <ul className="timeline-card-list">
-                          {node.extendedHighlights.map((item) => <li key={item}>{item}</li>)}
-                        </ul>
-                      ) : null}
                       {node.orgDescription ? <TimelineOrgToggle organization={node.organization} description={node.orgDescription} /> : null}
                     </div>
                     {node.orgDescription ? (

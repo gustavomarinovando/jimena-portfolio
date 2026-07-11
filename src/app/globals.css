@@ -1152,25 +1152,13 @@ a {
   box-shadow: var(--shadow-hover);
 }
 
-.timeline-card-list {
-  display: grid;
-  gap: 0.4rem;
-  margin-top: 0.75rem;
-  padding-left: 1.1rem;
-  list-style: disc;
-  font-size: 0.88rem;
-  line-height: 1.45;
-  color: var(--color-muted);
-}
-
 /*
   Desktop-only: fills the zigzag's opposite side now that logos moved
-  into the spine badge. Purely about the organization itself (kept
-  separate from her own work, which lives in .timeline-card-list) so
-  the two sides read as distinct things instead of one panel doing
-  both jobs. Off by default (mobile uses TimelineOrgToggle's bubble
-  instead) - only switched on inside the min-width:1024px block below,
-  alongside the same column-alternation logic the card itself uses.
+  into the spine badge. Purely about the organization itself - a short,
+  independently-researched blurb, not a repeat of her CV. Off by default
+  (mobile uses TimelineOrgToggle's bubble instead) - only switched on
+  inside the min-width:1024px block below, alongside the same
+  column-alternation logic the card itself uses.
 */
 .timeline-extra {
   display: none;
@@ -1193,8 +1181,8 @@ a {
 }
 
 .timeline-extra-org {
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 0.92rem;
+  line-height: 1.5;
   color: var(--color-plum);
 }
 
@@ -1272,25 +1260,37 @@ a {
     transform: translateX(-1px);
   }
 
+  /*
+    grid-row: 1 on every child is load-bearing, not decorative: with only
+    grid-column set, auto-placement processes items in DOM order (badge,
+    card, extra) and a sparse cursor that has already passed column 2
+    (the badge) won't backtrack to place the card in column 1 - it gets
+    pushed into a whole new implicit row instead, silently splitting the
+    badge from the card/extra. Pinning all three to row 1 keeps them
+    together regardless of which column each one lands in.
+  */
   .timeline-item {
     grid-template-columns: 1fr 56px 1fr;
+    align-items: center;
     gap: 2rem;
   }
 
   .timeline-badge {
     grid-column: 2;
+    grid-row: 1;
     justify-self: center;
   }
 
   .timeline-card {
     grid-column: 1;
+    grid-row: 1;
   }
 
   .timeline-extra {
     display: flex;
     grid-column: 3;
+    grid-row: 1;
     margin-top: 0;
-    align-self: center;
   }
 
   .timeline > .reveal-scope:nth-child(even) .timeline-card {
